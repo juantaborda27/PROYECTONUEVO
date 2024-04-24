@@ -39,7 +39,7 @@ namespace Datos
             List<Producto> productos = Leer();
             Producto producto = Buscar(idProducto);
 
-            if (producto != null)
+            if (producto != null && productos != null)
             {
                 productos.Remove(producto);
                 Guardar(productos);

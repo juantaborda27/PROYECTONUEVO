@@ -44,7 +44,9 @@
     <Compile Include="ArchivoCategoria.cs" />
     <Compile Include="ArchivoCompra.cs" />
     <Compile Include="ArchivoProducto.cs" />
+    <Compile Include="ArchivoProveedor.cs" />
     <Compile Include="ArchivoUsuario.cs" />
+    <Compile Include="ArchivoVenta.cs" />
     <Compile Include="Icrud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

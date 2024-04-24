@@ -45,7 +45,7 @@ namespace Datos
             List<CategoriaProducto> categoriaProductos = Leer();
             CategoriaProducto categoriaProducto = Buscar(descripcion);
 
-            if (categoriaProducto != null)
+            if (categoriaProducto != null && categoriaProductos != null)
             {
                 categoriaProductos.Remove(categoriaProducto);
                 Guardar(categoriaProductos);

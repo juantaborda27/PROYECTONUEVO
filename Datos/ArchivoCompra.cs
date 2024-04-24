@@ -38,7 +38,7 @@ namespace Datos
         {
             List<Compra> compras = Leer();
             Compra compra = Buscar(IdCompra);
-            if (compra != null)
+            if (compra != null && compras != null)
             {
                 compras.Remove(compra);
                 Guardar(compras);

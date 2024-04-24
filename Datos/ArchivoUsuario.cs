@@ -46,7 +46,7 @@ namespace Datos
             List<Usuario> usuarios = Leer();
             Usuario usuario = Buscar(cedula);
 
-            if (usuario != null)
+            if (usuario != null && usuarios != null)
             {
                 usuarios.Remove(usuario);
                 Guardar(usuarios);
