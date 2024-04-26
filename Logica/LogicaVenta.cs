@@ -32,7 +32,7 @@ namespace Logica
         }
         public string Eliminar(string idVenta)
         {
-            if (archivoVenta.Eliminar(idVenta){
+            if (archivoVenta.Eliminar(idVenta)){
                 return "Se elimino correctamente";
             }
             else
@@ -52,3 +52,4 @@ namespace Logica
         }
     }
 }
+
