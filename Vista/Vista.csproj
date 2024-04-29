@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E837FC8C-D168-48FF-A8E4-E304F3FCE21E}</ProjectGuid>
+    <ProjectGuid>{F93D8A42-BBAE-4BDF-AC96-CC523BAAFB67}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Presentacion</RootNamespace>
-    <AssemblyName>Presentacion</AssemblyName>
+    <RootNamespace>Vista</RootNamespace>
+    <AssemblyName>Vista</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -53,17 +53,21 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -88,36 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\toool.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Cerra.png" />
-    <Resource Include="Imagenes\Logo.jpg" />
-    <Resource Include="Imagenes\mini.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Usuario.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\key.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ENTIDADES\ENTIDADES.csproj">
-      <Project>{57da391e-b62a-4bfa-9500-edb3f9bea1e3}</Project>
-      <Name>ENTIDADES</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Logica\Logica.csproj">
-      <Project>{fca435dd-0954-4539-a14d-a1362ae0810e}</Project>
-      <Name>Logica</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

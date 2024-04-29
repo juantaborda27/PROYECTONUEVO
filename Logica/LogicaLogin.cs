@@ -33,7 +33,7 @@ namespace Logica
         //    Usuario administrador = new Usuario();
         //    administrador.userName = "Admin";
         //    administrador.contraseña = "1234";
-        //    data.AddUsuario(administrador);
+        //    data.Add(administrador);
         //}
 
     }

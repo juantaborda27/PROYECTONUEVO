@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ENTIDADES;
+using Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,7 @@ namespace Presentacion
     /// </summary>
     public partial class Login : Window
     {
+        LogicaLogin login=new LogicaLogin();
         public Login()
         {
             InitializeComponent();
@@ -39,7 +42,15 @@ namespace Presentacion
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            Usuario loguear = new Usuario();
+            loguear.userName=txtUsuario.Text;
+            loguear.contraseña = txtContra.ToString();
+            Usuario logueado = login.Loguear(loguear);
+            if(logueado != null)
+            {
+                MessageBox.Show("Eres tu");
+            }
+            MessageBox.Show("Quien tu eres??");
         }
     }
 }
