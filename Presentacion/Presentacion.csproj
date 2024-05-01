@@ -136,5 +136,26 @@
   <ItemGroup>
     <Resource Include="Imagenes\LOGONV.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="LOGONV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="usuario2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="usuaario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="proveedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="report.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

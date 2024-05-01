@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="VistaPrincipal" Height="450" Width="800"
+        Title="VistaPrincipal" Height="512" Width="800"
         WindowStyle = "None"
         ResizeMode = "NoResize"
         WindowStartupLocation="CenterScreen"
@@ -13,59 +13,119 @@
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
 
+    
+        <Border CornerRadius="60" Margin="0,10,0,0" Grid.ColumnSpan="4">
+            <Border CornerRadius="6"
+                BorderThickness="3"
+                Opacity="1" Background="#FF4E81FA">
 
-    <Border CornerRadius="60">
-        <Border.Background>
-            <ImageBrush ImageSource="/Imagenes/toool.png"
-                        Stretch="Fill"/>
-
-        </Border.Background>
-        <Border CornerRadius="6"
-                BorderThickness="6"
-                Opacity="1">
-
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="White" Offset="0"/>
-                    <GradientStop Color="White" Offset="0.75"/>
-                    <GradientStop Color="DarkGray" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-            <Border.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="Cyan" Offset="0"/>
-                    <GradientStop Color="DarkBlue" Offset="0.75"/>
-                </LinearGradientBrush>
-            </Border.Background>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <!-- Panel de botones de navegación -->
-                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left" Margin="10,10,0,10" Width="165"/>
-
-                <!-- Contenido de la vista -->
-
-
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.75"/>
+                        <GradientStop Color="DarkGray" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="45"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="    SISTEMA     "
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Panel de botones de navegación -->
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="175" Grid.RowSpan="2" Background="#FF3A7AFA">
+                        <Image Height="76" Width="90" Source="/LOGONV.png" RenderTransformOrigin="0.508,0.583"/>
+                        <Button
+                        x:Name="btnVentas"
+                        Click="btnVentas_Click" 
+                        FontSize="18" 
+                        FontWeight="Bold"
+                        BorderBrush="Transparent"
+                        Foreground="#FFF7F7F7" FontFamily="Century Gothic" Height="81" Width="171">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/ventas.png" Stretch="None" TileMode="None">
+                                    <ImageBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                            <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                                            <TranslateTransform X="0"/>
+                                        </TransformGroup>
+                                    </ImageBrush.RelativeTransform>
+                                </ImageBrush>
+                            </Button.Background>
+                            <Label x:Name="labelVentas" Content="VENTAS" FontFamily="Century Gothic" Foreground="#FFF7F7F7" FontWeight="Bold" Height="38" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Width="78" BorderBrush="Transparent" Background="Transparent" RenderTransformOrigin="0.526,0.758" Margin="0,45,0,0"/>
+                        </Button>
+                        <Button 
+                        x:Name="btnCompras"
+                        Click="btnCompras_Click" 
+                        FontSize="18" 
+                        FontWeight="Bold" 
+                        Foreground="#FFFDFDFD" 
+                        BorderBrush="#00000000" FontFamily="Century Gothic" Height="83" Width="171">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/compras.png" Stretch="None"/>
+                            </Button.Background>
+                            <Label x:Name="labelCompras" Content="COMPRAS" Foreground="#FFFDFDFD" Margin="0,50,0,0"/>
+                        </Button>
+                        <Button 
+                        x:Name="btnProveedores"
+                        Click="btrnProveedores_Click" 
+                        FontSize="18" 
+                        FontWeight="Bold" 
+                        Foreground="#FFFDFDFD" 
+                        BorderBrush="Transparent" FontFamily="Century Gothic" Height="82" Width="171">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/proveedor.png" Stretch="None"/>
+                            </Button.Background>
+                            <Label Content="PROVEEDOR" Foreground="#FFFDFDFD" Height="35" Margin="0,50,0,0"/>
+                        </Button>
+                        <Button 
+                        x:Name="btnReportes"
+                        Click="btnReportes_Click" 
+                        FontSize="18" 
+                        FontWeight="Bold" 
+                        Foreground="#FFFDFDFD" 
+                        BorderBrush="Transparent" RenderTransformOrigin="2.47,-3.424" FontFamily="Century Gothic" Height="82" Width="166">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/report.png" Stretch="None"/>
+                            </Button.Background>
+                            <Label Content="REPORTE" Foreground="#FFFDFDFD" Margin="0,50,0,0"/>
+                        </Button>
+                        <Button 
+                        x:Name="btnUsuario" 
+                        Click="btnUsuario_Click" 
+                        FontSize="18" 
+                        FontWeight="Bold" 
+                        Foreground="#FFFDFDFD" 
+                        BorderBrush="Transparent" FontFamily="Century Gothic" Height="82" Width="168">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/usuaario.png" Stretch="None"/>
+                            </Button.Background>
+                            <Label Content="USUARIO" Foreground="#FFFDFDFD" RenderTransformOrigin="0.634,0.602" VerticalAlignment="Bottom" Margin="0,50,5,0"/>
+                        </Button>
+
+                    </StackPanel>
+
+                    <!-- Contenido de la vista -->
+
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="45"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text=""
                    Foreground="Black"
                    FontSize="22"
                    FontFamily="Tahoma"
                    Grid.Column="0"
                    VerticalAlignment="Center"
-                   Margin="30,0,0,0" FontWeight="Bold"/>
+                   Margin="174,0,0,0" FontWeight="Bold" Background="#FF0032FA" Grid.ColumnSpan="4" Height="30"/>
 
-                    <Button x:Name="btnMinimizar"
+                        <Button x:Name="btnMinimizar"
                     BorderThickness="0"
                     Content="-"
                     Foreground="White"
@@ -73,32 +133,32 @@
                     FontFamily="Tahoma"
                     Cursor="Hand"
                     Grid.Column="1"
-                    Click="btnMinimizar_Click" RenderTransformOrigin="-0.426,0.604">
+                    Click="btnMinimizar_Click" RenderTransformOrigin="-0.426,0.604" Grid.ColumnSpan="2" Margin="40,0,10,0">
 
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="Cyan"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="DarkCyan"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="40" Height="18"
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="Cyan"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="DarkCyan"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="40" Height="18"
                 CornerRadius="9"
                 Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
+                                        <ContentPresenter VerticalAlignment="Center"
                               HorizontalAlignment="Center"/>
 
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
 
-                    <Button x:Name="btnCerrar"
+                        <Button x:Name="btnCerrar"
                             BorderThickness="0"
                             Content="X"
                             Foreground="White"
@@ -106,86 +166,37 @@
                             FontFamily="Monserrat"
                             Cursor="Hand"
                             Grid.Column="2"
-                            Click="btnCerrar_Click" Height="30" VerticalAlignment="Top">
+                            Click="btnCerrar_Click" Height="30" VerticalAlignment="Center" RenderTransformOrigin="0.569,0.617" Grid.ColumnSpan="2" Margin="45,0,0,0">
 
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="Red"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="OrangeRed"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="40" Height="18"
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="Red"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="OrangeRed"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="40" Height="18"
                                 CornerRadius="8"
                                 Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
+                                        <ContentPresenter VerticalAlignment="Center"
                                               HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Image x:Name="ImgUsuarioV" HorizontalAlignment="Left" Height="26" Margin="203,0,0,0" VerticalAlignment="Center" Width="26" RenderTransformOrigin="0.813,0.48" Source="/usuario2.png"/>
+                        <Label x:Name="LabelUsuario" Content="USUARIO" HorizontalAlignment="Left" Margin="229,0,0,0" VerticalAlignment="Center" FontFamily="Century Gothic" Background="Transparent" Foreground="White"/>
+                    </Grid>
+                    <StackPanel x:Name="panelPrincipal" Grid.Row="1" Margin="207,25,22,24">
+                        <Frame x:Name="frameVenta"  Height="411" Width="572"/>
+                    </StackPanel>
                 </Grid>
-                <Button
-                        x:Name="btnVentas"
-                        Click="btnVentas_Click"
-                        Content="VENTAS" 
-                        Margin="15,48,639,332" 
-                        FontSize="18" 
-                        FontWeight="Bold" 
-                        Foreground="Black" 
-                        Background="#FFF7F7F7" 
-                        BorderBrush="Black" Grid.Row="1" FontFamily="Monserrat"/>
-                <Button 
-                        x:Name="btnCompras"
-                        Click="btnCompras_Click"
-                        Content="COMPRAS" 
-                        Margin="15,97,639,283" 
-                        FontSize="18" 
-                        FontWeight="Bold" 
-                        Foreground="Black" 
-                        Background="#FFF7F7F7" 
-                        BorderBrush="Black" Grid.Row="1" FontFamily="Monserrat"/>
-                <Button 
-                        x:Name="btnProveedores"
-                        Click="btrnProveedores_Click"
-                        Content="PROVEEDORES"
-                        Margin="15,148,639,232" 
-                        FontSize="18" 
-                        FontWeight="Bold" 
-                        Foreground="Black" 
-                        Background="#FFF7F7F7" 
-                        BorderBrush="Black" Grid.Row="1" FontFamily="Monserrat"/>
-                <Button 
-                        x:Name="btnReportes"
-                        Click="btnReportes_Click"
-                        Content="REPORTES" 
-                        Margin="15,204,639,176" 
-                        FontSize="18" 
-                        FontWeight="Bold" 
-                        Foreground="Black" 
-                        Background="#FFF7F7F7" 
-                        BorderBrush="Black" RenderTransformOrigin="2.595,-7.903" Grid.Row="1" FontFamily="Monserrat"/>
-                <Button 
-                        x:Name="btnUsuario" 
-                        Click="btnUsuario_Click"
-                        Content="USUARIO" 
-                        Margin="15,258,639,122" 
-                        FontSize="18" 
-                        FontWeight="Bold" 
-                        Foreground="Black" 
-                        Background="#FFF7F7F7" 
-                        BorderBrush="Black" Grid.Row="1" FontFamily="Monserrat"/>
-                <Label x:Name="lbUsuario" Content="Usuario:" HorizontalAlignment="Left" Margin="10,334,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="104,450,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                <StackPanel x:Name="panelPrincipal" Grid.Row="1" Margin="175,10,0,0">
-                    <Frame x:Name="frameVenta"  Height="380" Width="580"/>
-                </StackPanel>
-            </Grid>
+            </Border>
         </Border>
-    </Border>
+
 </Window>

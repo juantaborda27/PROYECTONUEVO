@@ -19,8 +19,7 @@
                         Stretch="None"/>
         </Border.Background>
         <Border CornerRadius="60"
-            BorderThickness="5"
-                Opacity="0.95">
+            BorderThickness="2">
 
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -136,14 +135,14 @@
                                Foreground="White"
                                FontSize="30"
                                FontWeight="Medium"
-                               FontFamily="Montserrat"
+                               FontFamily="Century Gothic"
                                HorizontalAlignment="Center"/>
 
                     <TextBlock Text="Iniciar Sesión"
                                Foreground="LightGray"
                                FontSize="18"
                                FontWeight="Medium"
-                               FontFamily="Montserrat"
+                               FontFamily="Century Gothic"
                                TextWrapping="Wrap"
                                TextAlignment="Center"
                                Margin="0,5,0,0"/>
@@ -152,7 +151,7 @@
                                Foreground="DarkGray"
                                FontSize="15"
                                FontWeight="Medium"
-                               FontFamily="Montserrat"
+                               FontFamily="Century Gothic"
                                TextWrapping="Wrap"
                                TextAlignment="Center"
                                Margin="0,35,0,0"/>
@@ -180,7 +179,7 @@
                                Foreground="DarkGray"
                                FontSize="15"
                                FontWeight="Medium"
-                               FontFamily="Montserrat"
+                               FontFamily="Century Gothic"
                                TextWrapping="Wrap"
                                TextAlignment="Center"
                                Margin="0,15,0,0"/>
