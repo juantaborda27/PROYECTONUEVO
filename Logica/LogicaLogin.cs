@@ -28,13 +28,13 @@ namespace Logica
             }
             return null;
         }
-        //public void Admin()
-        //{
-        //    Usuario administrador = new Usuario();
-        //    administrador.userName = "Admin";
-        //    administrador.contraseña = "1234";
-        //    data.Add(administrador);
-        //}
+        public void Admin()
+        {
+            Usuario administrador = new Usuario();
+            administrador.userName = "Admin";
+            administrador.contraseña = "1234";
+            data.Add(administrador);
+        }
 
     }
 }

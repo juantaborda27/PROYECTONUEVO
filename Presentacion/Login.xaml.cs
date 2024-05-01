@@ -22,6 +22,7 @@ namespace Presentacion
     public partial class Login : Window
     {
         LogicaLogin login=new LogicaLogin();
+        
         public Login()
         {
             InitializeComponent();
@@ -42,15 +43,17 @@ namespace Presentacion
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Usuario loguear = new Usuario();
-            loguear.userName=txtUsuario.Text;
-            loguear.contraseña = txtContra.ToString();
-            Usuario logueado = login.Loguear(loguear);
-            if(logueado != null)
-            {
-                MessageBox.Show("Eres tu");
-            }
-            MessageBox.Show("Quien tu eres??");
+            //Usuario loguear = new Usuario();
+            //loguear.userName = txtUsuario.Text;
+            //loguear.contraseña = txtContra.ToString();
+            //Usuario logueado = login.Loguear(loguear);
+            //if (logueado != null)
+            //{
+                VistaPrincipal vistaPrincipal = new VistaPrincipal();
+                vistaPrincipal.Show();
+                this.Hide();
+            //}
+            //MessageBox.Show("Quien tu eres??");
         }
     }
 }

@@ -5,51 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="800"
+        Title="MainWindow" Height="600" Width="500"
         WindowStyle = "None"
         ResizeMode = "NoResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
-    
+
     <Border CornerRadius="60">
         <Border.Background>
             <ImageBrush ImageSource="/Imagenes/toool.png"
                         Stretch="None"/>
         </Border.Background>
         <Border CornerRadius="60"
-            BorderThickness="3"
+            BorderThickness="5"
                 Opacity="0.95">
-            
-            <Border.BorderBrush>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="White" Offset="0"/>
-                <GradientStop Color="DarkBlue" Offset="0.75"/>
-                <GradientStop Color="DarkGray" Offset="1"/>
-            </LinearGradientBrush>
-        </Border.BorderBrush>
-        <Border.Background>
-            <LinearGradientBrush>
-                <GradientStop Color="Cyan" Offset="0"/>
-                <GradientStop Color="DarkBlue" Offset="0.75"/>
-            </LinearGradientBrush>
-        </Border.Background>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.75"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="Cyan" Offset="0"/>
+                    <GradientStop Color="DarkBlue" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.Background>
 
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="       LOGIN    "
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="55"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="  "
                                Foreground="DarkGray"
                                FontSize="10"
                                FontFamily="Monserrat"
@@ -65,8 +65,8 @@
                         FontFamily="Monserrat"
                         Cursor="Hand"
                         Grid.Column="1"
-                        Click="btnMinimizar_Click" RenderTransformOrigin="-0.426,0.604">
-                        
+                        Click="btnMinimizar_Click" RenderTransformOrigin="-0.426,0.604" Grid.ColumnSpan="2" Margin="25,2,25,-2">
+
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="Cyan"/>
@@ -79,7 +79,7 @@
                         </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18"
+                                <Border Width="40" Height="18"
                                         CornerRadius="9"
                                         Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"
@@ -98,7 +98,7 @@
                             FontFamily="Monserrat"
                             Cursor="Hand"
                             Grid.Column="2"
-                            Click="btnCerrar_Click">
+                            Click="btnCerrar_Click" Grid.ColumnSpan="2" Margin="25,2,30,-2">
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -112,7 +112,7 @@
                         </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border Width="17" Height="18"
+                                <Border Width="40" Height="18"
                                         CornerRadius="8"
                                         Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"
@@ -126,31 +126,31 @@
 
                 </Grid>
                 <StackPanel Width="250"
-                            Grid.Row="2"
+                            Grid.Row="1"
                             Orientation="Vertical"
-                            Margin="0,35,0,0">
-                    <Image Source="/Imagenes/Logo.jpg"
-                           Width="100" Height="100"/>
+                            Margin="0,10,0,0">
+                    <Image Source="/Imagenes/LOGONV.png"
+                           Width="180" Height="150"/>
 
                     <TextBlock Text="TVV"
                                Foreground="White"
-                               FontSize="25"
+                               FontSize="30"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center"/>
 
-                    <TextBlock Text="Gear  Up   for Success: Maximize Workshop Productivity with Our Inventory Management Solution"
+                    <TextBlock Text="Iniciar Sesión"
                                Foreground="LightGray"
-                               FontSize="12"
+                               FontSize="18"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                TextWrapping="Wrap"
                                TextAlignment="Center"
                                Margin="0,5,0,0"/>
 
-                    <TextBlock Text="Username"
+                    <TextBlock Text="USUARIO"
                                Foreground="DarkGray"
-                               FontSize="12"
+                               FontSize="15"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                TextWrapping="Wrap"
@@ -176,9 +176,9 @@
                         </TextBox.Background>
                     </TextBox>
 
-                    <TextBlock Text="Password"
+                    <TextBlock Text="CONTRASEÑA"
                                Foreground="DarkGray"
-                               FontSize="12"
+                               FontSize="15"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                TextWrapping="Wrap"
@@ -241,7 +241,7 @@
 
 
                 </StackPanel>
-        </Grid>
+            </Grid>
+        </Border>
     </Border>
-</Border>
 </Window>
