@@ -59,6 +59,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="vistaCategoriaProducto.xaml.cs">
+      <DependentUpon>vistaCategoriaProducto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistaCompra.xaml.cs">
       <DependentUpon>VistaCompra.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistaCategoriaProducto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
