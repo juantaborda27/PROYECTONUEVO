@@ -59,6 +59,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="VistaCompra.xaml.cs">
+      <DependentUpon>VistaCompra.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistaPrincipal.xaml.cs">
       <DependentUpon>VistaPrincipal.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaCompra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,6 +163,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ananir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CategoriaProd.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

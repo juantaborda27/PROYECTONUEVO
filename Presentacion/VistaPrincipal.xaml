@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="VistaPrincipal" Height="512" Width="800"
+        Title="VistaPrincipal" Height="610" Width="1100"
         WindowStyle = "None"
         ResizeMode = "NoResize"
         WindowStartupLocation="CenterScreen"
@@ -13,111 +13,119 @@
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
 
-    
-        <Border CornerRadius="60" Margin="0,10,0,0" Grid.ColumnSpan="4">
-            <Border CornerRadius="6"
+
+    <Border CornerRadius="60" Margin="0,10,0,0" Grid.ColumnSpan="4">
+        <Border CornerRadius="6"
                 BorderThickness="3"
                 Opacity="1" Background="#FF4E81FA">
 
-                <Border.BorderBrush>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="White" Offset="0"/>
-                        <GradientStop Color="White" Offset="0.75"/>
-                        <GradientStop Color="DarkGray" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.BorderBrush>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.75"/>
+                    <GradientStop Color="DarkGray" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-                    <!-- Panel de botones de navegación -->
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="175" Grid.RowSpan="2" Background="#FF3A7AFA">
-                        <Image Height="76" Width="90" Source="/LOGONV.png" RenderTransformOrigin="0.508,0.583"/>
-                        <Button
+                <!-- Panel de botones de navegación -->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="175" Grid.RowSpan="2" Background="#FF3A7AFA">
+                    <Image Height="76" Width="90" Source="/LOGONV.png" RenderTransformOrigin="0.508,0.583"/>
+                    <Button
+                         
                         x:Name="btnVentas"
                         Click="btnVentas_Click" 
-                        FontSize="18" 
-                        FontWeight="Bold"
+                        FontSize="18"
                         BorderBrush="Transparent"
                         Foreground="#FFF7F7F7" FontFamily="Century Gothic" Height="81" Width="171">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/ventas.png" Stretch="None" TileMode="None">
-                                    <ImageBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                                            <RotateTransform CenterX="0.5" CenterY="0.5"/>
-                                            <TranslateTransform X="0"/>
-                                        </TransformGroup>
-                                    </ImageBrush.RelativeTransform>
-                                </ImageBrush>
-                            </Button.Background>
-                            <Label x:Name="labelVentas" Content="VENTAS" FontFamily="Century Gothic" Foreground="#FFF7F7F7" FontWeight="Bold" Height="38" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Width="78" BorderBrush="Transparent" Background="Transparent" RenderTransformOrigin="0.526,0.758" Margin="0,45,0,0"/>
-                        </Button>
-                        <Button 
+                        <Button.Background>
+
+                            <ImageBrush ImageSource="/ventas.png" Stretch="None" TileMode="None">
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                        <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                                        <TranslateTransform X="0"/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </Button.Background>
+                        <Label x:Name="labelVentas" Content="VENTAS" FontFamily="Century Gothic" Foreground="White" Height="38" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Width="78" BorderBrush="Transparent" Background="Transparent" RenderTransformOrigin="0.526,0.758" Margin="0,45,0,0"/>
+                    </Button>
+                    <Button 
                         x:Name="btnCompras"
                         Click="btnCompras_Click" 
                         FontSize="18" 
                         FontWeight="Bold" 
                         Foreground="#FFFDFDFD" 
                         BorderBrush="#00000000" FontFamily="Century Gothic" Height="83" Width="171">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/compras.png" Stretch="None"/>
-                            </Button.Background>
-                            <Label x:Name="labelCompras" Content="COMPRAS" Foreground="#FFFDFDFD" Margin="0,50,0,0"/>
-                        </Button>
-                        <Button 
+                        <Button.Background>
+                            <ImageBrush ImageSource="/compras.png" Stretch="None"/>
+                        </Button.Background>
+                        <Label x:Name="labelCompras" Content="COMPRAS" Foreground="#FFE4E4E4" Margin="0,50,0,0" FontWeight="Normal"/>
+                    </Button>
+                    <Button 
                         x:Name="btnProveedores"
                         Click="btrnProveedores_Click" 
                         FontSize="18" 
                         FontWeight="Bold" 
                         Foreground="#FFFDFDFD" 
                         BorderBrush="Transparent" FontFamily="Century Gothic" Height="82" Width="171">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/proveedor.png" Stretch="None"/>
-                            </Button.Background>
-                            <Label Content="PROVEEDOR" Foreground="#FFFDFDFD" Height="35" Margin="0,50,0,0"/>
-                        </Button>
-                        <Button 
+                        <Button.Background>
+                            <ImageBrush ImageSource="/proveedor.png" Stretch="None"/>
+                        </Button.Background>
+                        <Label Content="PROVEEDOR" Foreground="WhiteSmoke" Height="35" Margin="0,50,0,0" FontWeight="Normal"/>
+                    </Button>
+                    <Button 
                         x:Name="btnReportes"
                         Click="btnReportes_Click" 
                         FontSize="18" 
                         FontWeight="Bold" 
                         Foreground="#FFFDFDFD" 
                         BorderBrush="Transparent" RenderTransformOrigin="2.47,-3.424" FontFamily="Century Gothic" Height="82" Width="166">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/report.png" Stretch="None"/>
-                            </Button.Background>
-                            <Label Content="REPORTE" Foreground="#FFFDFDFD" Margin="0,50,0,0"/>
-                        </Button>
-                        <Button 
+                        <Button.Background>
+                            <ImageBrush ImageSource="/report.png" Stretch="None"/>
+                        </Button.Background>
+                        <Label Content="REPORTE" Foreground="White" Margin="0,50,0,0" FontWeight="Normal"/>
+                    </Button>
+                    <Button x:Name="BtnCategoriaProducto" Height="108" Foreground="White" FontFamily="Century Gothic" BorderBrush="Transparent">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CategoriaProd.png" Stretch="None"/>
+
+                        </Button.Background>
+                        <Label Content="ADMINISTRAR PRD" Foreground="White" FontWeight="Normal" FontSize="18" Width="175" Margin="0,65,0,0"/>
+                    </Button>
+                    <Button 
                         x:Name="btnUsuario" 
                         Click="btnUsuario_Click" 
                         FontSize="18" 
                         FontWeight="Bold" 
                         Foreground="#FFFDFDFD" 
                         BorderBrush="Transparent" FontFamily="Century Gothic" Height="82" Width="168">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/usuaario.png" Stretch="None"/>
-                            </Button.Background>
-                            <Label Content="USUARIO" Foreground="#FFFDFDFD" RenderTransformOrigin="0.634,0.602" VerticalAlignment="Bottom" Margin="0,50,5,0"/>
-                        </Button>
+                        <Button.Background>
+                            <ImageBrush ImageSource="/usuaario.png" Stretch="None"/>
+                        </Button.Background>
+                        <Label Content="USUARIO" Foreground="#FFEFEFEF" RenderTransformOrigin="0.634,0.602" VerticalAlignment="Bottom" Margin="0,50,5,0" FontWeight="Normal"/>
+                    </Button>
 
-                    </StackPanel>
+                </StackPanel>
 
-                    <!-- Contenido de la vista -->
+                <!-- Contenido de la vista -->
 
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="45"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text=""
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="45"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text=""
                    Foreground="Black"
                    FontSize="22"
                    FontFamily="Tahoma"
@@ -125,7 +133,7 @@
                    VerticalAlignment="Center"
                    Margin="174,0,0,0" FontWeight="Bold" Background="#FF0032FA" Grid.ColumnSpan="4" Height="30"/>
 
-                        <Button x:Name="btnMinimizar"
+                    <Button x:Name="btnMinimizar"
                     BorderThickness="0"
                     Content="-"
                     Foreground="White"
@@ -135,30 +143,30 @@
                     Grid.Column="1"
                     Click="btnMinimizar_Click" RenderTransformOrigin="-0.426,0.604" Grid.ColumnSpan="2" Margin="40,0,10,0">
 
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="Cyan"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="DarkCyan"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="40" Height="18"
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Cyan"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="DarkCyan"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="40" Height="18"
                 CornerRadius="9"
                 Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
+                                    <ContentPresenter VerticalAlignment="Center"
                               HorizontalAlignment="Center"/>
 
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
 
-                        <Button x:Name="btnCerrar"
+                    <Button x:Name="btnCerrar"
                             BorderThickness="0"
                             Content="X"
                             Foreground="White"
@@ -168,35 +176,42 @@
                             Grid.Column="2"
                             Click="btnCerrar_Click" Height="30" VerticalAlignment="Center" RenderTransformOrigin="0.569,0.617" Grid.ColumnSpan="2" Margin="45,0,0,0">
 
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="Red"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="OrangeRed"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="40" Height="18"
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Red"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="OrangeRed"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="40" Height="18"
                                 CornerRadius="8"
                                 Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
+                                    <ContentPresenter VerticalAlignment="Center"
                                               HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                        <Image x:Name="ImgUsuarioV" HorizontalAlignment="Left" Height="26" Margin="203,0,0,0" VerticalAlignment="Center" Width="26" RenderTransformOrigin="0.813,0.48" Source="/usuario2.png"/>
-                        <Label x:Name="LabelUsuario" Content="USUARIO" HorizontalAlignment="Left" Margin="229,0,0,0" VerticalAlignment="Center" FontFamily="Century Gothic" Background="Transparent" Foreground="White"/>
-                    </Grid>
-                    <StackPanel x:Name="panelPrincipal" Grid.Row="1" Margin="207,25,22,24">
-                        <Frame x:Name="frameVenta"  Height="411" Width="572"/>
-                    </StackPanel>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Image x:Name="ImgUsuarioV" HorizontalAlignment="Left" Height="26" Margin="203,0,0,0" VerticalAlignment="Center" Width="26" RenderTransformOrigin="0.813,0.48" Source="/usuario2.png"/>
+                    <Label x:Name="LabelUsuario" Content="USUARIO" HorizontalAlignment="Left" Margin="229,0,0,0" VerticalAlignment="Center" FontFamily="Century Gothic" Background="Transparent" Foreground="#FF00C6EB"/>
                 </Grid>
-            </Border>
+                <StackPanel x:Name="panelPrincipal" Grid.Row="1" Margin="207,25,22,24">
+                    <Frame x:Name="frameVenta"  Height="510" Width="850">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,3">
+                                <GradientStop Color="#0D7BDB" Offset="0.0"/>
+                                <GradientStop Color="#0DBCDB" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                    </Frame>
+                </StackPanel>
+            </Grid>
         </Border>
+    </Border>
 
 </Window>

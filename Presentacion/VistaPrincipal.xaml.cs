@@ -32,7 +32,7 @@ namespace Presentacion
 
         private void btnCompras_Click(object sender, RoutedEventArgs e)
         {
-
+            frameVenta.Navigate(new Uri("VistaCompra.xaml", UriKind.Relative));
         }
 
         private void btrnProveedores_Click(object sender, RoutedEventArgs e)
