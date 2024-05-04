@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Presentacion.vistaProducto"
+﻿<UserControl x:Class="Presentacion.VistaProducto"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,45 +6,111 @@
              xmlns:local="clr-namespace:Presentacion"
              mc:Ignorable="d" 
              d:DesignHeight="510" d:DesignWidth="850">
-    <Grid>
-        <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
-            <StackPanel Width="248">
-                <Label Content="Producto" HorizontalAlignment="Center" Margin="0,30,0,0"/>
-                <Label Content="        Código" Width="261"/>
-                <TextBox TextWrapping="Wrap" Text="" Width="203" Margin="0,10,0,0"/>
-                <Label Content="        Nombre:" Margin="0,20,0,0" Width="264"/>
-                <TextBox TextWrapping="Wrap" Text="" Width="203" Margin="0,10,0,0" Height="23"/>
-                <Label Content="        Descripción:" Margin="0,20,0,0" Width="258"/>
-                <TextBox TextWrapping="Wrap" Text="" Width="203" Margin="0,10,0,0"/>
-                <StackPanel Width="289">
-                    <Label Content="        Categoría" Margin="0,20,0,0" Width="258"/>
-                </StackPanel>
-                <ComboBox Width="203" Margin="0,10,0,0" Height="18"/>
-                <Button Content="Guardar" Margin="0,20,0,0" Width="200" Height="28"/>
-                <Button Content="Limpiar" Margin="0,20,0,0" Width="204" Height="28"/>
-                <Button Content="Eliminar" Click="Button_Click" Margin="0,20,0,0" Width="206" Height="28"/>
-            </StackPanel>
-            <StackPanel Width="595">
-                <Label Content="Productos" Margin="0,30,0,0" HorizontalAlignment="Center"/>
-                <StackPanel Height="40" Orientation="Horizontal">
-                    <Label Content="Buscar:" Margin="20,0,0,0" Height="34"/>
-                    <TextBox TextWrapping="Wrap" Width="120" Margin="10,0,0,0" Height="25"/>
-                    <Button Content="Button" Click="Button_Click" Margin="5,0,0,0" Height="30"/>
-                </StackPanel>
-                <DataGrid AutoGenerateColumns="False" Width="582" Height="393">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Codigo" Width="80" />
-                        <DataGridTextColumn Header="Nombre" Width="80"  />
-                        <DataGridTextColumn Header="Descripción" Width="80"  />
-                        <DataGridTextColumn Header="Categoría" Width="80" />
-                        <DataGridTextColumn Header="Disponibles" Width="80"/>
-                        <DataGridTextColumn Header="Precio Compra" Width="100"/>
-                        <DataGridTextColumn Header="Precio Venta"  />
-                    </DataGrid.Columns> Width="100
-"
-                </DataGrid>
-            </StackPanel>
+    <Grid x:Name="tblListaProductos">
+        <!--Detalle Producto-->
 
+        <!--DProducto-->
+        <StackPanel Margin="10,60,686,10" Orientation="Vertical" Background="#FF242A82">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,2,150,437"/>
+            </StackPanel.Clip>
+            <Label x:Name="lbCod" Content="Codigo" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Margin="0,25,0,0"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="126">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <TextBox x:Name="BoxCodigoProducto" TextWrapping="Wrap"  Width="125" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+            <Label x:Name="lbNombre" Content="Nombre" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="72" Margin="0,5,0,0" FontStyle="Italic" HorizontalAlignment="Center"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <TextBox x:Name="BoxNombreProducto" TextWrapping="Wrap"  FontFamily="Century Gothic" FontSize="16" TextAlignment="Center"/>
+            </Border>
+
+            <Label x:Name="lbDescripCategoria" Content="Descripción" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="126">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <TextBox x:Name="BoxDescripProductoCategoria" TextWrapping="Wrap" Width="125" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+            <Label x:Name="lbCategoria" Content="Categoria" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="92" Margin="0,5,0,0" FontStyle="Italic" HorizontalAlignment="Center"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <ListBox x:Name="BoxCategoria"  FontFamily="Century Gothic" FontSize="16" Height="23" />
+            </Border>
+
+            <!--Botones guardar, limpiar, eliminar-->
+            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
+                </Border.Clip>
+                <Button x:Name="btnguardar" Click="Btnguardar" Content="GUARDAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA"/>
+            </Border>
+
+            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
+                </Border.Clip>
+                <Button x:Name="btnlimpiar" Click="Btnlimpiar"  Content="LIMPIAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3AC8DA"/>
+            </Border>
+
+            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
+                </Border.Clip>
+                <Button x:Name="btneliminar" Click="Btneliminar" Content="ELIMINAR" HorizontalAlignment="Center" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FFAB0C29"/>
+            </Border>
+
+        </StackPanel>
+
+        <!--Lista Productos-->
+        <Label x:Name="lbdetalleProd" Content="Detalle Producto" Foreground="White" FontFamily="Century Gothic" FontSize="20" Height="32" FontWeight="Bold" Width="181"/>
+        <StackPanel Margin="11,26,0,434" Background="#FF242A82" Orientation="Horizontal">
+
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,835,50"/>
+            </StackPanel.Clip>
+            <Label x:Name="lbDetalleProd" Content="Detalle Producto" Foreground="White" FontFamily="Century Gothic" FontSize="20" Height="32" FontWeight="Bold" Width="181" Margin="0,0,40,0"/>
+            <Label x:Name="lbListaProductos" Content="Lista Productos" Foreground="White" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" Width="154" Height="32" Margin="200,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Margin="255,96,525,386">
+            <Label x:Name="lbBuscarProducto" Content="Buscar:" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="26" HorizontalAlignment="Center" Width="66"/>
+        </StackPanel>
+        <StackPanel Margin="330,96,224,386" Background="#FF242A82">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="3,0,289,26"/>
+            </StackPanel.Clip>
+            <TextBox x:Name="BoxBuscarListProductos" Foreground="#FF040000" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Width="298"  TextAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Margin="631,92,142,382">
+            <Button x:Name="BtnBuscarListProductos" Content="🔍" Height="29" Click="buscaR" Background="White" FontFamily="Century Gothic" Margin="0,3,0,0" Width="80"/>
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,5,70,23"/>
+            </StackPanel.Clip>
+        </StackPanel>
+
+        <!---Tabla de Lista Productos-->
+        <StackPanel Margin="174,130,18,70" Background="#FF242A82">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,655,300"/>
+            </StackPanel.Clip>
+            <DataGrid x:Name="tblListaCategoria" Height="306" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="656">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Codigo" Width="80"/>
+                    <DataGridTextColumn Header="Nombre" Width="80"/>
+                    <DataGridTextColumn Header="Descripción" Width="80"/>
+                    <DataGridTextColumn Header="Categoría" Width="80"/>
+                    <DataGridTextColumn Header="Disponibles" Width="80"/>
+                    <DataGridTextColumn Header="Precio Compra" Width="100"/>
+                    <DataGridTextColumn Header="Precio Venta" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
 </UserControl>

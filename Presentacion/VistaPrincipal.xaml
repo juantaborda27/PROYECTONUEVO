@@ -41,7 +41,7 @@
                         Click="btnVentas_Click" 
                         FontSize="18"
                         BorderBrush="Transparent"
-                        Foreground="#FFF7F7F7" FontFamily="Century Gothic" Height="81" Width="171">
+                        Foreground="#FFF7F7F7" FontFamily="Century Gothic" Height="94" Width="171">
                         <Button.Background>
 
                             <ImageBrush ImageSource="/ventas.png" Stretch="None" TileMode="None">
@@ -55,7 +55,7 @@
                                 </ImageBrush.RelativeTransform>
                             </ImageBrush>
                         </Button.Background>
-                        <Label x:Name="labelVentas" Content="VENTAS" FontFamily="Century Gothic" Foreground="White" Height="38" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Width="78" BorderBrush="Transparent" Background="Transparent" RenderTransformOrigin="0.526,0.758" Margin="0,45,0,0"/>
+                        <Label x:Name="labelVentas" Content="VENTAS" FontFamily="Century Gothic" Foreground="White" Height="36" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Width="78" BorderBrush="Transparent" Background="Transparent" RenderTransformOrigin="0.526,0.758" Margin="0,60,0,0" FontSize="16"/>
                     </Button>
                     <Button 
                         x:Name="btnCompras"
@@ -63,11 +63,11 @@
                         FontSize="18" 
                         FontWeight="Bold" 
                         Foreground="#FFFDFDFD" 
-                        BorderBrush="#00000000" FontFamily="Century Gothic" Height="83" Width="171">
+                        BorderBrush="#00000000" FontFamily="Century Gothic" Height="92" Width="171">
                         <Button.Background>
                             <ImageBrush ImageSource="/compras.png" Stretch="None"/>
                         </Button.Background>
-                        <Label x:Name="labelCompras" Content="COMPRAS" Foreground="#FFE4E4E4" Margin="0,50,0,0" FontWeight="Normal"/>
+                        <Label x:Name="labelCompras" Content="COMPRAS" Foreground="#FFE4E4E4" Margin="0,60,0,0" FontWeight="Normal" FontSize="16"/>
                     </Button>
                     <Button 
                         x:Name="btnProveedores"
@@ -75,11 +75,11 @@
                         FontSize="18" 
                         FontWeight="Bold" 
                         Foreground="#FFFDFDFD" 
-                        BorderBrush="Transparent" FontFamily="Century Gothic" Height="82" Width="171">
+                        BorderBrush="Transparent" FontFamily="Century Gothic" Height="77" Width="171">
                         <Button.Background>
                             <ImageBrush ImageSource="/proveedor.png" Stretch="None"/>
                         </Button.Background>
-                        <Label Content="PROVEEDOR" Foreground="WhiteSmoke" Height="35" Margin="0,50,0,0" FontWeight="Normal"/>
+                        <Label Content="PROVEEDOR" Foreground="WhiteSmoke" Height="35" Margin="0,50,0,0" FontWeight="Normal" FontSize="16"/>
                     </Button>
                     <Button 
                         x:Name="btnReportes"
@@ -87,19 +87,33 @@
                         FontSize="18" 
                         FontWeight="Bold" 
                         Foreground="#FFFDFDFD" 
-                        BorderBrush="Transparent" RenderTransformOrigin="2.47,-3.424" FontFamily="Century Gothic" Height="82" Width="166">
+                        BorderBrush="Transparent" RenderTransformOrigin="2.47,-3.424" FontFamily="Century Gothic" Height="79" Width="166">
                         <Button.Background>
                             <ImageBrush ImageSource="/report.png" Stretch="None"/>
                         </Button.Background>
-                        <Label Content="REPORTE" Foreground="White" Margin="0,50,0,0" FontWeight="Normal"/>
+                        <Label Content="REPORTE" Foreground="White" Margin="0,49,0,0" FontWeight="Normal" FontSize="16"/>
                     </Button>
-                    <Button x:Name="BtnCategoriaProducto" Height="108" Foreground="White" FontFamily="Century Gothic" BorderBrush="Transparent">
+                    <Button x:Name="btnOpciones" Click="Button_Click" Height="89" Width="177" BorderBrush="Transparent" Foreground="Transparent">
+                        
                         <Button.Background>
                             <ImageBrush ImageSource="/CategoriaProd.png" Stretch="None"/>
-
                         </Button.Background>
-                        <Label Content="ADMINISTRAR PRD" Foreground="White" FontWeight="Normal" FontSize="18" Width="175" Margin="0,65,0,0"/>
+                        <Label Content="ADMINISTRAR PRD" Width="151" HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="White" Margin="0,57,0,0"/>
                     </Button>
+
+                    <!-- Popup que contendrá las opciones -->
+                    <Popup x:Name="popup" Placement="Right" StaysOpen="False" PlacementTarget="{Binding ElementName=btnOpciones}" OpacityMask="White">
+                        <Border Background="#FF3A7AFA" BorderBrush="Transparent" BorderThickness="1">
+                            <StackPanel Orientation="Vertical" Margin="10" Background="#FF3A7AFA">
+                                <!-- Botón para Producto -->
+                                <Button  Background="Transparent" BorderBrush="Transparent" Foreground="White" Content="PRODUCTO" Click="Producto_Click" FontFamily="Century Gothic"/>
+                                <!-- Botón para Categoría -->
+                                <Button  Background="Transparent" BorderBrush="Transparent" Foreground="White" Content="CATEGORIA" Click="Categoria_Click" FontFamily="Century Gothic"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+
+
                     <Button 
                         x:Name="btnUsuario" 
                         Click="btnUsuario_Click" 
@@ -201,13 +215,7 @@
                     <Label x:Name="LabelUsuario" Content="USUARIO" HorizontalAlignment="Left" Margin="229,0,0,0" VerticalAlignment="Center" FontFamily="Century Gothic" Background="Transparent" Foreground="#FF00C6EB"/>
                 </Grid>
                 <StackPanel x:Name="panelPrincipal" Grid.Row="1" Margin="207,25,22,24">
-                    <Frame x:Name="frameVenta"  Height="510" Width="850">
-                        <Frame.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,3">
-                                <GradientStop Color="#0D7BDB" Offset="0.0"/>
-                                <GradientStop Color="#0DBCDB" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Frame.Background>
+                    <Frame x:Name="frameVenta" NavigationUIVisibility="Hidden" Height="510" Width="850" Background="#FF2847C7">
                     </Frame>
                 </StackPanel>
             </Grid>

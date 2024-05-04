@@ -24,5 +24,26 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        private void Btnguardar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btnlimpiar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btneliminar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void buscaR(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

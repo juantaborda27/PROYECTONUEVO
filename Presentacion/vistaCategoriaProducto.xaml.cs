@@ -24,5 +24,25 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        private void BtnGuuardar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLIMPPIAR(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEEliminar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnBuscarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

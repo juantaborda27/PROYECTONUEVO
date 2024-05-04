@@ -18,7 +18,7 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,655,203"/>
             </StackPanel.Clip>
-            <DataGrid Height="204" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="654">
+            <DataGrid x:Name="tblVistaCompra" Height="204" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="654">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Codigo" Width="80"/>
                     <DataGridTextColumn Header="Nombre" Width="80"/>
@@ -37,9 +37,9 @@
             <Label x:Name="lbFecha" Content="DD/MM/AAAA" FontFamily="Century Gothic" FontSize="18" Foreground="White" Height="35"/>
         </StackPanel>
         <!-- Panel de Producto-->
-        <StackPanel Margin="10,126,10,336" Background="#FF242A82">
+        <StackPanel Margin="0,126,10,336" Background="#FF242A82">
             <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,790,30"/>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,800,30"/>
             </StackPanel.Clip>
             <Label x:Name="InfProducto" Content="Información Producto" FontFamily="Century Gothic" FontSize="18" Foreground="White" Height="29" HorizontalAlignment="Center" FontWeight="Bold"/>
         </StackPanel>
@@ -50,7 +50,7 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,110,25"/>
             </StackPanel.Clip>
-            <TextBox x:Name="BoxCodProducto" TextWrapping="Wrap" Text="COD" Width="110" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
+            <TextBox x:Name="BoxCodProducto" TextWrapping="Wrap"  Width="110" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
         </StackPanel>
         <StackPanel Margin="128,190,641,271">
             <Button x:Name="BtnBuscar" Content="🔍" Height="27" Background="White" FontFamily="Century Gothic" Margin="0,3,0,0" Width="42"/>
@@ -65,7 +65,7 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,100,25"/>
             </StackPanel.Clip>
-            <TextBox x:Name="BoxProducto" TextWrapping="Wrap" Text="PD" Width="102" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
+            <TextBox x:Name="BoxProducto" TextWrapping="Wrap"  Width="102" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="287,156,390,305" RenderTransformOrigin="2.179,-0.459">
             <Label Content="Precio Compra" Width="131" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Left"/>
@@ -74,7 +74,7 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,125,25"/>
             </StackPanel.Clip>
-            <TextBox x:Name="BoxPrecioCompra" TextWrapping="Wrap" Text="PRC" Width="127" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
+            <TextBox x:Name="BoxPrecioCompra" TextWrapping="Wrap"  Width="127" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="425,156,271,305" RenderTransformOrigin="2.179,-0.459">
             <Label Content="Precio Venta" Width="111" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Left"/>
@@ -83,7 +83,7 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,110,25"/>
             </StackPanel.Clip>
-            <TextBox x:Name="BoxPrecioVenta" TextWrapping="Wrap" Text="PRC" Width="110" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
+            <TextBox x:Name="BoxPrecioVenta" TextWrapping="Wrap"  Width="110" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="560,156,161,305" RenderTransformOrigin="2.179,-0.459">
             <Label Content="Cantidad" Width="93" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Left"/>
@@ -92,7 +92,7 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,90,25"/>
             </StackPanel.Clip>
-            <ListBox x:Name="ListBoxCantidad" Width="90" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" HorizontalAlignment="Left"/>
+            <TextBox x:Name="ListBoxCantidad" Width="90" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" HorizontalAlignment="Left"/>
         </StackPanel>
         <StackPanel  Margin="683,172,19,246" Background="White">
             <StackPanel.Clip>
@@ -130,7 +130,7 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,3,170,25"/>
             </StackPanel.Clip>
-            <TextBox x:Name="BoxProveedorNumbDoc" TextWrapping="Wrap" Text="Num" Width="172" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Center" TextAlignment="Center"/>
+            <TextBox x:Name="BoxProveedorNumbDoc" TextWrapping="Wrap"  Width="172" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Center" TextAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="642,10,26,448" RenderTransformOrigin="2.179,-0.459">
             <Label Content="Descripcion" Width="105" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Center" Height="27"/>

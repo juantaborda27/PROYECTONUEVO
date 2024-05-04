@@ -63,8 +63,24 @@ namespace Presentacion
         {
             // Aquí puedes escribir el código que se ejecutará cuando se produzca el evento MouseDown en la ventana
         }
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Mostrar el Popup cuando el botón es presionado
+            popup.IsOpen = true;
 
+        }
+
+        private void Producto_Click(object sender, RoutedEventArgs e)
+        {
+            popup.IsOpen = false;
+            frameVenta.Navigate(new Uri("VistaProducto.xaml", UriKind.Relative));
+        }
+
+        private void Categoria_Click(object sender, RoutedEventArgs e)
+        {
+            popup.IsOpen = false;
+            frameVenta.Navigate(new Uri("vistaCategoriaProducto.xaml", UriKind.Relative));
+        }
 
     }
 }
