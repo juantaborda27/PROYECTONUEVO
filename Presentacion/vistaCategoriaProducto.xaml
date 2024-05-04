@@ -20,7 +20,7 @@
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
                 </Border.Clip>
-                <TextBox x:Name="BoxDescripProducto" TextWrapping="Wrap"  Width="125" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox x:Name="txtDescripProducto" TextWrapping="Wrap"  Width="125" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center"/>
             </Border>
 
 
@@ -63,7 +63,7 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="3,0,289,26"/>
             </StackPanel.Clip>
-            <TextBox x:Name="BoxBuscarListaCategoria" Foreground="#FF040000" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Width="291"  TextAlignment="Center"/>
+            <TextBox x:Name="txtBuscarListaCategoria" Foreground="#FF040000" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Width="291"  TextAlignment="Center"/>
         </StackPanel>
         <StackPanel Margin="652,73,122,401">
             <Button x:Name="BtnBuscarCategoria" Content="🔍" Height="29" Background="White" FontFamily="Century Gothic" Margin="0,3,0,0" Width="80" Click="BtnBuscarCategoria_Click"/>
@@ -77,9 +77,9 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,655,210"/>
             </StackPanel.Clip>
-            <DataGrid x:Name="tblListaCategoria" Height="213" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="656">
+            <DataGrid x:Name="tblListaCategoria" ItemsSource="{Binding}" Height="213" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="656" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Descripcion" Width="100" FontFamily="Century Gothic"/>
+                    <DataGridTextColumn Header="Descripcion" Binding="{Binding descripcion}" Width="100" FontFamily="Century Gothic"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

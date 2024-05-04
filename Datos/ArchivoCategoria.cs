@@ -42,19 +42,32 @@ namespace Datos
 
         public bool Eliminar(string descripcion)
         {
-            List<CategoriaProducto> categoriaProductos = Leer();
+           
             CategoriaProducto categoriaProducto = Buscar(descripcion);
 
-            if (categoriaProducto != null && categoriaProductos != null)
+            if (categoriaProducto != null )
             {
-                categoriaProductos.Remove(categoriaProducto);
+                //categoriaProductos.Remove(categoriaProducto);
+                List<CategoriaProducto> categoriaProductos = Remover(categoriaProducto);
                 Guardar(categoriaProductos);
                 return true;
             }
 
             return false;
         }
-
+        public List<CategoriaProducto> Remover(CategoriaProducto categoriaProducto)
+        {
+            List<CategoriaProducto> categoriaProductos = Leer();
+            foreach (var item in categoriaProductos)
+            {
+                if (item.descripcion.Equals(categoriaProducto.descripcion))
+                {
+                    categoriaProductos.Remove(item);
+                    return categoriaProductos;
+                }
+            }
+            return categoriaProductos;
+        }
         public CategoriaProducto Buscar(string descripcion)
         {
             List<CategoriaProducto> categoriaProductos = Leer();
