@@ -26,26 +26,48 @@ namespace Datos
             formatter.Serialize(archivo, productos);
             archivo.Close();
         }
+
         public List<Producto> Leer()
         {
-            archivo = new FileStream(fileName, FileMode.OpenOrCreate);
-            BinaryFormatter formatter = new BinaryFormatter();
-            List<Producto> productos = (List<Producto>)formatter.Deserialize(archivo);
-            archivo.Close();
-            return productos;
-        }
-        public bool Eliminar(string idProducto)
-        {
-            List<Producto> productos = Leer();
-            Producto producto = Buscar(idProducto);
-
-            if (producto != null && productos != null)
+            if (!File.Exists(fileName))
             {
-                productos.Remove(producto);
+                return new List<Producto>();
+            }
+
+            using (FileStream archivo = new FileStream(fileName, FileMode.Open))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                return (List<Producto>)formatter.Deserialize(archivo);
+            }
+        }
+
+        public bool Eliminar(string descripcion)
+        {
+
+            Producto producto = Buscar(descripcion);
+
+            if (producto != null)
+            {
+                //categoriaProductos.Remove(categoriaProducto);
+                List<Producto> productos = Remover(producto);
                 Guardar(productos);
                 return true;
             }
+
             return false;
+        }
+        public List<Producto> Remover(Producto producto)
+        {
+            List<Producto> productos = Leer();
+            foreach (var item in productos)
+            {
+                if (item.descripcion.Equals(producto.descripcion))
+                {
+                    productos.Remove(item);
+                    return productos;
+                }
+            }
+            return productos;
         }
         public Producto Buscar(string idProducto)
         {

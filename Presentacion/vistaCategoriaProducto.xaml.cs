@@ -33,6 +33,11 @@ namespace Presentacion
 
         private void BtnGuuardar(object sender, RoutedEventArgs e)
         {
+            if (ValidarCamposVacios()==false)
+            {
+                MessageBox.Show("Existen Campos Vacios", "Alerta", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             CategoriaProducto categoria = new CategoriaProducto();
             if (logicaCategoria.Buscar(txtDescripProducto.Text) == null)
             {
@@ -82,7 +87,32 @@ namespace Presentacion
 
         private void BtnBuscarCategoria_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (txtBuscarListaCategoria.Text.Equals("") || txtBuscarListaCategoria.Text == null)
+            {
+                ActualizarTabla();
+                return;
+            }
+            CategoriaProducto buscado = logicaCategoria.Buscar(txtBuscarListaCategoria.Text);
+
+            if (buscado != null)
+            {
+                tblListaCategoria.DataContext = null;
+                List<CategoriaProducto> categorias = new List<CategoriaProducto>() { buscado };
+                tblListaCategoria.DataContext = categorias;
+            }
+            else
+            {
+                MessageBox.Show("Producto no existente", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            txtBuscarListaCategoria.Clear();
+        }
+        bool ValidarCamposVacios()
+        {
+            if (txtDescripProducto == null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

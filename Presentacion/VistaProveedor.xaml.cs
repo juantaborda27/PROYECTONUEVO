@@ -24,5 +24,20 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        private void btnGuardarProveedor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLimpiarProveedor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEliminarProveedor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

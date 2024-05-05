@@ -42,21 +42,21 @@
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
                 </Border.Clip>
-                <Button x:Name="btnGuardar" Click="BtnGuuardar" Content="GUARDAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA"/>
+                <Button x:Name="btnGuardarProveedor" Click="btnGuardarProveedor_Click" Content="GUARDAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA" Height="23" VerticalAlignment="Bottom"/>
             </Border>
 
             <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
                 </Border.Clip>
-                <Button x:Name="btnLimpiar" Click="BtnLIMPPIAR"  Content="LIMPIAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3AC8DA"/>
+                <Button x:Name="btnLimpiarProveedor" Click="btnLimpiarProveedor_Click"  Content="LIMPIAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3AC8DA"/>
             </Border>
 
             <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
                 </Border.Clip>
-                <Button x:Name="btnEliminar" Click="BtnEEliminar" Content="ELIMINAR" HorizontalAlignment="Center" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF730707"/>
+                <Button x:Name="btnEliminarProveedor" Click="btnEliminarProveedor_Click" Content="ELIMINAR" HorizontalAlignment="Center" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF730707"/>
             </Border>
 
         </StackPanel>
@@ -87,11 +87,10 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,550,300"/>
             </StackPanel.Clip>
-            <DataGrid x:Name="tblListaCategoria" Height="302" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="550">
+            <DataGrid x:Name="tblListaProveedor" Height="302" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="550">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Documento" Width="130"/>
-                    <DataGridTextColumn Header="Razon Social" Width="130"/>
-                    <DataGridTextColumn Header="Correo" Width="130"/>
+                    <DataGridTextColumn Header="Nombre" Width="130"/>
                     <DataGridTextColumn Header="Telefono" Width="140"/>
 
                 </DataGrid.Columns>

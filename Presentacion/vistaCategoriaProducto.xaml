@@ -43,7 +43,7 @@
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
                 </Border.Clip>
-                <Button x:Name="btnEliminar" Click="BtnEEliminar" Content="ELIMINAR" HorizontalAlignment="Center" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF011B52"/>
+                <Button x:Name="btnEliminar" Click="BtnEEliminar" Content="ELIMINAR" HorizontalAlignment="Center" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FFAB0C29"/>
             </Border>
 
         </StackPanel>

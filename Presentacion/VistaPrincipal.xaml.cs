@@ -37,7 +37,7 @@ namespace Presentacion
 
         private void btrnProveedores_Click(object sender, RoutedEventArgs e)
         {
-
+            frameVenta.Navigate(new Uri("VistaProveedor.xaml", UriKind.Relative));
         }
 
         private void btnReportes_Click(object sender, RoutedEventArgs e)

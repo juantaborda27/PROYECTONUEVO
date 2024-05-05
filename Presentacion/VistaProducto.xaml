@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Presentacion"
              mc:Ignorable="d" 
              d:DesignHeight="510" d:DesignWidth="850">
-    <Grid x:Name="tblListaProductos">
+    <Grid x:Name="gridProducto">
         <!--Detalle Producto-->
 
         <!--DProducto-->
@@ -38,8 +38,8 @@
             </Border>
             <Label x:Name="lbCategoria" Content="Categoria" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="92" Margin="0,5,0,0" FontStyle="Italic" HorizontalAlignment="Center"/>
             <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
-               
-                <ComboBox x:Name="cbCategoria"  FontFamily="Century Gothic" FontSize="16" Height="23" />
+
+                <ComboBox x:Name="cbCategoria"  FontFamily="Century Gothic" FontSize="12" Height="23" ItemsSource="{Binding CategoriaProducto}" DisplayMemberPath="descripcion" />
             </Border>
 
             <!--Botones guardar, limpiar, eliminar-->
@@ -54,7 +54,7 @@
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
                 </Border.Clip>
-                <Button x:Name="btnlimpiar" Click="Btnlimpiar"  Content="LIMPIAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3AC8DA"/>
+                <Button x:Name="btnlimpiar" Click="Btnlimpiar"  Content="LIMPIAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3AC8DA" Height="23" VerticalAlignment="Top"/>
             </Border>
 
             <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
@@ -98,16 +98,16 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,655,300"/>
             </StackPanel.Clip>
-            <DataGrid x:Name="tblListaCategoria" Height="306" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="656">
+            <DataGrid x:Name="tblListaProductos1" Height="306" ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionMode="Single" Width="659">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Codigo" Width="80"/>
-                    <DataGridTextColumn Header="Categoria" Width="80"/>
-                    <DataGridTextColumn Header="Descripción" Width="80"/>
-                    <DataGridTextColumn Header="Disponibles" Width="80"/>
-                    <DataGridTextColumn Header="Precio Compra" Width="100"/>
-                    <DataGridTextColumn Header="Precio Venta" Width="100"/>
-                    <DataGridTextColumn Header="Cantidad minima" Width="100
-                                        "/>
+                    <DataGridTextColumn Header="Codigo" Width="50" Binding="{Binding idProducto}"/>
+                    <DataGridTextColumn Header="Descripción" Width="100" Binding="{Binding descripcion}"/>
+                    <DataGridTextColumn Header="Categoria" Width="80" Binding="{Binding categoriaProducto.descripcion}"/>
+                    <DataGridTextColumn Header="Disponibles" Width="100" Binding="{Binding cantidad}"/>
+                    <DataGridTextColumn Header="Cantidad minima" Width="120" Binding="{Binding cantidadMinima}"/>
+                    <DataGridTextColumn Header="Precio Compra" Width="120" Binding="{Binding precioCompra}"/>
+                    <DataGridTextColumn Header="Precio Venta" Width="120" Binding="{Binding precioVenta}"/>
+
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
