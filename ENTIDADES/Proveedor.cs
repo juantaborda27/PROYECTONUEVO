@@ -10,5 +10,6 @@ namespace ENTIDADES
         public string documento { get; set; }
         public string telefono { get; set; }
         public string fechaCreacion { get; set; }
+        public string NombreProveedor { get; set; }
     }
 }
