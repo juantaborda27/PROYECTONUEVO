@@ -49,11 +49,19 @@ namespace Presentacion
             //Usuario logueado = login.Loguear(loguear);
             //if (logueado != null)
             //{
+            if(txtUsuario.Text.Equals("Admin") && txtContra.Password.Equals("1234"))
+            {
                 VistaPrincipal vistaPrincipal = new VistaPrincipal();
                 vistaPrincipal.Show();
                 this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuario Incorrecto(Admin-1234)");
+            }
+                
             //}
-            //MessageBox.Show("Quien tu eres??");
+            //
         }
     }
 }
