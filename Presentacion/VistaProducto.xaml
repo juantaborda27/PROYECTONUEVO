@@ -47,7 +47,7 @@
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
                 </Border.Clip>
-                <Button x:Name="btnguardar" Click="Btnguardar" Content="GUARDAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA"/>
+                <Button x:Name="btnguardar" Click="Btnguardar" Content="GUARDAR" HorizontalAlignment="Right" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA" Margin="0,0,-1,0"/>
             </Border>
 
             <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">

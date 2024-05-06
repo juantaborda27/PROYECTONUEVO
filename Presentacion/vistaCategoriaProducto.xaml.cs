@@ -108,11 +108,13 @@ namespace Presentacion
         }
         bool ValidarCamposVacios()
         {
-            if (txtDescripProducto == null)
+            if (txtDescripProducto.Text == null || txtDescripProducto.Text.Equals(""))
             {
                 return false;
             }
             return true;
         }
+
+        
     }
 }

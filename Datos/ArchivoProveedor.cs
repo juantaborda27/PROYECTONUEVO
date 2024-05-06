@@ -29,31 +29,52 @@ namespace Datos
         }
         public List<Proveedor> Leer()
         {
-            archivo = new FileStream(fileName, FileMode.OpenOrCreate);
-            BinaryFormatter formatter = new BinaryFormatter();
-            List<Proveedor> proveedores = (List<Proveedor>)formatter.Deserialize(archivo);
-            archivo.Close();
-            return proveedores;
-        }
-        public bool Eliminar(string idProveedor)
-        {
-            List<Proveedor> proveedores = Leer();
-            Proveedor proveedor = Buscar(idProveedor);
-
-            if (proveedor != null && proveedores != null)
+            if (!File.Exists(fileName))
             {
-                proveedores.Remove(proveedor);
+                return new List<Proveedor>();
+            }
+
+            using (FileStream archivo = new FileStream(fileName, FileMode.Open))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                return (List<Proveedor>)formatter.Deserialize(archivo);
+            }
+        }
+
+        public bool Eliminar(string documento)
+        {
+
+            Proveedor proveedor = Buscar(documento);
+
+            if (proveedor != null)
+            {
+                //categoriaProductos.Remove(categoriaProducto);
+                List<Proveedor> proveedores = Remover(proveedor);
                 Guardar(proveedores);
                 return true;
             }
+
             return false;
         }
-        public Proveedor Buscar(string idProveedor)
+        public List<Proveedor> Remover(Proveedor proveedor)
         {
             List<Proveedor> proveedores = Leer();
             foreach (var item in proveedores)
             {
-                if (item.idProveedor.Equals(idProveedor))
+                if (item.documento.Equals(proveedor.documento))
+                {
+                    proveedores.Remove(item);
+                    return proveedores;
+                }
+            }
+            return proveedores;
+        }
+        public Proveedor Buscar(string documento)
+        {
+            List<Proveedor> proveedores = Leer();
+            foreach (var item in proveedores)
+            {
+                if (item.documento.Equals(documento))
                 {
                     return item;
                 }

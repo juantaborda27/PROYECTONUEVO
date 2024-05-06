@@ -28,7 +28,7 @@
                 <TextBox x:Name="TxtNombreProveedor" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center"/>
             </Border>
 
-            
+
             <Label x:Name="lbTel" Content="Telefono" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="77" Margin="0,10,0,0" FontStyle="Italic" HorizontalAlignment="Center"/>
             <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
                 <Border.Clip>
@@ -42,7 +42,7 @@
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
                 </Border.Clip>
-                <Button x:Name="btnGuardarProveedor" Click="btnGuardarProveedor_Click" Content="GUARDAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA" Height="23" VerticalAlignment="Bottom"/>
+                <Button x:Name="btnGuardarProveedor" Click="btnGuardarProveedor_Click" Content="GUARDAR" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA" Height="23" VerticalAlignment="Center" Margin="0,0,-1,0"/>
             </Border>
 
             <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
@@ -78,7 +78,7 @@
                 <StackPanel.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,5,70,23"/>
                 </StackPanel.Clip>
-                <Button x:Name="BtnBuscarListProveedor" Content="🔍" Height="29" Background="White" FontFamily="Century Gothic" Margin="0,3,0,0" Width="80"/>
+                <Button x:Name="BtnBuscarListProveedor" Content="🔍" Height="29" Background="White" FontFamily="Century Gothic" Margin="0,3,0,0" Width="80" Click="BtnBuscarListProveedor_Click"/>
             </StackPanel>
         </StackPanel>
 
@@ -87,11 +87,11 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,550,300"/>
             </StackPanel.Clip>
-            <DataGrid x:Name="tblListaProveedor" Height="302" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="550">
+            <DataGrid x:Name="tblListaProveedor" Height="302" ItemsSource="{Binding}" AutoGenerateColumns="False"  Width="550">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Documento" Width="130"/>
-                    <DataGridTextColumn Header="Nombre" Width="130"/>
-                    <DataGridTextColumn Header="Telefono" Width="140"/>
+                    <DataGridTextColumn Header="Documento" Width="100" Binding="{Binding documento}"/>
+                    <DataGridTextColumn Header="Nombre" Width="100" Binding="{Binding NombreProveedor}"/>
+                    <DataGridTextColumn Header="Telefono" Width="150" Binding="{Binding telefono}"/>
 
                 </DataGrid.Columns>
             </DataGrid>

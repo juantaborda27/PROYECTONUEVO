@@ -90,7 +90,7 @@ namespace Presentacion
         }
         bool ValidarCanmposVacios()
         {
-            if(txtCodigoProducto.Text == null || txtDescripcion == null || txtMinima == null )
+            if(txtCodigoProducto.Text == null || txtDescripcion == null || txtMinima == null || txtCodigoProducto.Text.Equals("") || txtDescripcion.Text.Equals("")||txtMinima.Text.Equals(""))
             {
                 return false;
             }

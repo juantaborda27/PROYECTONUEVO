@@ -77,7 +77,7 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,655,210"/>
             </StackPanel.Clip>
-            <DataGrid x:Name="tblListaCategoria" ItemsSource="{Binding}" Height="213" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="656" >
+            <DataGrid x:Name="tblListaCategoria" ItemsSource="{Binding}" Height="213" AutoGenerateColumns="False"  Width="656" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Descripcion" Binding="{Binding descripcion}" Width="100" FontFamily="Century Gothic"/>
                 </DataGrid.Columns>
