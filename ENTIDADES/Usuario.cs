@@ -10,7 +10,6 @@ namespace ENTIDADES
         public string nombre { get; set; }
         public string telefono { get; set; }
         public string contraseña { get; set; }
-        public string rol { get; set; }
-        public string fechaCreacion { get; set; }
+        public bool rol { get; set; }
     }
 }

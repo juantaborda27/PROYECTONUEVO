@@ -36,15 +36,27 @@ namespace Datos
         }
         public bool Eliminar(string IdCompra)
         {
-            List<Compra> compras = Leer();
             Compra compra = Buscar(IdCompra);
-            if (compra != null && compras != null)
+            if (compra != null )
             {
-                compras.Remove(compra);
+                List<Compra> compras = Remover(compra);
                 Guardar(compras);
                 return true;
             }
             return false;
+        }
+        public List<Compra> Remover(Compra compra)
+        {
+            List<Compra> compras = Leer();
+            foreach (var item in compras)
+            {
+                if (item.IdCompra.Equals(compra.IdCompra))
+                {
+                    compras.Remove(item);
+                    return compras;
+                }
+            }
+            return compras;
         }
         public Compra Buscar(string IdCompra)
         {

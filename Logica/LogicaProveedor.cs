@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Logica
 {
-    
     public class LogicaProveedor
     {
         ArchivoProveedor archivoProveedor = new ArchivoProveedor();

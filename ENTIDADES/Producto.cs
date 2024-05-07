@@ -13,6 +13,5 @@ namespace ENTIDADES
         public double precioCompra { get; set; }
         public double precioVenta { get; set; }
         public int cantidadMinima { get; set; }
-        public string fechaCreacion { get; set; }
     }
 }

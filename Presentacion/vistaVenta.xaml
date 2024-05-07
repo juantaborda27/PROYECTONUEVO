@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:Presentacion"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Width="580" Height="392" Background="#FFFFFCFC">
+    <Grid Width="580" Height="392" Background="Yellow">
         <Label Content="VISTA VENTA" HorizontalAlignment="Left" Margin="206,73,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
+        <Image HorizontalAlignment="Left" Height="375" Margin="149,7,0,0" VerticalAlignment="Top" Width="322" Source="/Imagenes/En proceso.png" />
 
     </Grid>
 </UserControl>

@@ -12,7 +12,15 @@ namespace ENTIDADES
         public string IdCompra { get; set; }
         public Usuario usuario { get; set; }
         public Proveedor proveedor { get; set; }
+        public List<DetalleCompra> detalles { get; set; }
         public double montoTotal { get; set; }
-        public string FechaCompra { get; set; }
+        public DateTime FechaCompra { get; set; }
+        public void calcularMonto()
+        {
+            foreach (var item in detalles)
+            {
+                montoTotal += item.total;
+            }
+        }
     }
 }

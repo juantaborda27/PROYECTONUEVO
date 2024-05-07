@@ -12,7 +12,18 @@ namespace ENTIDADES
         public double montoPago { get; set; }
         public double montoCambio { get; set; }
         public double montoTotal { get; set; }
-        public string FechaVenta { get; set; }
+        public DateTime FechaVenta { get; set; }
+        public void CalcularTotal()
+        {
+            foreach (var item in detalles)
+            {
+                montoTotal += item.total;
+            }
+        }
+        public void CalcularCambio()
+        {
+            montoCambio = montoPago - montoTotal;
+        }
 
     }
 }

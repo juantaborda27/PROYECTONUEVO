@@ -43,14 +43,13 @@ namespace Presentacion
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            //Usuario loguear = new Usuario();
-            //loguear.userName = txtUsuario.Text;
-            //loguear.contraseña = txtContra.ToString();
-            //Usuario logueado = login.Loguear(loguear);
-            //if (logueado != null)
-            //{
-            if(txtUsuario.Text.Equals("Admin") && txtContra.Password.Equals("1234"))
+            Usuario loguear = new Usuario();
+            loguear.userName = txtUsuario.Text;
+            loguear.contraseña = txtContra.Password;
+            Usuario logueado = login.Loguear(loguear);
+            if (logueado != null)
             {
+               
                 VistaPrincipal vistaPrincipal = new VistaPrincipal();
                 vistaPrincipal.Show();
                 this.Hide();
@@ -59,9 +58,9 @@ namespace Presentacion
             {
                 MessageBox.Show("Usuario Incorrecto(Admin-1234)");
             }
-                
-            //}
-            //
+
+            
+
         }
     }
 }
