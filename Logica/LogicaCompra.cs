@@ -1,10 +1,7 @@
 ﻿using Datos;
 using ENTIDADES;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Logica
 {
@@ -40,12 +37,12 @@ namespace Logica
         }
         public void Entrada(Compra compra)
         {
-            List<DetalleCompra> detalleCompras = compra.detalles;
-            foreach (var item in detalleCompras)
+            foreach (var item in compra.detalles)
             {
-                Producto producto = item.producto;
-                producto.cantidad = producto.cantidad - item.cantidad;
-                logicaProducto.Actualizar(producto);
+                item.producto.precioCompra=item.precioCompra;
+                item.producto.precioVenta = item.precioVenta;
+                item.producto.cantidad += item.cantidad;
+                logicaProducto.Actualizar(item.producto);
             }
         }
     }

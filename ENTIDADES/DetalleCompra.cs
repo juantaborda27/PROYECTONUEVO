@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ENTIDADES
 {
@@ -15,5 +12,10 @@ namespace ENTIDADES
         public double precioVenta { get; set; }
         public int cantidad { get; set; }
         public double total { get; set; }
+        public void CalcularTotal()
+        {
+            total = cantidad * precioCompra;
+        }
     }
+    
 }

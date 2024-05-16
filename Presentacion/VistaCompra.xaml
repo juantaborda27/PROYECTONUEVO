@@ -18,13 +18,14 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,655,203"/>
             </StackPanel.Clip>
-            <DataGrid x:Name="tblVistaCompra" Height="204" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="488">
+            <DataGrid x:Name="tblVistaCompra" Height="204" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="652">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Codigo" Width="80" Binding="{Binding idDetalleCompra}"/>
-                    <DataGridTextColumn Header="Nombre" Width="80" Binding="{Binding producto.descripcion}"/>
-                    <DataGridTextColumn Header="Cantidad" Width="80" Binding="{Binding cantidad}"/>
-                    <DataGridTextColumn Header="Precio Compra" Width="100" Binding="{Binding precioCompra}"/>
+                    <DataGridTextColumn Header="Codigo" Width="100" Binding="{Binding idDetalleCompra}"/>
+                    <DataGridTextColumn Header="Nombre" Width="150" Binding="{Binding producto.descripcion}"/>
                     <DataGridTextColumn Header="Precio Venta" Width="100" Binding="{Binding precioVenta}"/>
+                    <DataGridTextColumn Header="Precio Compra" Width="100" Binding="{Binding precioCompra}"/>
+                    <DataGridTextColumn Header="Cantidad" Width="100" Binding="{Binding cantidad}"/>
+                    <DataGridTextColumn Header="Subtotal" Width="100" Binding="{Binding total}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
@@ -106,11 +107,11 @@
 
 
 
-        <StackPanel Margin="675,324,0,135">
+        <StackPanel Margin="666,324,-10,135">
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="13,3,100,40"/>
             </StackPanel.Clip>
-            <Label Content="Total a Pagar" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" Height="30" Width="114"/>
+            <Label Content="Total a Pagar" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" Height="30" Width="132"/>
         </StackPanel>
         <StackPanel Margin="377,0,399,362" Background="#FF242A82">
             <StackPanel.Clip>
@@ -120,13 +121,13 @@
 
         <!--Proveedor-->
         <StackPanel Orientation="Vertical" Margin="431,10,185,448" RenderTransformOrigin="2.179,-0.459">
-            <Label Content="Numero Documento" Width="172" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Center" Height="30"/>
+            <Label Content="Descripcion" Width="172" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Center" Height="30"/>
         </StackPanel>
         <StackPanel Margin="431,40,195,419">
             <ComboBox x:Name="cbProveedor"  Width="172" Height="27" FontFamily="Century Gothic" Foreground="Black" FontSize="16"  ItemsSource="{Binding Proveedor}" DisplayMemberPath="NombreProveedor"  SelectionChanged="ComboBox_SelectionChanged"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="642,10,26,448" RenderTransformOrigin="2.179,-0.459">
-            <Label Content="Descripcion" Width="105" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Center" Height="27"/>
+            <Label  Content="Documento" Width="105" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Center" Height="27"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="630,43,26,423" RenderTransformOrigin="2.179,-0.459">
             <Label x:Name="lbDocumento" Content="" Width="71" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Center" Height="26"/>

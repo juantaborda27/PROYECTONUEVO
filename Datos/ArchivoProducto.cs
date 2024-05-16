@@ -41,10 +41,10 @@ namespace Datos
             }
         }
 
-        public bool Eliminar(string descripcion)
+        public bool Eliminar(string idProducto)
         {
 
-            Producto producto = Buscar(descripcion);
+            Producto producto = Buscar(idProducto);
 
             if (producto != null)
             {
@@ -61,7 +61,7 @@ namespace Datos
             List<Producto> productos = Leer();
             foreach (var item in productos)
             {
-                if (item.descripcion.Equals(producto.descripcion))
+                if (item.idProducto.Equals(producto.idProducto))
                 {
                     productos.Remove(item);
                     return productos;
@@ -87,9 +87,8 @@ namespace Datos
             Producto productoOld = Buscar(productoNew.idProducto);
             if (productoOld != null)
             {
-                productos.Remove(productoOld);
-                productos.Add(productoNew);
-                Guardar(productos);
+                Eliminar(productoOld.idProducto);
+                Add(productoNew);
                 return true;
             }
             return false;
