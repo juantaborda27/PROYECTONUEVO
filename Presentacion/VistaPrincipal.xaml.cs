@@ -47,7 +47,7 @@ namespace Presentacion
 
         private void btnUsuario_Click(object sender, RoutedEventArgs e)
         {
-
+            frameVenta.Navigate(new Uri("VistaUsuario.xaml", UriKind.Relative));
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)

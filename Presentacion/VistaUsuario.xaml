@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="Presentacion.VistaUsuario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentacion"
+             mc:Ignorable="d" 
+             d:DesignHeight="510" d:DesignWidth="850">
+    <Grid>
+        <!--Usuario - ID usuario-->
+        <StackPanel Margin="10,10,635,10" Orientation="Vertical" Background="#FF242A82">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,2,200,487"/>
+            </StackPanel.Clip>
+            <Label x:Name="lbUsuario1" Content="Detalle Usuario" Foreground="White" FontFamily="Century Gothic" FontSize="20" Height="30" HorizontalAlignment="Center" Margin="0,5,0,0" FontWeight="Bold" Width="158"/>
+            <Label x:Name="lbUsuario2" Content="ID usuario" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Margin="0,5,0,4"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="126">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <TextBox x:Name="TxtIdUsuario" TextWrapping="Wrap" Width="125" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+
+            <!--Nombre - Username -->
+            <Label x:Name="lbUsuario3" Content="Nombre" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="74" FontStyle="Italic" HorizontalAlignment="Center"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <TextBox x:Name="TxtNombreUs" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center"/>
+            </Border>
+
+            <Label x:Name="lbUsuario4" Content="Username" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="87" FontStyle="Italic" HorizontalAlignment="Center" Height="28"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <TextBox x:Name="TxtUsernameUs" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center"/>
+            </Border>
+
+            <!--Contraseña-->
+            <Label x:Name="lbUsuario7" Content="Contraseña" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="126">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <TextBox x:Name="TxtContraseñaUs" TextWrapping="Wrap" Width="125" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+
+            <!--Telefono-->
+            <Label x:Name="lbTel" Content="Telefono" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="77" FontStyle="Italic" HorizontalAlignment="Center"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <TextBox x:Name="TxtTelefonoUs" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center"/>
+            </Border>
+
+
+            <!--ROL-->
+            <Label x:Name="lbUsuario8" Content="Rol" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center"/>
+            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="126">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <ComboBox x:Name="ComboxRolUs" Width="125" FontFamily="Century Gothic" FontSize="16" HorizontalAlignment="Center"/>
+            </Border>
+
+
+            <!--Botones guardar, limpiar, eliminar-->
+            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
+                </Border.Clip>
+                <Button x:Name="btnGuardarUs" Click="BtnGuuardarUS_Click" Content="GUARDAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA"/>
+            </Border>
+
+            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
+                </Border.Clip>
+                <Button x:Name="btnLimpiarUs" Click="BtnLIMPPIARUS_Click"  Content="LIMPIAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3AC8DA"/>
+            </Border>
+
+            <Border Margin="10,15,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
+                </Border.Clip>
+                <Button x:Name="btnEliminarUs" Click="BtnEEliminarUS_Click" Content="ELIMINAR" HorizontalAlignment="Center" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF730707"/>
+            </Border>
+
+        </StackPanel>
+
+        <!--Lista Usuarios / buscar -->
+
+        <StackPanel Margin="244,10,52,434" Background="#FF242A82" Orientation="Horizontal">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,552,60"/>
+            </StackPanel.Clip>
+            <Label x:Name="lbUsuario10" Content="Rol:" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="38" Height="26" Margin="10,0,0,0" FontStyle="Italic"/>
+            <Border Margin="0,5,0,0" Width="128" Height="26">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <ComboBox x:Name="ComboxRolBuscarUs" Width="126" FontFamily="Century Gothic" FontSize="16" HorizontalAlignment="Center"/>
+            </Border>
+
+
+            <Label x:Name="lbUsuario11" Content="Buscar:" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="26" HorizontalAlignment="Center" Width="66" Margin="10,0,0,0"/>
+            <StackPanel Background="#FF242A82" Height="26" Width="199">
+                <StackPanel.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="3,0,192,26"/>
+                </StackPanel.Clip>
+                <TextBox x:Name="txtBuscarUsuarios" Foreground="#FF040000" FontFamily="Century Gothic" FontSize="14" FontStyle="Italic" Height="26" HorizontalAlignment="Center" Width="194" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Height="34" Width="81">
+                <StackPanel.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,5,70,23"/>
+                </StackPanel.Clip>
+                <Button x:Name="BtnBuscarUsuarios" Content="🔍" Height="29" Background="White" FontFamily="Century Gothic" Margin="0,3,0,0" Width="80"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!---Tabla de Usuarios-->
+        <StackPanel Margin="244,118,52,72" Background="#FF242A82">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,550,300"/>
+            </StackPanel.Clip>
+            <DataGrid x:Name="tblUsuarios" Height="302" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=15}" Width="556">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Rol" Width="60"/>
+                    <DataGridTextColumn Header="ID usuario" Width="80"/>
+                    <DataGridTextColumn Header="Nombre" Width="110"/>
+                    <DataGridTextColumn Header="Username" Width="110"/>
+                    <DataGridTextColumn Header="Contraseña" Width="80"/>
+                    <DataGridTextColumn Header="Telefono" Width="120"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

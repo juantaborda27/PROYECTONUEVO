@@ -74,6 +74,9 @@
     <Compile Include="VistaProveedor.xaml.cs">
       <DependentUpon>VistaProveedor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaUsuario.xaml.cs">
+      <DependentUpon>VistaUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistaVenta.xaml.cs">
       <DependentUpon>vistaVenta.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VistaProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

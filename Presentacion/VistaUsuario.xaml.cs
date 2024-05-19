@@ -16,16 +16,27 @@ using System.Windows.Shapes;
 namespace Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para vistaVenta.xaml
+    /// Lógica de interacción para VistaUsuario.xaml
     /// </summary>
-    public partial class vistaVenta : UserControl
+    public partial class VistaUsuario : UserControl
     {
-        public vistaVenta()
+        public VistaUsuario()
         {
             InitializeComponent();
         }
 
-        private void btnAddVentas_Click(object sender, RoutedEventArgs e)
+
+        private void BtnEEliminarUS_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLIMPPIARUS_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnGuuardarUS_Click(object sender, RoutedEventArgs e)
         {
 
         }
