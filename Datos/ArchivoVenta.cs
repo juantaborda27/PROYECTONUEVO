@@ -19,18 +19,24 @@ namespace Datos
         }
         public void Guardar(List<Venta> ventas)
         {
-            archivo = new FileStream(fileName, FileMode.OpenOrCreate);
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(archivo, ventas);
-            archivo.Close();
+            using (FileStream archivo = new FileStream(fileName, FileMode.OpenOrCreate))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(archivo, ventas);
+            }
         }
         public List<Venta> Leer()
         {
-            archivo = new FileStream(fileName, FileMode.OpenOrCreate);
-            BinaryFormatter formatter = new BinaryFormatter();
-            List<Venta> ventas = (List<Venta>)formatter.Deserialize(archivo);
-            archivo.Close();
-            return ventas;
+            if (!File.Exists(fileName))
+            {
+                return new List<Venta>();
+            }
+
+            using (FileStream archivo = new FileStream(fileName, FileMode.Open))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                return (List<Venta>)formatter.Deserialize(archivo);
+            }
         }
         public bool Eliminar(string idVenta)
         {

@@ -40,7 +40,6 @@ namespace Presentacion
                 txtProducto.Text = producto.descripcion;
                 txtPrecioVenta.Text = producto.precioVenta.ToString();
                 txtPrecioCompra.Text = producto.precioCompra.ToString();
-                txtCantidad.Text = "0";
             }
             else
             {
@@ -244,6 +243,7 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
+            int i = 1; 
             if (tblVistaCompra.SelectedItem != null)
             {
                 var detalle = (DetalleCompra)tblVistaCompra.SelectedItem;
@@ -254,6 +254,11 @@ namespace Presentacion
                         detalles.Remove(item);
                         break;
                     }
+                }
+                foreach (var item in detalles)
+                {
+                    item.idDetalleCompra = i;
+                    i++;
                 }
                 ActualizarTabla();
             }

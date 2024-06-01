@@ -35,12 +35,10 @@ namespace Logica
         }
         public void Salida(Venta venta)
         {
-            List<DetalleVenta> detalleVentas = venta.detalles;
-            foreach (var item in detalleVentas)
+            foreach (var item in venta.detalles)
             {
-                Producto producto = item.producto;
-                producto.cantidad = producto.cantidad - item.cantidad;
-                logicaProducto.Actualizar(producto);
+                item.producto.cantidad -= item.cantidad;
+                logicaProducto.Actualizar(item.producto);
             }
         }
     }
