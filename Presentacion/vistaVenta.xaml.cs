@@ -148,7 +148,7 @@ namespace Presentacion
             if (txtRecibidoVenta.Text.Length==0)
             {
                 MessageBox.Show("Cantidad recibida vacía", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                return false;
             }
             return true;
         }
