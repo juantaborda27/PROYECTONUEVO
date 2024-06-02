@@ -41,14 +41,21 @@ namespace Datos
             }
         }
 
-        public bool Eliminar(string cedula)
+        public bool Eliminar(string id)
         {
             List<Usuario> usuarios = Leer();
-            Usuario usuario = Buscar(cedula);
+            Usuario usuario = Buscar(id);
 
             if (usuario != null && usuarios != null)
             {
-                usuarios.Remove(usuario);
+                foreach (var item in usuarios)
+                {
+                    if (item.idUsuario.Equals(usuario.idUsuario))
+                    {
+                        usuarios.Remove(item);
+                        break;
+                    }
+                }
                 Guardar(usuarios);
                 return true;
             }
@@ -56,12 +63,12 @@ namespace Datos
             return false;
         }
 
-        public Usuario Buscar(string cedula)
+        public Usuario Buscar(string id)
         {
             List<Usuario> usuarios = Leer();
             foreach (var item in usuarios)
             {
-                if (item.cedula.Equals(cedula))
+                if (item.idUsuario.Equals(id))
                 {
                     return item;
                 }

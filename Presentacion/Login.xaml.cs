@@ -49,7 +49,7 @@ namespace Presentacion
             Usuario logueado = login.Loguear(loguear);
             if (logueado != null)
             {
-               
+
                 VistaPrincipal vistaPrincipal = new VistaPrincipal();
                 vistaPrincipal.Show();
                 this.Hide();
@@ -59,7 +59,7 @@ namespace Presentacion
                 MessageBox.Show("Usuario Incorrecto(Admin-1234)");
             }
 
-            
+
 
         }
     }
