@@ -6,7 +6,7 @@ namespace ENTIDADES
     [Serializable]
     public class CategoriaProducto
     {
-        public string idCategoria { get; set; }
+        public int idCategoria { get; set; }
         public string descripcion { get; set; }
     }
 }

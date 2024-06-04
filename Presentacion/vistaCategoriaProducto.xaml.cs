@@ -39,8 +39,9 @@ namespace Presentacion
                 return;
             }
             CategoriaProducto categoria = new CategoriaProducto();
-            if (logicaCategoria.Buscar(txtDescripProducto.Text) == null)
+            if (logicaCategoria.Buscar(int.Parse(txtIdCategoria.Text)) == null)
             {
+                categoria.idCategoria = int.Parse(txtIdCategoria.Text);
                 categoria.descripcion = txtDescripProducto.Text;
                 logicaCategoria.Add(categoria);
                 ActualizarTabla();
@@ -72,8 +73,7 @@ namespace Presentacion
                 MessageBoxResult result = MessageBox.Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    MessageBox.Show(logicaCategoria.Eliminar(categoria.descripcion));
-                    
+                    MessageBox.Show(logicaCategoria.Eliminar(categoria.idCategoria));
                 }
                 ActualizarTabla();
             }
@@ -92,7 +92,7 @@ namespace Presentacion
                 ActualizarTabla();
                 return;
             }
-            CategoriaProducto buscado = logicaCategoria.Buscar(txtBuscarListaCategoria.Text);
+            CategoriaProducto buscado = logicaCategoria.Buscar(int.Parse(txtIdCategoria.Text));
 
             if (buscado != null)
             {

@@ -32,8 +32,8 @@ namespace Presentacion
             InitializeComponent();
             List<Producto> productos = logicaProducto.Leer();
             List<CategoriaProducto> categoriaProducto = logicaCategoria.Leer();
-            cbCategoria.ItemsSource = categoriaProducto;
             tblListaProductos1.DataContext = productos;
+            AlertaBajoStock();
         }
 
         private void Btnguardar(object sender, RoutedEventArgs e)
@@ -65,7 +65,23 @@ namespace Presentacion
                     MessageBox.Show("La cantidad solo puede contener números y un máximo de 30 elementos", "Alerta", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                producto.categoriaProducto = ((CategoriaProducto)cbCategoria.SelectedItem);
+                if (ValidarNumero(txtCategoria.Text))
+                {
+                    foreach (var item in logicaCategoria.Leer())
+                    {
+                        if(item.idCategoria == int.Parse(txtCategoria.Text))
+                        {
+                            producto.categoriaProducto = item;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El código Categoria solo puede contener números", "Alerta", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                
                 logicaProducto.Add(producto);
                 ActualizarTablaProducto();
                 Limpiar();
@@ -153,10 +169,34 @@ namespace Presentacion
             txtDescripcion.Clear();
             txtCodigoProducto.Clear();
             txtMinima.Clear();
-            cbCategoria.SelectedItem = null;
             BoxBuscarListProductos.Clear();
+            ActualizarTablaProducto();
         }
-        
-        
+
+        void AlertaBajoStock()
+        {
+            List<Producto> filtrado = new List<Producto>();
+            foreach (var item in logicaProducto.Leer())
+            {
+                if (item.cantidad <= item.cantidadMinima)
+                {
+                    filtrado.Add(item);
+                }
+            }
+            if (filtrado.Count != 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Existen productos con baja cantidad de stock\n¿Desea saber el listado? ", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    tblListaProductos1.DataContext = null;
+                    tblListaProductos1.DataContext = filtrado;
+                }
+            }
+
+        }
+
+
+
     }
 }

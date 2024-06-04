@@ -1,97 +1,165 @@
 ﻿using ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class ArchivoProducto:Icrud<Producto>
+    public class ArchivoProducto:BaseDatos
     {
-        private readonly string fileName = "Producto.bin";
-        FileStream archivo;
+        ArchivoCategoria archivoCategoria = new ArchivoCategoria();
+
         public void Add(Producto producto)
         {
-            List<Producto> productos = Leer();
-            productos.Add(producto);
-            Guardar(productos);
-        }
-        public void Guardar(List<Producto> productos)
-        {
-            archivo = new FileStream(fileName, FileMode.OpenOrCreate);
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(archivo, productos);
-            archivo.Close();
+            string registro = "INSERT INTO PRODUCTO (IdProducto, DescripcionProducto, IdCategoria, CantidadMinima) VALUES (@IdProducto, @DescripcionProducto, @IdCategoria, @CantidadMinima)";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(registro, conexion))
+                {
+                    command.Parameters.AddWithValue("@IdProducto", producto.idProducto);
+                    command.Parameters.AddWithValue("@DescripcionProducto", producto.descripcion);
+                    command.Parameters.AddWithValue("@IdCategoria", producto.categoriaProducto.idCategoria);
+                    command.Parameters.AddWithValue("@CantidadMinima", producto.cantidadMinima);
+
+                    AbrirConexion();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
         }
 
         public List<Producto> Leer()
         {
-            if (!File.Exists(fileName))
+            List<Producto> productoList = new List<Producto>();
+            string Consulta = "SELECT * FROM PRODUCTO";
+            try
             {
-                return new List<Producto>();
-            }
+                SqlCommand command = new SqlCommand(Consulta, conexion);
+                AbrirConexion();
+                SqlDataReader reader = command.ExecuteReader();
 
-            using (FileStream archivo = new FileStream(fileName, FileMode.Open))
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                return (List<Producto>)formatter.Deserialize(archivo);
+                while (reader.Read())
+                {
+                    productoList.Add(Map(reader));
+                }
+                reader.Close();
+                CerrarConexion();
             }
+            catch (Exception)
+            {
+                return null;
+            }
+            return productoList;
         }
 
         public bool Eliminar(string idProducto)
         {
+            string query = "DELETE FROM PRODUCTO WHERE IdProducto = @IdProducto";
 
-            Producto producto = Buscar(idProducto);
-
-            if (producto != null)
+            try
             {
-                //categoriaProductos.Remove(categoriaProducto);
-                List<Producto> productos = Remover(producto);
-                Guardar(productos);
-                return true;
-            }
-
-            return false;
-        }
-        public List<Producto> Remover(Producto producto)
-        {
-            List<Producto> productos = Leer();
-            foreach (var item in productos)
-            {
-                if (item.idProducto.Equals(producto.idProducto))
+                using (SqlCommand command = new SqlCommand(query, conexion))
                 {
-                    productos.Remove(item);
-                    return productos;
+                    command.Parameters.AddWithValue("@IdProducto", idProducto);
+
+                    AbrirConexion();
+                    var rowsAffected = command.ExecuteNonQuery();
+                    CerrarConexion();
+
+                    return rowsAffected > 0;
                 }
             }
-            return productos;
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
         }
+
         public Producto Buscar(string idProducto)
         {
-            List<Producto> productos = Leer();
-            foreach (var item in productos)
+            try
             {
-                if (item.idProducto.Equals(idProducto))
+                var productos = Leer();
+                if (productos == null)
                 {
-                    return item;
+                    return null;
                 }
+                return productos.FirstOrDefault(p => p.idProducto == idProducto);
             }
-            return null;
+            catch (Exception)
+            {
+                return null;
+            }
         }
+
         public bool Actualizar(Producto productoNew)
         {
-            List<Producto> productos = Leer();
-            Producto productoOld = Buscar(productoNew.idProducto);
-            if (productoOld != null)
+            string query = "UPDATE FROM PRODUCTO SET (PrecioCompra, PrecioVenta, CantidadExistente) WHERE IdProducto = @IdProducto";
+            try
             {
-                Eliminar(productoOld.idProducto);
-                Add(productoNew);
-                return true;
+                using (SqlCommand command = new SqlCommand(query, conexion))
+                {
+                    command.Parameters.AddWithValue("@IdProducto", productoNew.idProducto);
+                    command.Parameters.AddWithValue("@PrecioCompra", productoNew.precioCompra);
+                    command.Parameters.AddWithValue("@PrecioVenta", productoNew.precioVenta);
+                    command.Parameters.AddWithValue("@CantidadExistente", productoNew.cantidad);
+                    AbrirConexion();
+                    var rowsAffected = command.ExecuteNonQuery();
+                    CerrarConexion();
+
+                    return rowsAffected > 0;
+                }
             }
-            return false;
-        } 
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
+
+
+        private Producto Map(SqlDataReader reader)
+        {
+            Producto producto = new Producto
+            {
+                idProducto = Convert.ToString(reader["IdProducto"]),
+                descripcion = Convert.ToString(reader["DescripcionProducto"]),
+                cantidad = Convert.ToInt16(reader["CantidadExistente"]),
+                precioCompra = Convert.ToDouble(reader["PrecioCompra"]),
+                precioVenta = Convert.ToDouble(reader["PrecioVenta"]),
+                cantidadMinima = Convert.ToInt32(reader["CantidadMinima"])
+            };
+            int IdCategoria = Convert.ToInt32(reader["IdCategoria"]);
+            producto.categoriaProducto = ObtenerCategoria(IdCategoria);
+
+            return producto;
+        }
+
+        private CategoriaProducto ObtenerCategoria(int IdCategoria)
+        {
+            return archivoCategoria.Leer().Find(c => c.idCategoria == IdCategoria);
+        }
     }
 }

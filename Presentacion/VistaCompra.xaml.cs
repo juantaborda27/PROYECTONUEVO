@@ -2,6 +2,7 @@
 using Logica;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -18,15 +19,25 @@ namespace Presentacion
         LogicaCompra logicaCompra = new LogicaCompra();
         List<DetalleCompra> detalles = new List<DetalleCompra>();
         int id = 0;
+
         public VistaCompra()
         {
             InitializeComponent();
             List<Proveedor> proveedores = logicaProveedor.Leer();
+            if (logicaCompra.Leer().Count != 0)
+            {
+                lbIdCompra.Content = int.Parse(logicaCompra.Leer().Last().IdCompra) + 1;
+            }
+            else
+            {
+                lbIdCompra.Content = "1";
+            }
             cbProveedor.ItemsSource = proveedores;
             DateTime fechaActual = DateTime.Now;
             lbFecha.Content = fechaActual.ToString("dd/MM/yyyy");
         }
 
+       
         private void BtnBuscar_Click(object sender, RoutedEventArgs e)
         {
             if (txtCodProducto.Text.Equals(""))
@@ -51,7 +62,8 @@ namespace Presentacion
             if (cbProveedor != null && cbProveedor.SelectedItem != null)
             {
                 Proveedor proveedor = (Proveedor)cbProveedor.SelectedItem;
-                lbDocumento.Content = proveedor.documento;
+                
+                lbDocumento.Content = proveedor.idProveedor;
             }
         }
 
@@ -187,12 +199,13 @@ namespace Presentacion
             if (ValidarCamposFactura())
             {
                 Compra compra = new Compra();
+                compra.IdCompra = lbIdCompra.Content.ToString();
                 string fecha = lbFecha.Content.ToString();
                 compra.FechaCompra = DateTime.Parse(fecha);
-                compra.proveedor = logicaProveedor.Buscar(lbDocumento.ToString());
+                compra.proveedor = logicaProveedor.Buscar(lbDocumento.Content.ToString());
                 compra.montoTotal = double.Parse(lbPago.Content.ToString());
                 compra.detalles = detalles;
-                logicaCompra.Add(compra);
+                logicaCompra.Add(compra, detalles);
                 MessageBox.Show("Factura registrada con exito", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }

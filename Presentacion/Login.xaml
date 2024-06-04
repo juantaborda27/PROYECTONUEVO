@@ -5,242 +5,77 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="500"
-        WindowStyle = "None"
-        ResizeMode = "NoResize"
-        WindowStartupLocation="CenterScreen"
-        Background="Transparent"
+        Title="MainWindow" Height="760" Width="450"
+        Background="{x:Null}"
         AllowsTransparency="True"
-        MouseDown="Window_MouseDown">
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
 
-    <Border CornerRadius="60">
-        <Border.Background>
-            <ImageBrush ImageSource="/Imagenes/toool.png"
-                        Stretch="None"/>
-        </Border.Background>
-        <Border CornerRadius="60"
-            BorderThickness="2">
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="20" ShadowDepth="10" Opacity="0.5" Color="Black"/>
+    </Window.Effect>
 
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="White" Offset="0"/>
-                    <GradientStop Color="White" Offset="0.75"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-            <Border.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="Cyan" Offset="0"/>
-                    <GradientStop Color="DarkBlue" Offset="0.75"/>
-                </LinearGradientBrush>
-            </Border.Background>
+    <!--LOGIN PANEL PRINCIPAL-->
+    <StackPanel Background="White" Margin="10" Orientation="Vertical">
+        <StackPanel.Clip>
+            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,3,420,735"/>
+        </StackPanel.Clip>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+        <Button x:Name="btnCerrar" Content="X" Background="Transparent" BorderBrush="Transparent" Width="38" Margin="376,6,0,0" Height="21" Foreground="Gray" FontFamily="Century Gothic" FontWeight="Bold" FontSize="16" Click="btnCerrar_Click"/>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="55"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="  "
-                               Foreground="DarkGray"
-                               FontSize="10"
-                               FontFamily="Monserrat"
-                               Grid.Column="0"
-                               VerticalAlignment="Center"
-                               Margin="10,0,0,0"/>
+        <Image Height="257" Width="300" Margin="0,50,0,0" Source="IMAGEN/Logazon.png" />
+        <Label Content="BIENVENIDO" Width="241" FontSize="36" Foreground="Gray" FontFamily="MrRobot"/>
+        <Label Content="Iniciar sesión" Width="120" FontSize="18" Foreground="Gray" FontFamily="Century Gothic"/>
 
-                    <Button x:Name="btnMinimizar"
-                        BorderThickness="0"
-                        Content="-"
-                        Foreground="White"
-                        FontSize="16"
-                        FontFamily="Monserrat"
-                        Cursor="Hand"
-                        Grid.Column="1"
-                        Click="btnMinimizar_Click" RenderTransformOrigin="-0.426,0.604" Grid.ColumnSpan="2" Margin="25,2,25,-2">
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="Cyan"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="DarkCyan"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="40" Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-
-                    <Button x:Name="btnCerrar"
-                            BorderThickness="0"
-                            Content="X"
-                            Foreground="White"
-                            FontSize="12"
-                            FontFamily="Monserrat"
-                            Cursor="Hand"
-                            Grid.Column="2"
-                            Click="btnCerrar_Click" Grid.ColumnSpan="2" Margin="25,2,30,-2">
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="Red"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="OrangeRed"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="40" Height="18"
-                                        CornerRadius="8"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-
-                    </Button>
-
-                </Grid>
-                <StackPanel Width="250"
-                            Grid.Row="1"
-                            Orientation="Vertical"
-                            Margin="0,10,0,0">
-                    <Image Source="/Imagenes/LOGONV.png"
-                           Width="180" Height="150"/>
-
-                    <TextBlock Text="TVV"
-                               Foreground="White"
-                               FontSize="30"
-                               FontWeight="Medium"
-                               FontFamily="Century Gothic"
-                               HorizontalAlignment="Center"/>
-
-                    <TextBlock Text="Iniciar Sesión"
-                               Foreground="LightGray"
-                               FontSize="18"
-                               FontWeight="Medium"
-                               FontFamily="Century Gothic"
-                               TextWrapping="Wrap"
-                               TextAlignment="Center"
-                               Margin="0,5,0,0"/>
-
-                    <TextBlock Text="USUARIO"
-                               Foreground="DarkGray"
-                               FontSize="15"
-                               FontWeight="Medium"
-                               FontFamily="Century Gothic"
-                               TextWrapping="Wrap"
-                               TextAlignment="Center"
-                               Margin="0,35,0,0"/>
-
-                    <TextBox x:Name="txtUsuario"
-                             FontSize="13"
-                             FontWeight="Medium"
-                             FontFamily="Montserrat"
-                             Foreground="White"
-                             CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
-                             BorderThickness="0,0,0,1"
-                             Height="28"
-                             VerticalContentAlignment="Center"
-                             Margin="0,5,0,0"
-                             Padding="20,0,0,0">
-                        <TextBox.Background>
-                            <ImageBrush ImageSource="/Imagenes/Usuario.png"
-                                        Stretch="None"
-                                        AlignmentX="Left"/>
-                        </TextBox.Background>
-                    </TextBox>
-
-                    <TextBlock Text="CONTRASEÑA"
-                               Foreground="DarkGray"
-                               FontSize="15"
-                               FontWeight="Medium"
-                               FontFamily="Century Gothic"
-                               TextWrapping="Wrap"
-                               TextAlignment="Center"
-                               Margin="0,15,0,0"/>
-
-                    <PasswordBox x:Name="txtContra"
-                             FontSize="13"
-                             FontWeight="Medium"
-                             FontFamily="Montserrat"
-                             Foreground="White"
-                             CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
-                             BorderThickness="0,0,0,1"
-                             Height="28"
-                             VerticalContentAlignment="Center"
-                             Margin="0,5,0,0"
-                             Padding="20,0,0,0">
-                        <PasswordBox.Background>
-                            <ImageBrush ImageSource="/Imagenes/key.png"
-                                        Stretch="None"
-                                        AlignmentX="Left"/>
-                        </PasswordBox.Background>
-                    </PasswordBox>
-
-                    <Button x:Name="btnLogin"
-                            BorderThickness="0"
-                            Content="LOGIN"
-                            Foreground="White"
-                            FontSize="12"
-                            FontFamily="Monserrat"
-                            Cursor="Hand"
-                            Grid.Column="2"
-                            Margin="0,50,0,0"
-                            Click="btnLogin_Click">
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="DarkBlue"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="DeepSkyBlue"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="150" Height="40"
-                                        CornerRadius="20"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-
-                    </Button>
-
-
-                </StackPanel>
-            </Grid>
+        <Border CornerRadius="10" BorderThickness="2" BorderBrush="Gray" Margin="10,50,10,10" Width="300" Height="45">
+            <Border CornerRadius="10" Background="Transparent" BorderThickness="0">
+                <TextBox x:Name="txtUsuario" 
+                 Text="Usuario" 
+                 Margin="3,0,4,0" 
+                 SelectionBrush="Transparent" 
+                 SelectionOpacity="0" 
+                 BorderBrush="Transparent" 
+                 Background="Transparent" 
+                 Foreground="Gray" 
+                 FontFamily="Century Gothic" 
+                 FontSize="16" 
+                 HorizontalContentAlignment="Center" 
+                 TextAlignment="Center" 
+                 FocusVisualStyle="{x:Null}" 
+                 VerticalContentAlignment="Center"
+                 Padding="5"/>
+            </Border>
         </Border>
-    </Border>
+
+
+        <Border CornerRadius="10" BorderThickness="2" BorderBrush="Gray" Margin="10,20,10,10" Width="300" Height="45">
+            <Border CornerRadius="10" Background="Transparent" BorderThickness="0">
+                <PasswordBox x:Name="txtContra" Margin="0" 
+                 SelectionBrush="Transparent" 
+                 SelectionOpacity="0" 
+                 BorderBrush="Transparent" 
+                 Background="Transparent" 
+                 Foreground="Gray" 
+                 FontFamily="Century Gothic" 
+                 FontSize="16" 
+                 HorizontalContentAlignment="Center" 
+                 FocusVisualStyle="{x:Null}" 
+                 VerticalContentAlignment="Center"
+                 Padding="5"/>
+            </Border>
+        </Border>
+
+        <!--BtnLogin-->
+        <StackPanel Height="56" Width="325" Margin="0,20,0,0">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="10,2,300,50"/>
+            </StackPanel.Clip>
+            <Button Background="Green" x:Name="btnLogin"  Content="LOG IN" Height="55" Width="310" Margin="2,0,0,0" BorderBrush="Transparent" Foreground="White" FontFamily="Century Gothic" FontSize="20" Click="btnLogin_Click"/>
+        </StackPanel>
+
+
+        <Label Content="© 2024 - 2049 TVV" Width="152" FontSize="16" Foreground="Gray" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+
+
+    </StackPanel>
 </Window>

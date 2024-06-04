@@ -20,9 +20,9 @@ namespace Logica
         {
             return archivoUsuario.Leer();
         }
-        public string Eliminar(string idUsuario)
+        public string Eliminar(string Cedula)
         {
-            if (archivoUsuario.Eliminar(idUsuario))
+            if (archivoUsuario.Eliminar(Cedula))
             {
                 return "Se ha eliminado correctamente";
             }
@@ -35,16 +35,16 @@ namespace Logica
         {
             return archivoUsuario.Buscar(idUsuario);
         }
-        public string Actualizar(Usuario usuario)
-        {
-            if (archivoUsuario.Actualizar(usuario))
-            {
-                return "Se ha modificado correctamente";
-            }
-            else
-            {
-                return "Producto no identificado";
-            }
-        }
+        //public string Actualizar(Usuario usuario)
+        //{
+        //    if (archivoUsuario.Actualizar(usuario))
+        //    {
+        //        return "Se ha modificado correctamente";
+        //    }
+        //    else
+        //    {
+        //        return "Producto no identificado";
+        //    }
+        //}
     }
 }

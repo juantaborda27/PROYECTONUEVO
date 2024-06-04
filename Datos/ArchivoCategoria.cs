@@ -1,100 +1,145 @@
 ﻿using ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Datos
 {
-    public class ArchivoCategoria:Icrud<CategoriaProducto>
+    public class ArchivoCategoria: BaseDatos
     {
-        private readonly string fileName = "Categoria.bin";
-
         public void Add(CategoriaProducto categoriaProducto)
         {
-            List<CategoriaProducto> categoriaProductos = Leer();
-            categoriaProductos.Add(categoriaProducto);
-            Guardar(categoriaProductos);
-        }
-
-        public void Guardar(List<CategoriaProducto> categoriaProductos)
-        {
-            using (FileStream archivo = new FileStream(fileName, FileMode.OpenOrCreate))
+            try
             {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(archivo, categoriaProductos);
+                string registro = "INSERT INTO categoria (IdCategoria, DescripcionCategoria) VALUES (@IdCategoria, @DescripcionCategoria)";
+
+                using (SqlCommand command = new SqlCommand(registro, conexion))
+                {
+                    command.Parameters.AddWithValue("@IdCategoria", categoriaProducto.idCategoria);
+                    command.Parameters.AddWithValue("@DescripcionCategoria", categoriaProducto.descripcion);
+
+                    AbrirConexion();
+                    command.ExecuteNonQuery();
+                }
             }
+            catch (Exception ex)
+            {
+                return;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+
         }
 
         public List<CategoriaProducto> Leer()
         {
-            if (!File.Exists(fileName))
+            List<CategoriaProducto> categoriaList = new List<CategoriaProducto>();
+            string consulta = "SELECT * FROM categoria";
+            try
             {
-                return new List<CategoriaProducto>();
-            }
-
-            using (FileStream archivo = new FileStream(fileName, FileMode.Open))
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                return (List<CategoriaProducto>)formatter.Deserialize(archivo);
-            }
-        }
-
-        public bool Eliminar(string descripcion)
-        {
-           
-            CategoriaProducto categoriaProducto = Buscar(descripcion);
-
-            if (categoriaProducto != null )
-            {
-                //categoriaProductos.Remove(categoriaProducto);
-                List<CategoriaProducto> categoriaProductos = Remover(categoriaProducto);
-                Guardar(categoriaProductos);
-                return true;
-            }
-
-            return false;
-        }
-        public List<CategoriaProducto> Remover(CategoriaProducto categoriaProducto)
-        {
-            List<CategoriaProducto> categoriaProductos = Leer();
-            foreach (var item in categoriaProductos)
-            {
-                if (item.descripcion.Equals(categoriaProducto.descripcion))
+                SqlCommand command = new SqlCommand(consulta, conexion);
+                AbrirConexion();
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    categoriaProductos.Remove(item);
-                    return categoriaProductos;
+                    while (reader.Read())
+                    {
+                        categoriaList.Add(Map(reader));
+                    }
+                }
+                CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                // Log the exception for debugging purposes
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return null;
+            }
+            return categoriaList;
+        }
+
+        public bool Eliminar(int IdCategoria)
+        {
+            string ssql = "DELETE FROM [categoria] WHERE [IdCategoria] = @IdCategoria";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(ssql, ObtenerConexion()))
+                {
+                    command.Parameters.AddWithValue("@IdCategoria", IdCategoria);
+
+                    AbrirConexion();
+                    var i = command.ExecuteNonQuery(); 
+                    CerrarConexion();
+
+                    if (i > 0)
+                    {
+                        return true;
+                    }
+                    return false;
                 }
             }
-            return categoriaProductos;
-        }
-        public CategoriaProducto Buscar(string descripcion)
-        {
-            List<CategoriaProducto> categoriaProductos = Leer();
-            foreach (var item in categoriaProductos)
+            catch (Exception)
             {
-                if (item.descripcion.Equals(descripcion))
-                {
-                    return item;
-                }
+                return false;
             }
-            return null;
+            finally
+            {
+                CerrarConexion();
+            }
+        }
+
+        public CategoriaProducto Buscar(int IdCategoria)
+        {
+            try
+            {
+                var categorias = Leer();
+                if (categorias == null)
+                {
+                    return null;
+                }
+                return categorias.FirstOrDefault(p => p.idCategoria== IdCategoria);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public bool Actualizar(CategoriaProducto categoriaProductoNew)
         {
-            List<CategoriaProducto> categoriaProductos = Leer();
-            CategoriaProducto categoriaProductoOld = Buscar(categoriaProductoNew.descripcion);
-
-            if (categoriaProductoOld != null)
+            try
             {
-                categoriaProductos.Remove(categoriaProductoOld);
-                categoriaProductos.Add(categoriaProductoNew);
-                Guardar(categoriaProductos);
-                return true;
+                string Actualizar = "ModificarCategoria";
+                SqlCommand command = new SqlCommand(Actualizar, conexion);
+                command.Parameters.AddWithValue("@IdCategoria", categoriaProductoNew.idCategoria);
+                command.Parameters.AddWithValue("@TipoCategoria", categoriaProductoNew.descripcion);
+                command.CommandType = CommandType.StoredProcedure;
+                AbrirConexion();
+                var index = command.ExecuteNonQuery();
+                CerrarConexion();
             }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
 
-            return false;
+        private CategoriaProducto Map(SqlDataReader reader)
+        {
+            CategoriaProducto categoria = new CategoriaProducto
+            {
+                idCategoria = Convert.ToInt32(reader["IdCategoria"]),
+                descripcion = Convert.ToString(reader["DescripcionCategoria"]),
+            };
+
+            return categoria;
         }
     }
 }

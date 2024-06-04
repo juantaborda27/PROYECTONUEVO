@@ -5,221 +5,150 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="VistaPrincipal" Height="610" Width="1100"
-        WindowStyle = "None"
-        ResizeMode = "NoResize"
-        WindowStartupLocation="CenterScreen"
-        Background="Transparent"
+        Title="VistaPrincipal"
+        Height="610" Width="1100"
+        Background="{x:Null}"
         AllowsTransparency="True"
-        MouseDown="Window_MouseDown">
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
 
-
-    <Border CornerRadius="60" Margin="0,10,0,0" Grid.ColumnSpan="4">
-        <Border CornerRadius="6"
-                BorderThickness="3"
-                Opacity="1" Background="#FF4E81FA">
-
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="White" Offset="0"/>
-                    <GradientStop Color="White" Offset="0.75"/>
-                    <GradientStop Color="DarkGray" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <!-- Panel de botones de navegación -->
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="175" Grid.RowSpan="2" Background="#FF3A7AFA">
-                    <Image Height="76" Width="90" Source="/LOGONV.png" RenderTransformOrigin="0.508,0.583"/>
-                    <Button
-                         
-                        x:Name="btnVentas"
-                        Click="btnVentas_Click" 
-                        FontSize="18"
-                        BorderBrush="Transparent"
-                        Foreground="#FFF7F7F7" FontFamily="Century Gothic" Height="94" Width="171">
-                        <Button.Background>
-
-                            <ImageBrush ImageSource="/ventas.png" Stretch="None" TileMode="None">
-                                <ImageBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                                        <RotateTransform CenterX="0.5" CenterY="0.5"/>
-                                        <TranslateTransform X="0"/>
-                                    </TransformGroup>
-                                </ImageBrush.RelativeTransform>
-                            </ImageBrush>
-                        </Button.Background>
-                        <Label x:Name="labelVentas" Content="VENTAS" FontFamily="Century Gothic" Foreground="White" Height="36" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Width="78" BorderBrush="Transparent" Background="Transparent" RenderTransformOrigin="0.526,0.758" Margin="0,60,0,0" FontSize="16"/>
-                    </Button>
-                    <Button 
-                        x:Name="btnCompras"
-                        Click="btnCompras_Click" 
-                        FontSize="18" 
-                        FontWeight="Bold" 
-                        Foreground="#FFFDFDFD" 
-                        BorderBrush="#00000000" FontFamily="Century Gothic" Height="92" Width="171">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/compras.png" Stretch="None"/>
-                        </Button.Background>
-                        <Label x:Name="labelCompras" Content="COMPRAS" Foreground="#FFE4E4E4" Margin="0,60,0,0" FontWeight="Normal" FontSize="16"/>
-                    </Button>
-                    <Button 
-                        x:Name="btnProveedores"
-                        Click="btrnProveedores_Click" 
-                        FontSize="18" 
-                        FontWeight="Bold" 
-                        Foreground="#FFFDFDFD" 
-                        BorderBrush="Transparent" FontFamily="Century Gothic" Height="77" Width="171">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/proveedor.png" Stretch="None"/>
-                        </Button.Background>
-                        <Label Content="PROVEEDOR" Foreground="WhiteSmoke" Height="35" Margin="0,50,0,0" FontWeight="Normal" FontSize="16"/>
-                    </Button>
-                    <Button 
-                        x:Name="btnReportes"
-                        Click="btnReportes_Click" 
-                        FontSize="18" 
-                        FontWeight="Bold" 
-                        Foreground="#FFFDFDFD" 
-                        BorderBrush="Transparent" RenderTransformOrigin="2.47,-3.424" FontFamily="Century Gothic" Height="79" Width="166">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/report.png" Stretch="None"/>
-                        </Button.Background>
-                        <Label Content="REPORTE" Foreground="White" Margin="0,49,0,0" FontWeight="Normal" FontSize="16"/>
-                    </Button>
-                    <Button x:Name="btnOpciones" Click="Button_Click" Height="89" Width="177" BorderBrush="Transparent" Foreground="Transparent">
-                        
-                        <Button.Background>
-                            <ImageBrush ImageSource="/CategoriaProd.png" Stretch="None"/>
-                        </Button.Background>
-                        <Label Content="ADMINISTRAR PRD" Width="151" HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="White" Margin="0,57,0,0"/>
-                    </Button>
-
-                    <!-- Popup que contendrá las opciones -->
-                    <Popup x:Name="popup" Placement="Right" StaysOpen="False" PlacementTarget="{Binding ElementName=btnOpciones}" OpacityMask="White">
-                        <Border Background="#FF3A7AFA" BorderBrush="Transparent" BorderThickness="1">
-                            <StackPanel Orientation="Vertical" Margin="10" Background="#FF3A7AFA">
-                                <!-- Botón para Producto -->
-                                <Button  Background="Transparent" BorderBrush="Transparent" Foreground="White" Content="PRODUCTO" Click="Producto_Click" FontFamily="Century Gothic"/>
-                                <!-- Botón para Categoría -->
-                                <Button  Background="Transparent" BorderBrush="Transparent" Foreground="White" Content="CATEGORIA" Click="Categoria_Click" FontFamily="Century Gothic"/>
+    <Window.Resources>
+        <!-- Estilo para el ContextMenu del btnReportes -->
+        <Style x:Key="ContextMenuStyle" TargetType="ContextMenu">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContextMenu">
+                        <Border Background="#FF808080" CornerRadius="5">
+                            <StackPanel>
+                                <ItemsPresenter />
                             </StackPanel>
                         </Border>
-                    </Popup>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <!-- Estilo para los Header de los MenuItems -->
+                <Style TargetType="MenuItem">
+                    <Setter Property="Foreground" Value="White" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
 
 
-                    <Button 
-                        x:Name="btnUsuario" 
-                        Click="btnUsuario_Click" 
-                        FontSize="18" 
-                        FontWeight="Bold" 
-                        Foreground="#FFFDFDFD" 
-                        BorderBrush="Transparent" FontFamily="Century Gothic" Height="82" Width="168">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/usuaario.png" Stretch="None"/>
-                        </Button.Background>
-                        <Label Content="USUARIO" Foreground="#FFEFEFEF" RenderTransformOrigin="0.634,0.602" VerticalAlignment="Bottom" Margin="0,50,5,0" FontWeight="Normal"/>
-                    </Button>
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="20" ShadowDepth="10" Opacity="0.5" Color="Black"/>
+    </Window.Effect>
 
-                </StackPanel>
+    <Grid>
 
-                <!-- Contenido de la vista -->
+        <!--StackPanel Principal-->
+        <StackPanel Background="White" Orientation="Vertical">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="2,2,1095,605"/>
+            </StackPanel.Clip>
 
+            <Grid Width="850" Height="510" Margin="210,75,0,0">
+                <Grid.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,850,510"/>
+                </Grid.Clip>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="45"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text=""
-                   Foreground="Black"
-                   FontSize="22"
-                   FontFamily="Tahoma"
-                   Grid.Column="0"
-                   VerticalAlignment="Center"
-                   Margin="174,0,0,0" FontWeight="Bold" Background="#FF0032FA" Grid.ColumnSpan="4" Height="30"/>
-
-                    <Button x:Name="btnMinimizar"
-                    BorderThickness="0"
-                    Content="-"
-                    Foreground="White"
-                    FontSize="20"
-                    FontFamily="Tahoma"
-                    Cursor="Hand"
-                    Grid.Column="1"
-                    Click="btnMinimizar_Click" RenderTransformOrigin="-0.426,0.604" Grid.ColumnSpan="2" Margin="40,0,10,0">
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="Cyan"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="DarkCyan"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="40" Height="18"
-                CornerRadius="9"
-                Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                              HorizontalAlignment="Center"/>
-
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-
-                    <Button x:Name="btnCerrar"
-                            BorderThickness="0"
-                            Content="X"
-                            Foreground="White"
-                            FontSize="16"
-                            FontFamily="Monserrat"
-                            Cursor="Hand"
-                            Grid.Column="2"
-                            Click="btnCerrar_Click" Height="30" VerticalAlignment="Center" RenderTransformOrigin="0.569,0.617" Grid.ColumnSpan="2" Margin="45,0,0,0">
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="Red"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="OrangeRed"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="40" Height="18"
-                                CornerRadius="8"
-                                Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                    <Image x:Name="ImgUsuarioV" HorizontalAlignment="Left" Height="26" Margin="203,0,0,0" VerticalAlignment="Center" Width="26" RenderTransformOrigin="0.813,0.48" Source="/usuario2.png"/>
-                    <Label x:Name="LabelUsuario" Content="USUARIO" HorizontalAlignment="Left" Margin="229,0,0,0" VerticalAlignment="Center" FontFamily="Century Gothic" Background="Transparent" Foreground="#FF00C6EB"/>
-                </Grid>
-                <StackPanel x:Name="panelPrincipal" Grid.Row="1" Margin="207,25,22,24">
-                    <Frame x:Name="frameVenta" NavigationUIVisibility="Hidden" Height="510" Width="850" Background="#FF2847C7">
-                    </Frame>
-                </StackPanel>
+                <Frame x:Name="frameVenta" NavigationUIVisibility="Hidden" Background="#FFE0E0E0" Foreground="Transparent" />
             </Grid>
-        </Border>
-    </Border>
+        </StackPanel>
+
+
+        <!--StackPanel Navegacion-->
+        <StackPanel Margin="0,0,890,0" Background="White" Orientation="Vertical">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="2,2,800,605"/>
+            </StackPanel.Clip>
+            <StackPanel.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Opacity="0.5" Color="Black"/>
+            </StackPanel.Effect>
+            <Image Height="123" Width="150" Margin="0,4,0,0" Source="Logazon.png"/>
+
+            <!--VentasBtn-->
+            <Button x:Name="btnVentas" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btnVentas_Click">
+                <StackPanel Orientation="Horizontal" Width="98">
+                    <Image Source="IMAGEN/Ventas.png" Width="24" Height="24"/>
+                    <TextBlock Text="Ventas" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="57" FontWeight="Bold" FontSize="16"/>
+                </StackPanel>
+            </Button>
+
+            <!--ComprasBtn-->
+            <Button x:Name="btnCompras" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btnCompras_Click">
+                <StackPanel Orientation="Horizontal" Width="111">
+                    <Image Source="IMAGEN/Comprar.png" Width="24" Height="24"/>
+                    <TextBlock Text="Compras" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="75" FontWeight="Bold" FontSize="16"/>
+                </StackPanel>
+            </Button>
+
+            <!--ProveedorBtn-->
+            <Button x:Name="btrnProveedores" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btrnProveedores_Click">
+                <StackPanel Orientation="Horizontal" Width="118">
+                    <Image Source="IMAGEN/Proveedor.png" Width="24" Height="24"/>
+                    <TextBlock Text="Proveedor" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="82" FontWeight="Bold" FontSize="16"/>
+                </StackPanel>
+            </Button>
+
+            <!--ClienteBtn-->
+            <Button x:Name="btnCliente" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btrnClientes_Click">
+                <StackPanel Orientation="Horizontal" Width="118">
+                    <Image Source="IMAGEN/Proveedor.png" Width="24" Height="24"/>
+                    <TextBlock Text="Clientes" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Century Gothic" Width="66" FontWeight="Bold" FontSize="16"/>
+                </StackPanel>
+            </Button>
+
+            <!--UsuarioBtn-->
+            <Button x:Name="btnUsuario" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btnUsuario_Click">
+                <StackPanel Orientation="Horizontal" Width="121">
+                    <Image Source="IMAGEN/Usuario.png" Width="24" Height="24"/>
+                    <TextBlock Text="Usuarios" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Century Gothic" Width="71" FontWeight="Bold" FontSize="16"/>
+                </StackPanel>
+            </Button>
+
+            <!--ProductoBtn-->
+            <Button x:Name="Producto" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="Producto_Click">
+                <StackPanel Orientation="Horizontal" Width="115">
+                    <Image Source="IMAGEN/producto.png" Width="24" Height="24"/>
+                    <TextBlock Text="Producto" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="75" FontWeight="Bold" FontSize="16"/>
+                </StackPanel>
+            </Button>
+
+            <!--CategoriaBtn-->
+            <Button x:Name="Categoria" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="Categoria_Click">
+                <StackPanel Orientation="Horizontal" Width="121">
+                    <Image Source="IMAGEN/categoria.png" Width="24" Height="24"/>
+                    <TextBlock Text="Categoria" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="83" FontWeight="Bold" FontSize="16"/>
+                </StackPanel>
+            </Button>
+
+            <!--ReportesBtn-->
+            <Button x:Name="btnReportes" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btnReportes_Click">
+                <Button.ContextMenu>
+                    <ContextMenu Style="{StaticResource ContextMenuStyle}">
+                        <MenuItem Header="REPORTE VENTA" Click="ReporteVentas_Click"/>
+                        <MenuItem Header="REPORTE COMPRA" Click="ReporteCompras_Click"/>
+                    </ContextMenu>
+                </Button.ContextMenu>
+                <StackPanel Orientation="Horizontal" Width="121">
+                    <Image Source="IMAGEN/Reporte.png" Width="24" Height="24"/>
+                    <TextBlock Text="Reportes" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="83" FontWeight="Bold" FontSize="16"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Background="Gray" Margin="210,2,2,555">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,887,605"/>
+            </StackPanel.Clip>
+            <Label Content="TVV" Width="111" FontSize="43" Height="47" Foreground="White" FontFamily="MrRobot" Margin="5,3,0,0"/>
+        </StackPanel>
+        <StackPanel Background="Gray" Margin="210,2,859,555"/>
+
+        <Button x:Name="btnCerrar" Content="X" Click="btnCerrar_Click" Background="Transparent" BorderBrush="Transparent" Width="38" Foreground="White" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20" Margin="1045,10,17,574"/>
+        <Button x:Name="btnMinimizar" Content="---" Click="btnMinimizar_Click" Background="Transparent" BorderBrush="Transparent" Width="38" Foreground="White" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20" Margin="1007,10,55,574"/>
+    </Grid>
 
 </Window>

@@ -59,8 +59,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DetalleCompraVista.xaml.cs">
+      <DependentUpon>DetalleCompraVista.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleVentaVista.xaml.cs">
+      <DependentUpon>DetalleVentaVista.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesCompra.xaml.cs">
+      <DependentUpon>ReportesCompra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesVentas.xaml.cs">
+      <DependentUpon>ReportesVentas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistaCategoriaProducto.xaml.cs">
       <DependentUpon>vistaCategoriaProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaCliente.xaml.cs">
+      <DependentUpon>VistaCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistaCompra.xaml.cs">
       <DependentUpon>VistaCompra.xaml</DependentUpon>
@@ -102,6 +120,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\MR ROBOT.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,11 +130,35 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="DetalleCompraVista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DetalleVentaVista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ReportesCompra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportesVentas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Splash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vistaCategoriaProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,6 +243,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\En proceso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGEN\agregar.png" />
+    <Resource Include="IMAGEN\calendario.png" />
+    <Resource Include="IMAGEN\categoria.png" />
+    <Resource Include="IMAGEN\Comprar.png" />
+    <Resource Include="IMAGEN\Configuracion.png" />
+    <Resource Include="IMAGEN\Logazon.png" />
+    <Resource Include="IMAGEN\producto.png" />
+    <Resource Include="IMAGEN\Proveedor.png" />
+    <Resource Include="IMAGEN\Reporte.png" />
+    <Resource Include="IMAGEN\Usuario.png" />
+    <Resource Include="IMAGEN\Ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logazon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

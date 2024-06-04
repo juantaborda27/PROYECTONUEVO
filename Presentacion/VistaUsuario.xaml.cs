@@ -47,7 +47,7 @@ namespace Presentacion
             {
                 if (ValidarNumero(TxtIdUsuario.Text))
                 {
-                    usuario.idUsuario = TxtIdUsuario.Text;
+                    usuario.cedula = TxtIdUsuario.Text;
                 }
                 else
                 {
@@ -109,7 +109,7 @@ namespace Presentacion
                 MessageBoxResult result = MessageBox.Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    MessageBox.Show(logicaUsuario.Eliminar(usuario.idUsuario));
+                    MessageBox.Show(logicaUsuario.Eliminar(usuario.cedula));
 
                 }
                 ActualizarTablaUsuario();

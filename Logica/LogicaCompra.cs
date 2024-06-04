@@ -1,6 +1,7 @@
 ﻿using Datos;
 using ENTIDADES;
 using System.Collections.Generic;
+using System.Data;
 
 
 namespace Logica
@@ -10,9 +11,9 @@ namespace Logica
         ArchivoCompra datos = new ArchivoCompra();
         LogicaProducto logicaProducto = new LogicaProducto();
 
-        public string Add(Compra compra)
+        public string Add(Compra compra, List<DetalleCompra> detalles)
         {
-            datos.Add(compra);
+            datos.Add(compra, detalles);
             Entrada(compra);
             return "Se registro la venta correctamente";
         }
@@ -20,21 +21,22 @@ namespace Logica
         {
             return datos.Buscar(idCompra);
         }
+        
         public List<Compra> Leer()
         {
             return datos.Leer();
         }
-        public string Eliminar(string idCompra)
-        {
-            if (datos.Eliminar(idCompra))
-            {
-                return "Se elimino correctamente";
-            }
-            else
-            {
-                return "No existe dicha venta";
-            }
-        }
+        //public string Eliminar(string idCompra)
+        //{
+        //    if (datos.Eliminar(idCompra))
+        //    {
+        //        return "Se elimino correctamente";
+        //    }
+        //    else
+        //    {
+        //        return "No existe dicha venta";
+        //    }
+        //}
         public void Entrada(Compra compra)
         {
             foreach (var item in compra.detalles)

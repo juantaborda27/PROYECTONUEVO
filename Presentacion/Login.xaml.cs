@@ -36,9 +36,12 @@ namespace Presentacion
         {
             WindowState = WindowState.Minimized;
         }
+        
+
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -49,9 +52,8 @@ namespace Presentacion
             Usuario logueado = login.Loguear(loguear);
             if (logueado != null)
             {
-
-                VistaPrincipal vistaPrincipal = new VistaPrincipal();
-                vistaPrincipal.Show();
+                VistaPrincipal vistaPrincipal1 = new VistaPrincipal();
+                vistaPrincipal1.Show();
                 this.Hide();
             }
             else
@@ -61,6 +63,24 @@ namespace Presentacion
 
 
 
+        }
+
+        private void btnLogin_Click_1(object sender, RoutedEventArgs e)
+        {
+            Usuario loguear = new Usuario();
+            loguear.userName = txtUsuario.Text;
+            loguear.contraseña = txtContra.Password;
+            Usuario logueado = login.Loguear(loguear);
+            if (logueado != null)
+            {
+                VistaPrincipal vistaPrincipal1 = new VistaPrincipal();
+                vistaPrincipal1.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuario Incorrecto(Admin-1234)");
+            }
         }
     }
 }

@@ -17,9 +17,9 @@ namespace Logica
         {
             return data.Leer();
         }
-        public string Eliminar(string descripcion)
+        public string Eliminar(int IdCategoria)
         {
-            if (data.Eliminar(descripcion))
+            if (data.Eliminar(IdCategoria))
             {
                 return "Se ha eliminado de correctamente";
             }
@@ -28,9 +28,9 @@ namespace Logica
                 return "No existe el id ingresado";
             }
         }
-        public CategoriaProducto Buscar(string descripcion)
+        public CategoriaProducto Buscar(int IdCategoria)
         {
-            return data.Buscar(descripcion);
+            return data.Buscar(IdCategoria);
         }
         public string Actualizar(CategoriaProducto categoriaProducto)
         {

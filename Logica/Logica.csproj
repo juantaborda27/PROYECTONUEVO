@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LogicaCategoria.cs" />
+    <Compile Include="LogicaCliente.cs" />
     <Compile Include="LogicaCompra.cs" />
     <Compile Include="LogicaLogin.cs" />
     <Compile Include="LogicaProducto.cs" />

@@ -136,6 +136,8 @@
         <Label x:Name="lbPago" Content="0.0$" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" BorderBrush="White" Margin="696,361,32,99"/>
         <Button x:Name="btnEliminar" Content="Eliminar" Background="Red" Foreground="White" HorizontalAlignment="Left" Margin="692,274,0,0" VerticalAlignment="Top" Height="45" Width="99" Click="btnEliminar_Click"/>
 
+        <Label Content= "Id Compra" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" Margin="185,52,522,409"/>
+        <Label x:Name="lbIdCompra" Content="" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" Margin="180,87,528,374" RenderTransformOrigin="0.669,1.69"/>
 
     </Grid>
 </UserControl>

@@ -10,13 +10,22 @@
 
 
         <!--Descripcion Produco-->
-        <StackPanel Margin="10,10,688,242" Orientation="Vertical" Background="#FF242A82">
+        <StackPanel Margin="10,40,688,100" Orientation="Vertical" Background="#FF242A82">
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,250"/>
             </StackPanel.Clip>
 
-            <Label x:Name="lbDescr" Content="Descripción" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Margin="0,50,0,0"/>
-            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="126">
+
+            <Label x:Name="lbIdCategoria" Content="IdCategoria" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <Border Margin="2,0,5,0" HorizontalAlignment="Center" Width="126">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
+                </Border.Clip>
+                <TextBox x:Name="txtIdCategoria" TextWrapping="Wrap"  Width="125" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+
+            <Label x:Name="lbDescr" Content="Descripción" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Margin="0,1,0,0"/>
+            <Border Margin="2,0,2,0" HorizontalAlignment="Center" Width="126">
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
                 </Border.Clip>
@@ -77,8 +86,9 @@
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,655,210"/>
             </StackPanel.Clip>
-            <DataGrid x:Name="tblListaCategoria" ItemsSource="{Binding}" Height="213" AutoGenerateColumns="False"  Width="656" >
+            <DataGrid x:Name="tblListaCategoria" ItemsSource="{Binding}" Height="213" AutoGenerateColumns="false"  Width="656">
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="IdCategoria" Binding="{Binding idCategoria}" Width="100" FontFamily="Century Gothic"/>
                     <DataGridTextColumn Header="Descripcion" Binding="{Binding descripcion}" Width="100" FontFamily="Century Gothic"/>
                 </DataGrid.Columns>
             </DataGrid>

@@ -27,9 +27,9 @@ namespace Logica
                 return "No existe el id ingresado";
             }
         }
-        public Proveedor Buscar(string documento)
+        public Proveedor Buscar(string IdProveedor)
         {
-            return archivoProveedor.Buscar(documento);
+            return archivoProveedor.Buscar(IdProveedor);
         }
         public string Actualizar(Proveedor proveedor)
         {

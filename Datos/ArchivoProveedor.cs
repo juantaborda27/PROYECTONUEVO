@@ -1,6 +1,8 @@
 ﻿using ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -9,90 +11,139 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class ArchivoProveedor:Icrud<Proveedor>
+    public class ArchivoProveedor:BaseDatos
     {
-        private readonly string fileName = "Proveedor.bin";
-        FileStream archivo;
-
+        int index = 0;
         public void Add(Proveedor proveedor)
         {
-            List<Proveedor> proveedores = Leer();
-            proveedores.Add(proveedor);
-            Guardar(proveedores);
+
+            string registro = "INSERT INTO PROVEEDOR (DocumentoProveedor, NombreProveedor, Telefono) VALUES (@Documento, @NombreProveedor, @Telefono)";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(registro, conexion))
+                {
+                    command.Parameters.AddWithValue("@Documento", proveedor.documento);
+                    command.Parameters.AddWithValue("@NombreProveedor", proveedor.NombreProveedor);
+                    command.Parameters.AddWithValue("@Telefono", proveedor.telefono);
+
+                    AbrirConexion();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception for debugging purposes
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
         }
-        public void Guardar(List<Proveedor> proveedores)
-        {
-            archivo = new FileStream(fileName, FileMode.OpenOrCreate);
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(archivo, proveedores);
-            archivo.Close();
-        }
+
+
         public List<Proveedor> Leer()
         {
-            if (!File.Exists(fileName))
+            List<Proveedor> proveedorList = new List<Proveedor>();
+            string Consulta = "SELECT * FROM PROVEEDOR";
+            try
             {
-                return new List<Proveedor>();
-            }
+                SqlCommand command = new SqlCommand(Consulta, conexion);
+                AbrirConexion();
+                SqlDataReader reader = command.ExecuteReader();
 
-            using (FileStream archivo = new FileStream(fileName, FileMode.Open))
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                return (List<Proveedor>)formatter.Deserialize(archivo);
+                while (reader.Read())
+                {
+                    proveedorList.Add(Map(reader));
+                }
+                reader.Close();
+                CerrarConexion();
             }
+            catch (Exception)
+            {
+                return null;
+            }
+            return proveedorList;
         }
 
         public bool Eliminar(string documento)
         {
+            string eliminar = "DELETE FROM PROVEEDOR WHERE DocumentoProveedor = @Documento";
 
-            Proveedor proveedor = Buscar(documento);
-
-            if (proveedor != null)
+            try
             {
-                //categoriaProductos.Remove(categoriaProducto);
-                List<Proveedor> proveedores = Remover(proveedor);
-                Guardar(proveedores);
-                return true;
-            }
-
-            return false;
-        }
-        public List<Proveedor> Remover(Proveedor proveedor)
-        {
-            List<Proveedor> proveedores = Leer();
-            foreach (var item in proveedores)
-            {
-                if (item.documento.Equals(proveedor.documento))
+                using (SqlCommand command = new SqlCommand(eliminar, conexion))
                 {
-                    proveedores.Remove(item);
-                    return proveedores;
+                    command.Parameters.AddWithValue("@Documento", documento);
+
+                    AbrirConexion();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    CerrarConexion();
+
+                    return rowsAffected > 0;
                 }
             }
-            return proveedores;
-        }
-        public Proveedor Buscar(string documento)
-        {
-            List<Proveedor> proveedores = Leer();
-            foreach (var item in proveedores)
+            catch (Exception ex)
             {
-                if (item.documento.Equals(documento))
-                {
-                    return item;
-                }
+                return false;
             }
-            return null;
+            finally
+            {
+                CerrarConexion();
+            }
         }
+
+        public Proveedor Buscar(string IdProveedor)
+        {
+            try
+            {
+                var proveedores = Leer();
+                if (proveedores == null)
+                {
+                    return null;
+                }
+                return proveedores.FirstOrDefault(p => p.idProveedor == IdProveedor);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public bool Actualizar(Proveedor proveedorNew)
         {
-            List<Proveedor> proveedores = Leer();
-            Proveedor proveedorOld = Buscar(proveedorNew.idProveedor);
-            if (proveedorOld != null)
+            try
             {
-                proveedores.Remove(proveedorOld);
-                proveedores.Add(proveedorNew);
-                Guardar(proveedores);
-                return true;
+                string Actualizar = "ModificarProveedor";
+                SqlCommand command = new SqlCommand(Actualizar, conexion);
+                command.Parameters.AddWithValue("@DocumentoProveedor", proveedorNew.documento);
+                command.Parameters.AddWithValue("@NombreProveedor", proveedorNew.NombreProveedor);
+                command.Parameters.AddWithValue("@Telefono", proveedorNew.telefono);
+                command.CommandType = CommandType.StoredProcedure;
+                AbrirConexion();
+                var index = command.ExecuteNonQuery();
+                CerrarConexion();
             }
-            return false;
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private Proveedor Map(SqlDataReader reader)
+        {
+            Proveedor proveedor = new Proveedor
+            {
+                idProveedor = Convert.ToString(reader["IdProveedor"]),
+                documento = Convert.ToString(reader["DocumentoProveedor"]),
+                NombreProveedor = Convert.ToString(reader["NombreProveedor"]),
+                telefono = Convert.ToString(reader["Telefono"])
+            };
+
+            return proveedor;
         }
     }
 }

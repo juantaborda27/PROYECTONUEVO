@@ -89,6 +89,7 @@
             </StackPanel.Clip>
             <DataGrid x:Name="tblListaProveedor" Height="302" ItemsSource="{Binding}" AutoGenerateColumns="False"  Width="550">
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id Proveedor" Width="100" Binding="{Binding idProveedor}"/>
                     <DataGridTextColumn Header="Documento" Width="100" Binding="{Binding documento}"/>
                     <DataGridTextColumn Header="Nombre" Width="100" Binding="{Binding NombreProveedor}"/>
                     <DataGridTextColumn Header="Telefono" Width="150" Binding="{Binding telefono}"/>

@@ -1,0 +1,20 @@
+﻿<Window x:Class="Presentacion.DetalleVentaVista"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentacion"
+        mc:Ignorable="d"
+        Title="DetalleVentaVista" Height="236" Width="521">
+    <Grid>
+        <DataGrid x:Name="tblVistaVenta" Height="221" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="523">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Codigo" Width="100" Binding="{Binding idDetalleVenta}"/>
+                <DataGridTextColumn Header="Nombre" Width="150" Binding="{Binding producto.descripcion}"/>
+                <DataGridTextColumn Header="Precio" Width="100" Binding="{Binding precioVenta}"/>
+                <DataGridTextColumn Header="Cantidad" Width="100" Binding="{Binding cantidad}"/>
+                <DataGridTextColumn Header="Subtotal" Width="100" Binding="{Binding total}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

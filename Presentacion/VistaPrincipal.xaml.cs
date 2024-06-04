@@ -22,6 +22,17 @@ namespace Presentacion
         public VistaPrincipal()
         {
             InitializeComponent();
+
+        }
+
+        public void ReporteVentas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void ReporteCompras_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btnVentas_Click(object sender, RoutedEventArgs e)
@@ -40,10 +51,7 @@ namespace Presentacion
             frameVenta.Navigate(new Uri("VistaProveedor.xaml", UriKind.Relative));
         }
 
-        private void btnReportes_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void btnUsuario_Click(object sender, RoutedEventArgs e)
         {
@@ -66,21 +74,43 @@ namespace Presentacion
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Mostrar el Popup cuando el botón es presionado
-            popup.IsOpen = true;
+            
 
         }
 
         private void Producto_Click(object sender, RoutedEventArgs e)
         {
-            popup.IsOpen = false;
+            
             frameVenta.Navigate(new Uri("VistaProducto.xaml", UriKind.Relative));
         }
 
         private void Categoria_Click(object sender, RoutedEventArgs e)
         {
-            popup.IsOpen = false;
+            
             frameVenta.Navigate(new Uri("vistaCategoriaProducto.xaml", UriKind.Relative));
         }
+        private void Compras_Click(object sender, RoutedEventArgs e)
+        {
+            frameVenta.Navigate(new Uri("ReportesCompra.xaml", UriKind.Relative));
+        }
+        private void Ventas_Click(object sender, RoutedEventArgs e)
+        {
+            frameVenta.Navigate(new Uri("ReportesVentas.xaml", UriKind.Relative));
+        }
+        private void btnReportes_Click(object sender, RoutedEventArgs e)
+        {
+            //reportes.IsOpen = true;
+            if (btnReportes.ContextMenu != null)
+            {
+                btnReportes.ContextMenu.PlacementTarget = btnReportes;
+                btnReportes.ContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Right;
+                btnReportes.ContextMenu.IsOpen = true;
+            }
+        }
 
+        private void btrnClientes_Click(object sender, RoutedEventArgs e)
+        {
+            frameVenta.Navigate(new Uri("VistaCliente.xaml", UriKind.Relative));
+        }
     }
 }

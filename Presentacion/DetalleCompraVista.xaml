@@ -1,0 +1,21 @@
+﻿<Window x:Class="Presentacion.DetalleCompraVista"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentacion"
+        mc:Ignorable="d"
+        Title="DetalleCompraVista" Height="227" Width="651">
+    <Grid>
+        <DataGrid x:Name="tbDetalleCompra" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="652" Margin="0,4,-1,2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Codigo" Width="100" Binding="{Binding idDetalleCompra}"/>
+                <DataGridTextColumn Header="Nombre" Width="150" Binding="{Binding producto.descripcion}"/>
+                <DataGridTextColumn Header="Precio Venta" Width="100" Binding="{Binding precioVenta}"/>
+                <DataGridTextColumn Header="Precio Compra" Width="100" Binding="{Binding precioCompra}"/>
+                <DataGridTextColumn Header="Cantidad" Width="100" Binding="{Binding cantidad}"/>
+                <DataGridTextColumn Header="Subtotal" Width="100" Binding="{Binding total}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

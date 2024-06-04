@@ -1,95 +1,163 @@
 ﻿using ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 
 
 namespace Datos
 {
-    public class ArchivoUsuario:Icrud<Usuario>
+    public class ArchivoUsuario:BaseDatos
     {
-        private readonly string fileName = "Usuarios.bin";
-
         public void Add(Usuario usuario)
         {
-            List<Usuario> usuarios = Leer();
-            usuarios.Add(usuario);
-            Guardar(usuarios);
-        }
-
-        public void Guardar(List<Usuario> usuarios)
-        {
-            using (FileStream archivo = new FileStream(fileName, FileMode.OpenOrCreate))
+            try
             {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(archivo, usuarios);
+                string query = "INSERT INTO USUARIO (UserName, Cedula, Nombre, Telefono, Contraseña, Rol) VALUES (@UserName, @Cedula, @Nombre, @Telefono, @Contraseña, @Rol)";
+
+                using (SqlCommand command = new SqlCommand(query, conexion))
+                {
+                    command.Parameters.AddWithValue("@UserName", usuario.userName);
+                    command.Parameters.AddWithValue("@Cedula", usuario.cedula);
+                    command.Parameters.AddWithValue("@Nombre", usuario.nombre);
+                    command.Parameters.AddWithValue("@Telefono", usuario.telefono);
+                    command.Parameters.AddWithValue("@Contraseña", usuario.contraseña);
+                    command.Parameters.AddWithValue("@Rol", usuario.rol);
+
+                    AbrirConexion();
+                    command.ExecuteNonQuery();
+                }
             }
+            catch (Exception ex)
+            {
+                return;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+
         }
 
         public List<Usuario> Leer()
         {
-            if (!File.Exists(fileName))
+            List<Usuario> usuarioList = new List<Usuario>();
+            string Consulta = "SELECT * FROM USUARIO";
+            try
             {
-                return new List<Usuario>();
-            }
+                SqlCommand command = new SqlCommand(Consulta, conexion);
+                AbrirConexion();
+                SqlDataReader reader = command.ExecuteReader();
 
-            using (FileStream archivo = new FileStream(fileName, FileMode.Open))
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                return (List<Usuario>)formatter.Deserialize(archivo);
+                while (reader.Read())
+                {
+                    usuarioList.Add(Map(reader));
+                }
+                reader.Close();
+                CerrarConexion();
             }
+            catch (Exception)
+            {
+                return null;
+            }
+            return usuarioList;
         }
 
-        public bool Eliminar(string id)
+        public bool Eliminar(string Cedula)
         {
-            List<Usuario> usuarios = Leer();
-            Usuario usuario = Buscar(id);
+            string ssql = "DELETE FROM [USUARIO] WHERE [Cedula] = @Cedula";
 
-            if (usuario != null && usuarios != null)
+            using (SqlCommand command = new SqlCommand(ssql, ObtenerConexion()))
             {
-                foreach (var item in usuarios)
+                command.Parameters.AddWithValue("@Cedula", Cedula);
+
+                try
                 {
-                    if (item.idUsuario.Equals(usuario.idUsuario))
+                    AbrirConexion();
+                    var i = command.ExecuteNonQuery(); // insert, update y delete
+                    CerrarConexion();
+
+                    if (i > 0)
                     {
-                        usuarios.Remove(item);
-                        break;
+                        return true;
                     }
+                    return false;
                 }
-                Guardar(usuarios);
-                return true;
+                catch (Exception)
+                {
+                    return false;
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
             }
-
-            return false;
         }
 
-        public Usuario Buscar(string id)
+        public Usuario Buscar(string cedula)
         {
-            List<Usuario> usuarios = Leer();
-            foreach (var item in usuarios)
+            try
             {
-                if (item.idUsuario.Equals(id))
+                var usuarios = Leer();
+                if (usuarios == null)
                 {
-                    return item;
+                    return null;
                 }
+                return usuarios.FirstOrDefault(p => p.cedula == cedula);
             }
-            return null;
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return null;
+            }
         }
 
         public bool Actualizar(Usuario usuarioNew)
         {
-            List<Usuario> usuarios = Leer();
-            Usuario usuarioOld = Buscar(usuarioNew.cedula);
-
-            if (usuarioOld != null)
+            try
             {
-                usuarios.Remove(usuarioOld);
-                usuarios.Add(usuarioNew);
-                Guardar(usuarios);
+                string actualizar = "UPDATE USUARIO SET UserName = @UserName, Nombre = @Nombre, Telefono = @Telefono, Contraseña = @Contraseña, Rol = @Rol WHERE Cedula = @Cedula";
+                using (SqlCommand command = new SqlCommand(actualizar, conexion))
+                {
+                    command.Parameters.AddWithValue("@UserName", usuarioNew.userName);
+                    command.Parameters.AddWithValue("@Nombre", usuarioNew.nombre);
+                    command.Parameters.AddWithValue("@Telefono", usuarioNew.telefono);
+                    command.Parameters.AddWithValue("@Contraseña", usuarioNew.contraseña);
+                    command.Parameters.AddWithValue("@Rol", usuarioNew.rol);
+                    command.Parameters.AddWithValue("@Cedula", usuarioNew.cedula);
+
+                    AbrirConexion();
+                    command.ExecuteNonQuery();
+                }
                 return true;
             }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
 
-            return false;
+        private Usuario Map(SqlDataReader reader)
+        {
+            Usuario usuario = new Usuario
+            {
+                userName = Convert.ToString(reader["UserName"]),
+                cedula = Convert.ToString(reader["Cedula"]),
+                nombre = Convert.ToString(reader["Nombre"]),
+                telefono = Convert.ToString(reader["Telefono"]),
+                contraseña = Convert.ToString(reader["Contraseña"]),
+                rol = Convert.ToString(reader["Rol"])
+            };
+
+            return usuario;
+
         }
     }
 }
