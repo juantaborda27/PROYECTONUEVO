@@ -8,7 +8,7 @@
              d:DesignHeight="510" d:DesignWidth="850">
     <Grid>
         <!--DProveedor-->
-        <StackPanel Margin="10,5,635,15" Orientation="Vertical" Background="#FF242A82">
+        <StackPanel Margin="10,5,635,15" Orientation="Vertical" Background="Gray">
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,2,200,487"/>
             </StackPanel.Clip>
@@ -62,7 +62,7 @@
         </StackPanel>
 
         <!--Lista Proveedores-->
-        <StackPanel Margin="244,12,52,432" Background="#FF242A82" Orientation="Horizontal">
+        <StackPanel Margin="244,12,52,432" Background="Gray" Orientation="Horizontal">
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,552,60"/>
             </StackPanel.Clip>

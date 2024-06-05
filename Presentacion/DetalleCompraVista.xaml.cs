@@ -1,4 +1,5 @@
 ﻿using ENTIDADES;
+using Logica;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -9,11 +10,12 @@ namespace Presentacion
     /// </summary>
     public partial class DetalleCompraVista : Window
     {
-        public DetalleCompraVista(List<DetalleCompra> detalles)
+        LogicaCompra logicaCompra = new LogicaCompra();
+        public DetalleCompraVista(string detalles)
         {
 
             InitializeComponent();
-            tbDetalleCompra.DataContext = detalles;
+            tbDetalleCompra.DataContext = logicaCompra.LeerDetalleCompra(detalles);
         }
     }
 }

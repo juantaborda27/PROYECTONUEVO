@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Datos
 {
@@ -18,10 +20,10 @@ namespace Datos
         ArchivoUsuario archivoUsuario = new ArchivoUsuario();
         public void Add(Compra compra, List<DetalleCompra> detallesCompra)
         {
-            string registroCompra = "INSERT INTO COMPRA (IdUsuario ,IdProveedor, MontoTotal) VALUES " +
-                "(@IdUsuario, @IdProveedor, @MontoTotal)";
-            string registroDetalleCompra = "INSERT INTO DETALLECOMPRA (IdCompra, IdProducto,PrecioCompra, PrecioVenta,CantidadProducto, SubTotal) VALUES " +
-                "(@IdCompra, @IdProducto, @PrecioCompra,@PrecioVenta, @CantidadProducto, @SubTotal)";
+            string registroCompra = "INSERT INTO COMPRA (IdCompra,IdUsuario,IdProveedor,MontoTotal) VALUES " +
+                "(@IdCompra,@IdUsuario, @IdProveedor, @MontoTotal)";
+            string registroDetalleCompra = "INSERT INTO DETALLECOMPRA (IdCompra,IdProducto,PrecioCompra,PrecioVenta,CantidadProducto,SubTotal) VALUES " +
+                "(@IdCompra, @IdProducto, @PrecioCompra,@PrecioVenta,@CantidadProducto,@SubTotal)";
 
             SqlTransaction accion = null;
 
@@ -32,9 +34,9 @@ namespace Datos
                 accion = conexion.BeginTransaction();
                 using (SqlCommand command = new SqlCommand(registroCompra, conexion, accion))
                 {
-                    //command.Parameters.AddWithValue("@IdCompra", compra.IdCompra);
+                    command.Parameters.AddWithValue("@IdCompra", compra.IdCompra);
                     command.Parameters.AddWithValue("@IdUsuario", 1);
-                    command.Parameters.AddWithValue("@IdProveedor", compra.proveedor);
+                    command.Parameters.AddWithValue("@IdProveedor", compra.proveedor.idProveedor);
                     command.Parameters.AddWithValue("@MontoTotal", compra.montoTotal);
                     command.ExecuteNonQuery();
                 }
@@ -44,7 +46,7 @@ namespace Datos
                 {
                     using (SqlCommand command = new SqlCommand(registroDetalleCompra, conexion, accion))
                     {
-                        command.Parameters.AddWithValue("@IdCompra", compra.IdCompra);
+                        command.Parameters.AddWithValue("@IdCompra", detalle.idCompra);
                         command.Parameters.AddWithValue("@IdProducto", detalle.producto.idProducto);
                         command.Parameters.AddWithValue("@PrecioCompra", detalle.precioCompra);
                         command.Parameters.AddWithValue("@PrecioVenta", detalle.precioVenta);
@@ -69,16 +71,39 @@ namespace Datos
             }
         }
 
-        public List<Compra> Leer()
+        public List<DetalleCompra> leerDetalle()
         {
-            List<Compra> compras = new List<Compra>();
             List<DetalleCompra> destalles = new List<DetalleCompra>();
-            string Consulta = "SELECT * FROM COMPRA";
             string consulta2 = "SELECT * FROM DETALLECOMPRA";
             try
             {
+                SqlCommand command1 = new SqlCommand(consulta2, conexion);
+                AbrirConexion();
+                SqlDataReader reader = command1.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    destalles.Add(MapDetalleCompra(reader));
+                }
+                reader.Close();
+                CerrarConexion();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return destalles;
+        }
+
+        public List<Compra> LeerCompra()
+        {
+            List<Compra> compras = new List<Compra>();
+            
+            string Consulta = "SELECT * FROM COMPRA";
+            try
+            {
                 SqlCommand command = new SqlCommand(Consulta, conexion);
-                SqlCommand command1 = new SqlCommand(consulta2,conexion);
+                
                 AbrirConexion();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -86,13 +111,6 @@ namespace Datos
                 {
                     compras.Add(MapCompra(reader));
                 }
-                
-
-                while (reader.Read())
-                {
-                    destalles.Add(MapDetalleCompra(reader));
-                }
-
                 reader.Close();
                 CerrarConexion();
             }
@@ -103,69 +121,22 @@ namespace Datos
             return compras;
         }
 
-        public List<DetalleCompra> LeerDetalleCompra(string IdCompra)
-        {
-            List<DetalleCompra> detalleCompraList = new List<DetalleCompra>();
-            StringBuilder stringBuilder = new StringBuilder();
-
-            stringBuilder.AppendLine("SELECT p.DescripcionProducto,dc.PrecioCompra,dc.CantidadProducto,dc.SubTotal");
-            stringBuilder.AppendLine("FROM DETALLECOMPRA dc");
-            stringBuilder.AppendLine("inner join PRODUCTO p ON p.IdProducto = dc.IdProducto");
-            stringBuilder.AppendLine("WHERE dc.IdCompra = @IdCompra");
-            try
-            {
-                SqlCommand command = new SqlCommand(stringBuilder.ToString(), conexion);
-                command.Parameters.AddWithValue("@IdCompra", IdCompra);
-                command.CommandType = CommandType.Text;
-                AbrirConexion();
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    detalleCompraList.Add(MapDetalleCompra(reader));
-                }
-                reader.Close();
-                CerrarConexion();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-            return detalleCompraList;
-        }
-
         public Compra Buscar(string IdCompra)
         {
-            Compra compra = new Compra();
-            StringBuilder stringBuilder = new StringBuilder();
-
-            stringBuilder.AppendLine("SELECT c.IdCompra, p.IdProveedor,");
-            stringBuilder.AppendLine("c.MontoTotal FROM COMPRA c");
-            stringBuilder.AppendLine("inner join PROVEEDOR p ON p.IdProveedor = c.IdProveedor");
-            stringBuilder.AppendLine("WHERE c.IdCompra = @IdCompra");
             try
             {
-                SqlCommand command = new SqlCommand(stringBuilder.ToString(), conexion);
-                command.Parameters.AddWithValue("@IdCompra", IdCompra);
-                command.CommandType = CommandType.Text;
-                AbrirConexion();
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
+                var compras = LeerCompra();
+                if (compras == null)
                 {
-                    compra = MapCompra(reader);
+                    return null;
                 }
-                reader.Close();
-                CerrarConexion();
+                return compras.FirstOrDefault(p => p.IdCompra == IdCompra);
             }
             catch (Exception)
             {
                 return null;
             }
-            return compra;
         }
-
-
 
         private Proveedor ObtenerProveedor(string IdProveedor)
         {
@@ -182,11 +153,6 @@ namespace Datos
             return archivoUsuario.Leer().Find(p=>p.cedula == cedula);
         }
 
-        private Compra ObtenerCompra(string idCompra)
-        {
-            return Leer().Find(p=>p.IdCompra == idCompra);
-        }
-
         public DetalleCompra MapDetalleCompra(SqlDataReader reader)
         {
             DetalleCompra detalleCompra = new DetalleCompra
@@ -201,8 +167,7 @@ namespace Datos
             string idProducto = Convert.ToString(reader["IdProducto"]);
             detalleCompra.producto = ObtenerProducto(idProducto);
 
-            string idCompra = Convert.ToString(reader["IdProducto"]);
-            detalleCompra.compra = ObtenerCompra(idCompra);
+            detalleCompra.idCompra = Convert.ToString(reader["IdCompra"]);
             return detalleCompra;
         }
 
@@ -211,8 +176,7 @@ namespace Datos
             Compra compra = new Compra
             {
                 IdCompra = Convert.ToString(reader["IdCompra"]),
-                montoTotal = Convert.ToDouble(reader["MontoTotal"]),
-                FechaCompra = Convert.ToDateTime(reader["FechaCompra"])
+                montoTotal = Convert.ToDouble(reader["MontoTotal"])
             };
 
             string IdProveedor = Convert.ToString(reader["IdProveedor"]);
@@ -222,5 +186,79 @@ namespace Datos
             compra.usuario = ObtenerUsuario(IdUsuario);
             return compra;
         }
+
+        public List<DetalleCompra> GetCompraList(string idCompra)
+        {
+            return leerDetalle().Where(detalle => detalle.idCompra.Contains(idCompra)).ToList();
+        }
+
+
+        public bool Eliminar(string idCompra)
+        {
+            
+            if(EliminarDetalle(idCompra) != false && EliminarCompra(idCompra) != false)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EliminarCompra(string IdCompra)
+        {
+            string query = "DELETE FROM COMPRA WHERE IdCompra = @IdCompra";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, conexion))
+                {
+                    command.Parameters.AddWithValue("@IdCompra", IdCompra);
+
+                    AbrirConexion();
+                    var rowsAffected = command.ExecuteNonQuery();
+                    CerrarConexion();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
+
+        public bool EliminarDetalle(string IdCompra)
+        {
+            string query = "DELETE FROM DETALLECOMPRA WHERE IdCompra = @IdCompra";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, conexion))
+                {
+                    command.Parameters.AddWithValue("@IdCompra", IdCompra);
+
+                    AbrirConexion();
+                    var rowsAffected = command.ExecuteNonQuery();
+                    CerrarConexion();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
+
     }
 }

@@ -27,12 +27,12 @@ namespace Presentacion
 
         public void ReporteVentas_Click(object sender, RoutedEventArgs e)
         {
-
+            frameVenta.Navigate(new Uri("ReportesVentas.xaml", UriKind.Relative));
         }
 
         public void ReporteCompras_Click(object sender, RoutedEventArgs e)
         {
-
+            frameVenta.Navigate(new Uri("ReportesCompra.xaml", UriKind.Relative));
         }
 
         private void btnVentas_Click(object sender, RoutedEventArgs e)
@@ -105,6 +105,7 @@ namespace Presentacion
                 btnReportes.ContextMenu.PlacementTarget = btnReportes;
                 btnReportes.ContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Right;
                 btnReportes.ContextMenu.IsOpen = true;
+               
             }
         }
 

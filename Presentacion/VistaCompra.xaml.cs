@@ -24,9 +24,9 @@ namespace Presentacion
         {
             InitializeComponent();
             List<Proveedor> proveedores = logicaProveedor.Leer();
-            if (logicaCompra.Leer().Count != 0)
+            if (logicaCompra.Leer().Count != 1)
             {
-                lbIdCompra.Content = int.Parse(logicaCompra.Leer().Last().IdCompra) + 1;
+                lbIdCompra.Content = int.Parse(logicaCompra.Leer().Last().IdCompra) + 2;
             }
             else
             {
@@ -79,7 +79,8 @@ namespace Presentacion
                         {
                             DetalleCompra detalle = new DetalleCompra();
                             id++;
-                            detalle.idDetalleCompra = id;
+                            //detalle.idDetalleCompra = id;
+                            detalle.idCompra = lbIdCompra.Content.ToString();
                             detalle.producto = logicaProducto.Buscar(txtCodProducto.Text);
                             if (ValidarPrecioContenido(txtPrecioCompra.Text))
                             {
@@ -205,6 +206,7 @@ namespace Presentacion
                 compra.proveedor = logicaProveedor.Buscar(lbDocumento.Content.ToString());
                 compra.montoTotal = double.Parse(lbPago.Content.ToString());
                 compra.detalles = detalles;
+                //cambiar
                 logicaCompra.Add(compra, detalles);
                 MessageBox.Show("Factura registrada con exito", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }

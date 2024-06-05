@@ -13,13 +13,13 @@ namespace Datos
     {
         public void Add(Cliente cliente)
         {
-            string registro = "INSERT INTO CLIENTE (DocumentoCliente, NombreCliente, Correo, Telefono) VALUES (@Documento, @NombreCliente, @Correo, @Telefono)";
-
             try
             {
+                string registro = "INSERT INTO CLIENTE (DocumentoCliente,NombreCliente,Correo,Telefono) VALUES (@DocumentoCliente,@NombreCliente,@Correo,@Telefono)";
+
                 using (SqlCommand command = new SqlCommand(registro, conexion))
                 {
-                    command.Parameters.AddWithValue("@Documento", cliente.Documento);
+                    command.Parameters.AddWithValue("@DocumentoCliente", cliente.Documento);
                     command.Parameters.AddWithValue("@NombreCliente", cliente.NombreCliente);
                     command.Parameters.AddWithValue("@Correo", cliente.Correo);
                     command.Parameters.AddWithValue("@Telefono", cliente.Telefono);
@@ -28,10 +28,9 @@ namespace Datos
                     command.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Log the exception for debugging purposes
-                Console.WriteLine("An error occurred: " + ex.Message);
+                return;
             }
             finally
             {
@@ -63,37 +62,60 @@ namespace Datos
             return clienteList;
         }
 
-        public bool Eliminar(string Documento)
+        public bool Eliminar(string documento)
         {
-            try
-            {
-                string Eliminar = "EliminarCliente";
+            string ssql = "DELETE FROM [CLIENTE] WHERE [DocumentoCliente] = @DocumentoCliente";
 
-                SqlCommand command = new SqlCommand(Eliminar, conexion);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@DocumentoCliente", Documento);
-                AbrirConexion();
-                var index = command.ExecuteNonQuery();
-                CerrarConexion();
-            }
-            catch (Exception)
+            using (SqlCommand command = new SqlCommand(ssql, ObtenerConexion()))
             {
-                return false;
+                command.Parameters.AddWithValue("@DocumentoCliente", documento);
+
+                try
+                {
+                    AbrirConexion();
+                    var i = command.ExecuteNonQuery(); // insert, update y delete
+                    CerrarConexion();
+
+                    if (i > 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
             }
-            return true;
         }
 
         public Cliente Buscar(string Documento)
         {
-            return Leer().FirstOrDefault(p => p.Documento == Documento);
+            try
+            {
+                var clientes = Leer();
+                if (clientes == null)
+                {
+                    return null;
+                }
+                return clientes.FirstOrDefault(p => p.Documento == Documento);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public bool Actualizar(Cliente clienteNew)
         {
             try
             {
-                string Actualizar = "ModificarCliente";
-                SqlCommand command = new SqlCommand(Actualizar, conexion);
+                string query = "UPDATE FROM Clientes WHERE IdCliente = @IdCliente";
+                SqlCommand command = new SqlCommand(query, conexion);
                 command.Parameters.AddWithValue("@NombreCliente", clienteNew.NombreCliente);
                 command.Parameters.AddWithValue("@Correo", clienteNew.Correo);
                 command.Parameters.AddWithValue("@Telefono", clienteNew.Telefono);

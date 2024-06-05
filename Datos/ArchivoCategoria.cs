@@ -26,7 +26,7 @@ namespace Datos
                     command.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }
@@ -54,10 +54,8 @@ namespace Datos
                 }
                 CerrarConexion();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Log the exception for debugging purposes
-                Console.WriteLine("An error occurred: " + ex.Message);
                 return null;
             }
             return categoriaList;

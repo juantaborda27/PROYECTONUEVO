@@ -10,7 +10,7 @@ namespace Datos
 {
     public class BaseDatos
     {
-        private string cadenaConexion = "Server=.\\SQLEXPRESS;Database=PROYECTOTVV_DB;Trusted_Connection=True;";
+        private string cadenaConexion = "Server=.\\SQLEXPRESS;Database=INVENTARIOTVV_DB;Trusted_Connection=True;";
         protected SqlConnection conexion;
         public BaseDatos()
         {

@@ -20,9 +20,9 @@ namespace Logica
         {
             return archivoCliente.Leer();
         }
-        public string Eliminar(string documento)
+        public string Eliminar(string Documento)
         {
-            if (archivoCliente.Eliminar(documento))
+            if (archivoCliente.Eliminar(Documento))
             {
                 return "Se ha eliminado correctamente";
             }

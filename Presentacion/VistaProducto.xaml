@@ -10,7 +10,7 @@
         <!--Detalle Producto-->
 
         <!--DProducto-->
-        <StackPanel Margin="10,60,686,10" Orientation="Vertical" Background="#FF242A82">
+        <StackPanel Margin="10,60,686,10" Orientation="Vertical" Background="Gray">
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,2,150,437"/>
             </StackPanel.Clip>
@@ -73,7 +73,7 @@
 
         <!--Lista Productos-->
         <Label x:Name="lbdetalleProd" Content="Detalle Producto" Foreground="White" FontFamily="Century Gothic" FontSize="20" Height="32" FontWeight="Bold" Width="181"/>
-        <StackPanel Margin="11,26,0,434" Background="#FF242A82" Orientation="Horizontal">
+        <StackPanel Margin="11,26,0,434" Background="Gray" Orientation="Horizontal">
 
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,835,50"/>

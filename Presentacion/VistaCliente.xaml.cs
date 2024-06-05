@@ -45,6 +45,7 @@ namespace Presentacion
                 cliente.NombreCliente = txtNombreCliente.Text;
                 cliente.Telefono = txtTelefonoCliente.Text;
                 cliente.Correo = txtCorreoCliente.Text;
+                logicaCliente.Add(cliente);
                 ActualizarTabla();
                 Limpiar();
                 MessageBox.Show("Cliente registrado correctamente", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -107,24 +108,18 @@ namespace Presentacion
 
         private void BtnBuscarListProveedor_Click(object sender, RoutedEventArgs e)
         {
-            if (BoxBuscarListClientes.Text.Equals("") || BoxBuscarListClientes.Text == null)
+            List<Cliente> filtrado = new List<Cliente>();
+            if (logicaCliente.Buscar(BoxBuscarListClientes.Text) != null)
             {
-                ActualizarTabla();
-                return;
-            }
-            Cliente buscado = logicaCliente.Buscar(txtDocumentoCliente.Text);
-
-            if (buscado != null)
-            {
+                filtrado.Add(logicaCliente.Buscar(BoxBuscarListClientes.Text));
                 tblCliente.DataContext = null;
-                List<Cliente> clientes = new List<Cliente>() { buscado };
-                tblCliente.DataContext = clientes;
+                tblCliente.DataContext = filtrado;
+                return;
             }
             else
             {
-                MessageBox.Show("Cliente no existente", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("El Cliente no existe", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            BoxBuscarListClientes.Clear();
         }
     }
 }

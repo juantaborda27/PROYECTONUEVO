@@ -17,12 +17,14 @@ namespace Presentacion
             tbCompra.DataContext = logicaCompra.Leer();
         }
 
+        
+
         private void BtnDetalle_Click(object sender, RoutedEventArgs e)
         {
             if (tbCompra.SelectedItem != null)
             {
                 var compra = (Compra)tbCompra.SelectedItem;
-                DetalleCompraVista vista = new DetalleCompraVista(logicaCompra.Buscar(compra.IdCompra).detalles);
+                DetalleCompraVista vista = new DetalleCompraVista(compra.IdCompra);
                 vista.Show();
             }
             else
@@ -39,7 +41,7 @@ namespace Presentacion
                 MessageBoxResult result = MessageBox.Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    //MessageBox.Show(logicaCompra.Eliminar(compra.IdCompra));
+                    MessageBox.Show(logicaCompra.Eliminar(compra.IdCompra));
                     ActualizarTabla();
                 }
             }

@@ -113,7 +113,7 @@ namespace Datos
 
         public bool Actualizar(Producto productoNew)
         {
-            string query = "UPDATE FROM PRODUCTO SET (PrecioCompra, PrecioVenta, CantidadExistente) WHERE IdProducto = @IdProducto";
+            string query = "update PRODUCTO set PrecioCompra=@PrecioCompra, PrecioVenta=@PrecioVenta, CantidadExistente=@CantidadExistente where IdProducto=@IdProducto";
             try
             {
                 using (SqlCommand command = new SqlCommand(query, conexion))

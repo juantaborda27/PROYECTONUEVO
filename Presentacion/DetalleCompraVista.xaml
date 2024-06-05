@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="DetalleCompraVista" Height="227" Width="651">
+        Title="DetalleCompraVista" Height="227" Width="651"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="tbDetalleCompra" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="652" Margin="0,4,-1,2">
+        <DataGrid x:Name="tbDetalleCompra" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="652" Margin="0,4,-1,2" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Codigo" Width="100" Binding="{Binding idDetalleCompra}"/>
                 <DataGridTextColumn Header="Nombre" Width="150" Binding="{Binding producto.descripcion}"/>

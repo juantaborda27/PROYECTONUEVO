@@ -10,7 +10,7 @@
 
 
         <!--Descripcion Produco-->
-        <StackPanel Margin="10,40,688,100" Orientation="Vertical" Background="#FF242A82">
+        <StackPanel Margin="10,40,688,100" Orientation="Vertical" Background="Gray">
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,250"/>
             </StackPanel.Clip>
@@ -58,7 +58,7 @@
         </StackPanel>
 
         <!---Lista Categoria-->
-        <StackPanel Margin="10,10,16,449" Background="#FF242A82" Orientation="Horizontal">
+        <StackPanel Margin="10,10,16,449" Background="Gray" Orientation="Horizontal">
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,822,48"/>
             </StackPanel.Clip>

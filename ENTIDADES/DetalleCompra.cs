@@ -8,7 +8,8 @@ namespace ENTIDADES
     {
         public int idDetalleCompra { get; set; }
         public Producto producto { get; set; }
-        public Compra compra { get; set; }
+        
+        public string idCompra {  get; set; }
         public double precioCompra { get; set; }
         public double precioVenta { get; set; }
         public int cantidad { get; set; }
