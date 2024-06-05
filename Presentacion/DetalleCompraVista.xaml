@@ -11,7 +11,8 @@
         <DataGrid x:Name="tbDetalleCompra" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="652" Margin="0,4,-1,2" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Codigo" Width="100" Binding="{Binding idDetalleCompra}"/>
-                <DataGridTextColumn Header="Nombre" Width="150" Binding="{Binding producto.descripcion}"/>
+                <DataGridTextColumn Header="Categoria" Width="100" Binding="{Binding producto.categoriaProducto.descripcion}"/>
+                <DataGridTextColumn Header="Descripcion" Width="150" Binding="{Binding producto.descripcion}"/>
                 <DataGridTextColumn Header="Precio Venta" Width="100" Binding="{Binding precioVenta}"/>
                 <DataGridTextColumn Header="Precio Compra" Width="100" Binding="{Binding precioCompra}"/>
                 <DataGridTextColumn Header="Cantidad" Width="100" Binding="{Binding cantidad}"/>

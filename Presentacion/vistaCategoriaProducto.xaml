@@ -88,8 +88,8 @@
             </StackPanel.Clip>
             <DataGrid x:Name="tblListaCategoria" ItemsSource="{Binding}" Height="213" AutoGenerateColumns="false"  Width="656">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="IdCategoria" Binding="{Binding idCategoria}" Width="100" FontFamily="Century Gothic"/>
-                    <DataGridTextColumn Header="Descripcion" Binding="{Binding descripcion}" Width="100" FontFamily="Century Gothic"/>
+                    <DataGridTextColumn Header="IdCategoria" Binding="{Binding idCategoria}" Width="200" FontFamily="Century Gothic"/>
+                    <DataGridTextColumn Header="Descripcion" Binding="{Binding descripcion}" Width="200" FontFamily="Century Gothic"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

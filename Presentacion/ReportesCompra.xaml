@@ -5,17 +5,106 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Presentacion"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+                Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="tbCompra" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Margin="145,113,169,10">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="IdCompra" Width="100" Binding="{Binding IdCompra}"/>
-                <DataGridTextColumn Header="Fecha" Width="150" Binding="{Binding FechaCompra}"/>
-                <DataGridTextColumn Header="Proveedor" Width="150" Binding="{Binding proveedor.NombreProveedor}"/>
-                <DataGridTextColumn Header="Monto Total" Width="100" Binding="{Binding montoTotal}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name="btnEliminar" Click="BtnEliminar_Click" Content="ELIMINAR" HorizontalAlignment="Left" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FFAB0C29" Margin="0,363,0,64"/>
-        <Button x:Name="btnDetalles" Click="BtnDetalle_Click" Content="Detalles" HorizontalAlignment="Left" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="Black" Background="White" Margin="0,260,0,167"/>
+        <!--Buscar-->
+        <StackPanel Margin="66,10,78,361" Orientation="Horizontal" Background="Gray">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="2,2,745,71"/>
+            </StackPanel.Clip>
+
+            <Label Width="111" Content="Fecha Inicial" FontSize="16" Foreground="White" FontFamily="Century Gothic" Height="32" FontWeight="Bold" Margin="5,0,0,0" />
+
+
+            <!--Inicial Fecha -->
+            <Button x:Name="btnSelectInitialDate" Width="40" Height="40" Click="btnSelectInitialDate_Click" Margin="10,0,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Fill="#FF565656"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Content>
+                    <Image Source="IMAGEN/calendario.png" Width="20" Height="20"/>
+                </Button.Content>
+            </Button>
+            <DatePicker x:Name="datePickerInitial" SelectedDateFormat="Short" Visibility="Collapsed" />
+
+            <Label Width="101" Content="Fecha Final" FontSize="16" Foreground="White" FontFamily="Century Gothic" Height="32" FontWeight="Bold" Margin="5,0,0,0" />
+
+            <!-- Final Fecha -->
+            <Button x:Name="btnSelectFinalDate" Width="40" Height="40" Click="btnSelectFinalDate_Click" Margin="10,0,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Fill="#FF565656"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Content>
+                    <Image Source="IMAGEN/calendario.png" Width="20" Height="20"/>
+                </Button.Content>
+            </Button>
+            <DatePicker x:Name="datePickerFinal" SelectedDateFormat="Short" Visibility="Collapsed" />
+
+            <Label Width="84" Content="ID Buscar" FontSize="16" Foreground="White" FontFamily="Century Gothic" Height="32" FontWeight="Bold" Margin="5,0,0,0" />
+            <TextBox x:Name="idBuscarRCompra" Width="80" Height="34"  TextAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="Black" Margin="0,0,0,5.3">
+                <TextBox.Clip>
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="1,2,77,30"/>
+                </TextBox.Clip>
+            </TextBox>
+            <Border CornerRadius="15" Background="White" Height="31" Width="46" Margin="0,0,4,5" HorizontalAlignment="Center">
+                <Button x:Name="BtnBuscarReporteVent" Content="🔍" BorderBrush="Transparent" Height="31" Background="Transparent" FontFamily="Century Gothic" Click="BtnBuscarCompra_Click" HorizontalAlignment="Left" Width="46" />
+            </Border>
+        </StackPanel>
+
+        <!--Detalles opciones-->
+        <StackPanel Margin="653,10,10,307" Background="Gray">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,2,130,101"/>
+            </StackPanel.Clip>
+            <Border Width="94" Background="Transparent" CornerRadius="10" Height="48" Margin="0,10,0,0">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,1,90,27"/>
+                </Border.Clip>
+                <Button x:Name="btnDetalles" Click="BtnDetalle_Click" Content="DETALLES" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF565656" Margin="0,0,0,18"/>
+            </Border>
+            <Border Width="94" Background="Transparent" CornerRadius="10" Height="48" Margin="0,10,0,0">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,1,90,27"/>
+                </Border.Clip>
+                <Button x:Name="btnEliminar" Click="BtnEliminar_Click" Content="ELIMINAR" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FFFF002F" Margin="0,0,0,18" HorizontalAlignment="Right" Width="94"/>
+            </Border>
+        </StackPanel>
+
+        <!--Tabla-->
+        <StackPanel Margin="119,106,152,10" Background="#FF242A82">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="4,2,519,321"/>
+            </StackPanel.Clip>
+            <DataGrid x:Name="tbCompra" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="526" Height="327">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF808080"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0.7"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
+                        <Setter Property="FontSize" Value="14"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID COMPRA" Width="100" Binding="{Binding IdCompra}"/>
+                    <DataGridTextColumn Header="FECHA" Width="150" Binding="{Binding FechaCompra}"/>
+                    <DataGridTextColumn Header="PROVEEDOR" Width="150" Binding="{Binding proveedor.NombreProveedor}"/>
+                    <DataGridTextColumn Header="MONTO TOTAL" Width="130" Binding="{Binding montoTotal}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </UserControl>

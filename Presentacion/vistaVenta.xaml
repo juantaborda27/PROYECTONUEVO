@@ -9,206 +9,185 @@
 
 
 
-    <Grid Margin="10,10,10,0">
+    <Grid Margin="10,10,10,0" Background="Transparent" >
 
-        <StackPanel Margin="10,14,10,451" Height="30" Background="#FF242A82">
+        <StackPanel Margin="10,14,10,451" Height="30" Background="Gray">
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,810,30"/>
             </StackPanel.Clip>
             <Label x:Name="lbVentas1" Content="Ventas" FontFamily="Century Gothic" FontSize="18" Foreground="White" Height="29" Width="70" FontWeight="Bold" Margin="10,0,0,0"/>
         </StackPanel>
 
+        <StackPanel Orientation="Horizontal" Background="Gray" Margin="422,49,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" Height="72">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,390,71"/>
+            </StackPanel.Clip>
+            <StackPanel Orientation="Vertical" Width="200">
+                <Label Content="Nombre Cliente" FontFamily="Century Gothic" FontSize="16" Foreground="White" Margin="0,0,0,5" Width="138"/>
+                <TextBox x:Name="txtNombreClienteVentas" Width="195" Height="34" TextAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="Black">
+                    <TextBox.Clip>
+                        <RectangleGeometry RadiusX="15" RadiusY="15" Rect="20,2,150,30"/>
+                    </TextBox.Clip>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="159">
+                <Label Content="Correo electronico" FontFamily="Century Gothic" FontSize="16" Foreground="White" Margin="0,0,0,5" Width="158" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtCorreo" Width="150" Height="34"  TextAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="Black" HorizontalAlignment="Center">
+                    <TextBox.Clip>
+                        <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,2,150,30"/>
+                    </TextBox.Clip>
+                </TextBox>
+            </StackPanel>
+        </StackPanel>
 
         <!--Fecha -->
-        <StackPanel Margin="10,53,498,378" Orientation="Horizontal">
-            <Label Content="Fecha:" Foreground="White" FontSize="16" FontFamily="Century Gothic" FontStyle="Italic" FontWeight="Bold"/>
-            <Label x:Name="lbFechaVentas" Content="DD/MM/AAAA" Width="142" FontFamily="Century Gothic" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <StackPanel Margin="10,53,602,408" Orientation="Horizontal" Background="Gray">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,2,210,30"/>
+            </StackPanel.Clip>
+            <Label Content="Fecha:" Foreground="White" FontSize="16" FontFamily="Century Gothic" Height="29" Margin="10,0,0,10" FontWeight="Bold"/>
+            <Label x:Name="lbFechaVentas" Content="DD/MM/AAAA" Width="128" FontFamily="Century Gothic" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!--IDVenta-->
+        <StackPanel Orientation="Horizontal" RenderTransformOrigin="2.179,-0.459" Margin="14,91,602,369" Background="Gray">
+            <StackPanel.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,2,210,30"/>
+            </StackPanel.Clip>
+            <Label Content="ID Venta" Width="86" FontFamily="Century Gothic" FontSize="16" Foreground="White" Height="30" FontWeight="Bold"/>
+            <Label x:Name="lbIdVentas"   FontFamily="Century Gothic" Foreground="White" FontSize="16" Height="32" Width="114"/>
         </StackPanel>
 
         <!-- Panel Venta Principal-->
-        <StackPanel Margin="10,126,6,336" Background="#FF242A82">
+        <StackPanel Margin="10,126,6,336" Background="Gray">
             <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,810,30"/>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,2,810,30"/>
             </StackPanel.Clip>
             <Label x:Name="LabInfVenta4" Content="Información Venta" FontFamily="Century Gothic" FontSize="18" Foreground="White" Height="29" HorizontalAlignment="Center" FontWeight="Bold"/>
         </StackPanel>
 
-        <!--Id Venta-->
-        <StackPanel Orientation="Vertical" Margin="123,158,591,307" RenderTransformOrigin="2.179,-0.459">
-            <Label x:Name="labelVenta5" Content="ID Producto" Width="111" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Left" Height="29"/>
-        </StackPanel>
-        <StackPanel Margin="123,188,594,273" Background="#FF242A82">
+        <!--Stack INF Venta Textos-->
+        <StackPanel Margin="64,170,237,295"  Orientation="Horizontal" Background="Gray">
             <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,110,25"/>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="2,0,525,30"/>
             </StackPanel.Clip>
-            <TextBox x:Name="txtIdProducto" TextWrapping="Wrap" Width="110" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
+            <Label x:Name="labelVenta5" Content="ID Producto" Width="111" FontFamily="Century Gothic" FontSize="16" Foreground="White" HorizontalAlignment="Left" Height="29" Margin="20,0,0,0" FontWeight="Bold"/>
+            <Label Content="Producto" Width="82" FontFamily="Century Gothic" FontSize="16" Foreground="White" HorizontalAlignment="Left" Height="29" Margin="40,0,0,0" FontWeight="Bold"/>
+            <Label Content="Valor Producto" Width="128" FontFamily="Century Gothic" FontSize="16" Foreground="White" Height="30" Margin="25,0,0,0" FontWeight="Bold"/>
+            <Label Content="Cantidad" Width="86" FontFamily="Century Gothic" FontSize="16" Foreground="White" HorizontalAlignment="Left" Height="29" Margin="10,0,0,0" FontWeight="Bold"/>
         </StackPanel>
 
-        <!--Btn Buscar-->
-        <StackPanel Margin="236,188,548,273">
-            <Button x:Name="BtnBuscarVenta" Content="🔍" Height="27" Background="White" FontFamily="Century Gothic" Margin="0,3,4,0" Width="40" Click="BtnBuscarVenta_Click"/>
+
+        <!--Stack INF Venta Ingresos-->
+        <StackPanel Margin="64,205,237,247" Orientation="Horizontal" Background="Gray">
             <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,5,40,23"/>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,525,40"/>
             </StackPanel.Clip>
+
+            <StackPanel Margin="2,0.2,0,0" Width="121" Height="43">
+                <StackPanel.Clip>
+                    <RectangleGeometry RadiusX="5" RadiusY="5" Rect="10,3,100,25"/>
+                </StackPanel.Clip>
+                <TextBox x:Name="txtIdProducto" TextAlignment="Center" TextWrapping="Wrap" Width="121" Height="37" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Height="36">
+                <StackPanel.Clip>
+                    <RectangleGeometry RadiusX="5" RadiusY="5" Rect="2,2,43,27"/>
+                </StackPanel.Clip>
+                <Button x:Name="BtnBuscarVenta" Content="🔍" Height="31" Background="White" FontFamily="Century Gothic" Margin="0,0,4,0" Width="46" Click="BtnBuscarVenta_Click" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <Label x:Name="lbProducto"  Width="121" Height="30" FontFamily="Century Gothic" Foreground="White" FontSize="16" Margin="5,0,0,5"/>
+            <Label x:Name="lbValor"  Width="84" Height="30" FontFamily="Century Gothic" Foreground="White" FontSize="16" Margin="20,0,0,5"/>
+
+            <StackPanel Width="123">
+                <StackPanel.Clip>
+                    <RectangleGeometry RadiusX="5" RadiusY="5" Rect="10,3,100,25"/>
+                </StackPanel.Clip>
+                <TextBox x:Name="txtCantidadVent" TextAlignment="Center" TextWrapping="Wrap" Width="121" Height="27" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+            </StackPanel>
         </StackPanel>
-
-        <!--Nomb Cliente-->
-        <StackPanel Orientation="Vertical" Margin="606,53,54,412" RenderTransformOrigin="2.179,-0.459" Height="30">
-            <Label Content="Correo electronico" Width="166" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Center" Height="34"/>
-        </StackPanel>
-
-        <StackPanel Margin="606,83,6,376">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,200,25"/>
-            </StackPanel.Clip>
-            <TextBox x:Name="txtCorreo" TextWrapping="Wrap" Width="201" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
-        </StackPanel>
-
-        <!--V.Producto-->
-        <StackPanel Orientation="Vertical" Margin="425,158,263,307" RenderTransformOrigin="2.179,-0.459" Height="30">
-            <Label Content="Valor Producto" Width="132" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Center" Height="29"/>
-        </StackPanel>
-        <StackPanel Margin="437,188,272,273">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,130,25"/>
-            </StackPanel.Clip>
-            <Label x:Name="lbValor" Content="" Width="116" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="White" FontSize="16"  HorizontalAlignment="Left"/>
-        </StackPanel>
-
-        <!--Cantidad-->
-        <StackPanel Orientation="Vertical" Margin="562,156,180,309" RenderTransformOrigin="2.179,-0.459" Height="30">
-            <Label Content="Cantidad" Width="86" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Left" Height="29"/>
-        </StackPanel>
-        <StackPanel Margin="562,189,180,272" Height="34">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,86,25"/>
-            </StackPanel.Clip>
-            <TextBox x:Name="txtCantidadVent" TextWrapping="Wrap" Width="93" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
-        </StackPanel>
-
-
-        <!--Cambio-->
-
-
-        <!--DADO-->
-
-
-        <!--USUARIO-->
-        <StackPanel Margin="332,85,372,374">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,3,115,25"/>
-            </StackPanel.Clip>
-            <Label x:Name="lbIdVentas"  FontFamily="Century Gothic" Foreground="White" FontSize="16" Height="30" Width="114"/>
-        </StackPanel>
-
-
-
-        <!--Producto-->
-        <StackPanel Orientation="Vertical" Margin="309,158,434,307" RenderTransformOrigin="2.179,-0.459" Height="30">
-            <Label Content="Producto" Width="82" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Left" Height="29"/>
-        </StackPanel>
-
-
-
-        <!--Agregar-->
-        <StackPanel  Margin="704,182,32,267" Background="White">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="3,3,90,40"/>
-            </StackPanel.Clip>
-            <Button x:Name="btnAddVentas"  Height="42" Width="47" Margin="0,3,0,0" Click="btnAddVentas_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/ananir.png" Stretch="Fill"/>
-                </Button.Background>
-            </Button>
-        </StackPanel>
-
-        <!--BtnRegistrar-->
-        <Border Margin="538,302,0,170" Width="94" Background="Transparent" CornerRadius="10" HorizontalAlignment="Left" Height="23">
-            <Border.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="3,1,90,21"/>
-            </Border.Clip>
-            <Button x:Name="btnRegistrarVenta" Content="Registrar" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA" Height="23" VerticalAlignment="Bottom" Margin="0,0,-1,0" Click="btnRegistrarVenta_Click"/>
-        </Border>
-
-
-        <!--BtnEliminar-->
-        <Border Margin="538,337,0,135" Width="94" Background="Transparent" CornerRadius="10" HorizontalAlignment="Left" Height="23">
-            <Border.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="3,1,90,21"/>
-            </Border.Clip>
-            <Button x:Name="btnEliminarVenta" Content="ELIMINAR" HorizontalAlignment="Center" Width="94" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF730707" Click="btnEliminar_Click"/>
-        </Border>
-
-
-
-        <!-- Panel de la tabla -->
-        <StackPanel Margin="10,247,301,27" Background="#FF242A82">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,520,221"/>
-            </StackPanel.Clip>
-            <DataGrid x:Name="tblVistaVenta" Height="221" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="523">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Codigo" Width="100" Binding="{Binding idDetalleVenta}"/>
-                    <DataGridTextColumn Header="Nombre" Width="150" Binding="{Binding producto.descripcion}"/>
-                    <DataGridTextColumn Header="Precio" Width="100" Binding="{Binding precioVenta}"/>
-                    <DataGridTextColumn Header="Cantidad" Width="100" Binding="{Binding cantidad}"/>  
-                    <DataGridTextColumn Header="Subtotal" Width="100" Binding="{Binding total}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
-
 
         <!--StackPanelDepagos-->
-        <StackPanel Margin="647,251,8,27" Background="#FF242A82">
+        <StackPanel Margin="648,163,10,16" Background="Gray">
             <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="2,2,170,210"/>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,2,160,310"/>
             </StackPanel.Clip>
-            <!--DADO-->
-            <StackPanel Orientation="Vertical" RenderTransformOrigin="2.179,-0.459" Height="30" Width="166" Margin="0,10,0,0">
-                <Label Content="Recibido" Width="84" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Left" Height="29" FontWeight="Bold" Margin="40,0,0,0"/>
+
+            <!--Agregar-->
+            <StackPanel Background="Gray" RenderTransformOrigin="0.5,0.5" Width="153" Margin="0,10,0,0">
+                <Button x:Name="btnAddVentas" BorderBrush="Transparent" Height="42" Width="50" Click="btnAddVentas_Click" Margin="0,2,0,0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="IMAGEN/agregar.png" Stretch="Fill"/>
+                    </Button.Background>
+                </Button>
             </StackPanel>
-            <StackPanel Height="34" Width="89">
+
+            <!--Recibido-->
+            <Label Content="RECIBIDO" Width="84" FontFamily="Century Gothic" FontSize="16" Foreground="White" HorizontalAlignment="Left" Height="29" Margin="40,5,0,0" FontWeight="Bold"/>
+            <StackPanel Height="34" Width="134">
                 <StackPanel.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,86,25"/>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,5,130,25"/>
                 </StackPanel.Clip>
-                <TextBox x:Name="txtRecibidoVenta" TextWrapping="Wrap" Width="86" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left" KeyDown="txtRecibidoVenta_KeyDown"/>
+                <TextBox x:Name="txtRecibidoVenta" TextAlignment="Center" TextWrapping="Wrap" Width="132" Height="29" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
             </StackPanel>
 
             <!--Pagar-->
-            <StackPanel Height="32" Width="168">
-                <Label Content="Total a Pagar" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" Height="30" Width="115" FontWeight="Bold"/>
-            </StackPanel>
-            <Label x:Name="lbPagoVenta" Content="0.0$" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" BorderBrush="White" Height="30" Width="104"/>
-            <StackPanel Orientation="Vertical" RenderTransformOrigin="2.179,-0.459" Height="30" Width="80">
-                <Label Content="Cambio" Width="78" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Left" Height="29"/>
-            </StackPanel>
+            <Label Content="TOTAL A PAGAR" FontFamily="Century Gothic" FontSize="16" Foreground="White" Height="30" Width="134" FontWeight="Bold"/>
+            <Label x:Name="lbPagoVenta"   FontFamily="Century Gothic" FontSize="16" Foreground="White" BorderBrush="White" Height="20" Width="124" HorizontalAlignment="Center"/>
 
             <!--Cambio-->
-            <StackPanel Height="34" Width="89">
-                <StackPanel.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,86,25"/>
-                </StackPanel.Clip>
-                <Label x:Name="lbCambioVenta"  Width="86" Height="27" Margin="0,3,0,0" FontFamily="Century Gothic" Foreground="White" FontSize="16" HorizontalAlignment="Left"/>
-            </StackPanel>
+            <Label Content="CAMBIO" Width="77" FontFamily="Century Gothic" FontSize="16" Foreground="White" HorizontalAlignment="Center" Height="29" FontWeight="Bold"/>
+            <Label x:Name="lbCambioVenta" Width="122" Height="20" FontFamily="Century Gothic" Foreground="White" FontSize="16" HorizontalAlignment="Center"/>
+
+            <!--Btn Registrar-->
+            <Border Width="93" Background="Transparent" CornerRadius="10" Height="29" Margin="0,10,0,0" Padding="0,0.2,0,0">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,1,90,27"/>
+                </Border.Clip>
+                <Button x:Name="btnRegistrarVenta" Content="REGISTRAR" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF565656" Height="29" VerticalAlignment="Center" Click="btnRegistrarVenta_Click" HorizontalAlignment="Right" Width="98"/>
+            </Border>
+
+            <!--Btn Eliminar-->
+            <Border Width="93" Background="Transparent" CornerRadius="10" Height="29" Margin="0,5,0,0" Padding="0,0.2,0,0">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,1,90,27"/>
+                </Border.Clip>
+                <Button x:Name="btnEliminarVenta" Content="ELIMINAR" HorizontalAlignment="Center" Width="94" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="Red" Click="btnEliminar_Click"/>
+            </Border>
 
         </StackPanel>
-        <StackPanel Margin="309,188,414,273">
+
+
+        <!-- Panel de la tabla -->
+        <StackPanel Margin="10,247,187,16" Background="#FF242A82">
             <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,131,25"/>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="4,2,629,221"/>
             </StackPanel.Clip>
-            <Label x:Name="lbProducto" Content="" Width="104" Height="30" FontFamily="Century Gothic" Foreground="White" FontSize="16"/>
+            <DataGrid x:Name="tblVistaVenta" Height="227" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="635" FontFamily="Century Gothic">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF808080"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0.7"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
+                        <Setter Property="FontSize" Value="14"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Codigo" Width="90" Binding="{Binding idDetalleVenta}"/>
+                    <DataGridTextColumn Header="Categoria" Width="100" Binding="{Binding producto.categoriaProducto.descripcion}"/>
+                    <DataGridTextColumn Header="Nombre" Width="140" Binding="{Binding producto.descripcion}"/>
+                    <DataGridTextColumn Header="Precio" Width="80" Binding="{Binding precioVenta}"/>
+                    <DataGridTextColumn Header="Cantidad" Width="80" Binding="{Binding cantidad}"/>
+                    <DataGridTextColumn Header="Subtotal" Width="80" Binding="{Binding total}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
-        <StackPanel Orientation="Vertical" RenderTransformOrigin="2.179,-0.459" Margin="318,49,413,416">
-            <Label Content="ID Venta" Width="86" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" Height="28"/>
-        </StackPanel>
-        <TextBox x:Name="txtNombreClienteVentas" TextWrapping="Wrap" Width="132" Margin="463,85,0,380" FontFamily="Century Gothic" Foreground="Black" FontSize="16" SelectionBrush="#FF2951CC" HorizontalAlignment="Left"/>
-        <Label Content="Nombre Cliente" Width="132" FontFamily="Century Gothic" FontSize="16" Foreground="White" FontStyle="Italic" HorizontalAlignment="Left" Margin="463,49,0,417"/>
-
-
-
-
-
-
     </Grid>
 
 </UserControl>

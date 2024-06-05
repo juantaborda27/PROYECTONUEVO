@@ -92,7 +92,8 @@ namespace Presentacion
                 ActualizarTabla();
                 return;
             }
-            CategoriaProducto buscado = logicaCategoria.Buscar(int.Parse(txtIdCategoria.Text));
+            int buscar = int.Parse(txtBuscarListaCategoria.Text);
+            CategoriaProducto buscado = logicaCategoria.Buscar(buscar);
 
             if (buscado != null)
             {
@@ -102,7 +103,7 @@ namespace Presentacion
             }
             else
             {
-                MessageBox.Show("Producto no existente", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Categoria no existente", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             txtBuscarListaCategoria.Clear();
         }

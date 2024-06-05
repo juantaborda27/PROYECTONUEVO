@@ -66,5 +66,38 @@ namespace Presentacion
             tbVenta.DataContext = logicaVenta.Leer();
 
         }
+
+        private void btnSelectInitialDate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSelectFinalDate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnBuscarVenta_Click(object sender, RoutedEventArgs e)
+        {
+            if (idBuscarRventa.Text.Equals("") || idBuscarRventa.Text == null)
+            {
+                ActualizarTabla();
+                return;
+            }
+            string buscar = idBuscarRventa.Text;
+            Venta buscado = logicaVenta.Buscar(buscar);
+
+            if (buscado != null)
+            {
+                tbVenta.DataContext = null;
+                List<Venta> categorias = new List<Venta>() { buscado };
+                tbVenta.DataContext = categorias;
+            }
+            else
+            {
+                MessageBox.Show("Venta no existente", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            idBuscarRventa.Clear();
+        }
     }
 }

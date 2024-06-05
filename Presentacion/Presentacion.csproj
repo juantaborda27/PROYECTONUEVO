@@ -206,6 +206,10 @@
       <Project>{57da391e-b62a-4bfa-9500-edb3f9bea1e3}</Project>
       <Name>ENTIDADES</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infraestructura\Infraestructura.csproj">
+      <Project>{a6f16234-feb0-49a6-842c-3bd741594311}</Project>
+      <Name>Infraestructura</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{fca435dd-0954-4539-a14d-a1362ae0810e}</Project>
       <Name>Logica</Name>

@@ -10,7 +10,8 @@
         <DataGrid x:Name="tblVistaVenta" Height="221" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="523">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Codigo" Width="100" Binding="{Binding idDetalleVenta}"/>
-                <DataGridTextColumn Header="Nombre" Width="150" Binding="{Binding producto.descripcion}"/>
+                <DataGridTextColumn Header="Categoria" Width="100" Binding="{Binding producto.categoriaProducto.descripcion}"/>
+                <DataGridTextColumn Header="Descripcion" Width="150" Binding="{Binding producto.descripcion}"/>
                 <DataGridTextColumn Header="Precio" Width="100" Binding="{Binding precioVenta}"/>
                 <DataGridTextColumn Header="Cantidad" Width="100" Binding="{Binding cantidad}"/>
                 <DataGridTextColumn Header="Subtotal" Width="100" Binding="{Binding total}"/>

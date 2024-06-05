@@ -108,9 +108,9 @@
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Documento" Width="100" Binding="{Binding Documento}"/>
-                    <DataGridTextColumn Header="Nombre" Width="147" Binding="{Binding NombreCliente}"/>
-                    <DataGridTextColumn Header="Corro" Width="155" Binding="{Binding Correo}"/>
-                    <DataGridTextColumn Header="Telefono" Width="125" Binding="{Binding Telefono}"/>
+                    <DataGridTextColumn Header="Nombre" Width="130" Binding="{Binding NombreCliente}"/>
+                    <DataGridTextColumn Header="Correo" Width="120" Binding="{Binding Correo}"/>
+                    <DataGridTextColumn Header="Telefono" Width="120" Binding="{Binding Telefono}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

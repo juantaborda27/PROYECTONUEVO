@@ -6,11 +6,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Datos
 {
-    public class ArchivoVenta:Icrud<Venta> 
+    public class ArchivoVenta: Icrud<Venta>
     {
         private readonly string fileName = "Factura.bin";
         FileStream archivo;
-
         public void Add(Venta venta)
         {
             List<Venta> ventas = Leer();
@@ -79,5 +78,7 @@ namespace Datos
 
             return false;
         }
+
+       
     }
 }

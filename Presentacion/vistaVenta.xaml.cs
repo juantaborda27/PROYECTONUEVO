@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
 using System.Net.Mail;
+using Infraestructura;
 
 namespace Presentacion
 {
@@ -194,6 +195,8 @@ namespace Presentacion
                 venta.CalcularCambio();
                 logicaVenta.Add(venta);
                 MessageBox.Show("Factura registrada con exito", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                Email email = new Email();
+                email.Enviar(venta,txtCorreo.Text);
             }
         }
         bool ValidarPrecioContenido(string campo)

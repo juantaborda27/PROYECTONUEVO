@@ -53,7 +53,7 @@
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,850,510"/>
                 </Grid.Clip>
 
-                <Frame x:Name="frameVenta" NavigationUIVisibility="Hidden" Background="#FFE0E0E0" Foreground="Transparent" />
+                <Frame x:Name="frameVenta" NavigationUIVisibility="Hidden" Background="#FF545454" Foreground="Transparent" />
             </Grid>
         </StackPanel>
 

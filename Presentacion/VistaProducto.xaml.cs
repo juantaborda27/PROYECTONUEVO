@@ -145,12 +145,14 @@ namespace Presentacion
         }
         private void buscaR(object sender, RoutedEventArgs e)
         {
-            if(BoxBuscarListProductos.Text.Equals("") || BoxBuscarListProductos.Text == null)
+            if (BoxBuscarListProductos.Text.Equals("") || BoxBuscarListProductos.Text == null)
             {
                 ActualizarTablaProducto();
-                return;            }
-            Producto buscado = logicaProducto.Buscar(BoxBuscarListProductos.Text);
-            
+                return;
+            }
+            string buscar = BoxBuscarListProductos.Text;
+            Producto buscado = logicaProducto.Buscar(buscar);
+
             if (buscado != null)
             {
                 tblListaProductos1.DataContext = null;
@@ -161,8 +163,8 @@ namespace Presentacion
             {
                 MessageBox.Show("Producto no existente", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            Limpiar();
-            
+            BoxBuscarListProductos.Clear();
+
         }
         void Limpiar()
         {
