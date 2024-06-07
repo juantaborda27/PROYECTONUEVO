@@ -13,6 +13,7 @@ namespace ENTIDADES
         public double montoCambio { get; set; }
         public double montoTotal { get; set; }
         public DateTime FechaVenta { get; set; }
+        public Cliente cliente { get; set; }
         public void CalcularTotal()
         {
             foreach (var item in detalles)
