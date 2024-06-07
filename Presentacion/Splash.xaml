@@ -17,21 +17,21 @@
     </Window.Effect>
 
     <Grid>
-        <StackPanel Background="White" Orientation="Vertical">
+        <StackPanel Background="#FF18181A" Orientation="Vertical">
             <StackPanel.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="2,2,795,445"/>
             </StackPanel.Clip>
         </StackPanel>
 
         <StackPanel Margin="400,46,51,46" Orientation="Vertical">
-            <Image Height="257" Width="343" Source="/Logazon.png"/>
-            <Label Content="TVV" Width="92" FontSize="36" Foreground="Gray" FontFamily="MrRobot"/>
-            <Label Content="Seguros de lo que hacemos" Width="228" FontSize="16" Foreground="Gray" FontFamily="Century Gothic" FontStyle="Italic"/>
+            <Image Height="257" Width="343" Source="IMAGEN/Logozon2.png"/>
+            <Label Content="TVV" Width="92" FontSize="36" Foreground="White" FontFamily="Nasalization Rg"/>
+            <Label Content="Organizing Your Life" Width="185" FontSize="16" Foreground="#FFEF423B" FontFamily="Nasalization Rg" FontStyle="Italic"/>
         </StackPanel>
 
         <StackPanel Margin="36,46,405,46" Orientation="Vertical" Width="360" Height="360">
-            <TextBlock TextWrapping="Wrap" Text="Cargando Recursos..." Margin="0,180,0,0" FontSize="16" FontFamily="Century Gothic" Foreground="Gray" Width="333"/>
-            <ProgressBar x:Name="barraProgreso" BorderBrush="Transparent" IsIndeterminate="True" Height="5" Width="334" Margin="0,10.1,0,0" Foreground="#FF9ED4EC"/>
+            <TextBlock TextWrapping="Wrap" Text="Cargando Recursos..." Margin="0,180,0,0" FontSize="16" FontFamily="Century Gothic" Foreground="White" Width="333"/>
+            <ProgressBar x:Name="barraProgreso" BorderBrush="Transparent" IsIndeterminate="True" Height="5" Width="334" Margin="0,10.1,0,0" Foreground="#FFEF423B" Background="#FF333333"/>
         </StackPanel>
     </Grid>
 </Window>

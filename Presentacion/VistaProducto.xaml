@@ -5,117 +5,104 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Presentacion"
              mc:Ignorable="d" 
-             d:DesignHeight="510" d:DesignWidth="850">
-    <Grid x:Name="gridProducto">
-        <!--Detalle Producto-->
+             d:DesignHeight="871" d:DesignWidth="1494">
 
-        <!--DProducto-->
-        <StackPanel Margin="10,60,686,10" Orientation="Vertical" Background="Gray">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,2,150,437"/>
-            </StackPanel.Clip>
-            <Label x:Name="lbCod" Content="Id Producto" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Margin="0,10,0,0"/>
-            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="126">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
-                </Border.Clip>
-                <TextBox x:Name="txtCodigoProducto" TextWrapping="Wrap"  Width="125" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center"/>
-            </Border>
-            <Label x:Name="lbNombre" Content="Descripción" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="102" FontStyle="Italic" HorizontalAlignment="Center"/>
-            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
-                </Border.Clip>
-                <TextBox x:Name="txtDescripcion" TextWrapping="Wrap"  FontFamily="Century Gothic" FontSize="16" TextAlignment="Center"/>
-            </Border>
+        <Grid Background="#FF18181A">
 
-            <Label x:Name="lbDescripCategoria" Content="Cantidad&#xD;&#xA;   Mínima" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="49" HorizontalAlignment="Center" Margin="0,5,0,0" Width="96" HorizontalContentAlignment="Center"/>
-            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="126">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
-                </Border.Clip>
-                <TextBox x:Name="txtMinima" TextWrapping="Wrap" Width="125" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center"/>
-            </Border>
+            <!--Stack Usuarios-->
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF18181A" Margin="10,0,0,0" Height="851" Width="446">
+                <Border CornerRadius="10" Padding="20" Width="436" Height="847">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FF38424D" Offset="0.5"/>
+                            <GradientStop Color="#FFC5E857" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Vertical">
 
-            <Label x:Name="lbCategoria" Content=" ID Categoria" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="108" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,10,10,0"/>
-            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,0,120,22"/>
-                </Border.Clip>
-                <TextBox x:Name="txtCategoria" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" />
-            </Border>
+                        <Image Source="/IMAGEN/producto.png" Height="78"/>
+                        <!-- IDProducto -->
+                    <Label x:Name="lbCod" Content="ID PRODUCTO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" Margin="0,50,0,4" FontWeight="Bold"/>
+                    <TextBox x:Name="txtCodigoProducto" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFC5E857"/>
 
-            
+                        <!-- Descripcion -->
+                    <Label x:Name="lbNombre" Content="DESCRIPCION" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="188" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <TextBox x:Name="txtDescripcion" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFC5E857"/>
 
-            <!--Botones guardar, limpiar, eliminar-->
-            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
-                </Border.Clip>
-                <Button x:Name="btnguardar" Click="Btnguardar" Content="GUARDAR" HorizontalAlignment="Right" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3A7AFA" Margin="0,0,-1,0"/>
-            </Border>
+                        <!-- CanMinima -->
+                    <Label x:Name="lbDescripCategoria" Content="CANTIDAD MINIMA" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="265" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <TextBox x:Name="txtMinima" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFC5E857"/>
 
-            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
-                </Border.Clip>
-                <Button x:Name="btnlimpiar" Click="Btnlimpiar"  Content="LIMPIAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF3AC8DA" Height="23" VerticalAlignment="Top"/>
-            </Border>
+                        <!-- Categoria -->
+                    <Label x:Name="lbCategoria" Content="ID CATEGORIA" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <TextBox x:Name="txtCategoria" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFC5E857"/>
 
-            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
-                </Border.Clip>
-                <Button x:Name="btneliminar" Click="Btneliminar" Content="ELIMINAR" HorizontalAlignment="Center" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FFAB0C29"/>
-            </Border>
+                    <!-- BtnsGuardar -->
+                    <Button x:Name="btnguardar" Click="Btnguardar" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FFC5E857" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
 
-        </StackPanel>
+                        <!-- BtnLimpiar -->
+                    <Button x:Name="btnlimpiar" Click="Btnlimpiar" Content="LIMPIAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FFC5E857" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
 
-        <!--Lista Productos-->
-        <Label x:Name="lbdetalleProd" Content="Detalle Producto" Foreground="White" FontFamily="Century Gothic" FontSize="20" Height="32" FontWeight="Bold" Width="181"/>
-        <StackPanel Margin="11,26,0,434" Background="Gray" Orientation="Horizontal">
+                        <!-- BtnEliminar -->
+                    <Button x:Name="btneliminar" Click="Btneliminar" Content="ELIMINAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FFC5E857" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
 
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,835,50"/>
-            </StackPanel.Clip>
-            <Label x:Name="lbDetalleProd" Content="Detalle Producto" Foreground="White" FontFamily="Century Gothic" FontSize="20" Height="32" FontWeight="Bold" Width="181" Margin="0,0,40,0"/>
-            <Label x:Name="lbListaProductos" Content="Lista Productos" Foreground="White" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" Width="154" Height="32" Margin="200,0,0,0"/>
-        </StackPanel>
+            <!--Stack Buscar U-->
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF18181A" Margin="482,10,0,0" Height="140" Width="1002">
+                <Border CornerRadius="10" Padding="20" Width="1000" Height="138">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FF38424D" Offset="0.3"/>
+                        <GradientStop Color="#FFC5E857" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                <StackPanel Orientation="Horizontal">
+                    
+                    <!-- Buscar -->
+                    <Label x:Name="lbBuscarProducto" Content="BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="132" Height="36" FontWeight="Bold" Margin="250,0,0,0"/>
+                    <TextBox x:Name="BoxBuscarListProductos" TextAlignment="Center" TextWrapping="Wrap" Width="279" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
+                    <Button x:Name="BtnBuscarListProductos" Click="buscaR" Content="🔍" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFC5E857" BorderBrush="#FF38424D"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+                
 
-        <StackPanel Margin="255,96,525,386">
-            <Label x:Name="lbBuscarProducto" Content="Buscar:" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="26" HorizontalAlignment="Center" Width="66"/>
-        </StackPanel>
-        <StackPanel Margin="330,96,224,386" Background="#FF242A82">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="3,0,289,26"/>
-            </StackPanel.Clip>
-            <TextBox x:Name="BoxBuscarListProductos" Foreground="#FF040000" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Width="298"  TextAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Margin="631,92,142,382">
-            <Button x:Name="BtnBuscarListProductos" Content="🔍" Height="29" Click="buscaR" Background="White" FontFamily="Century Gothic" Margin="0,3,0,0" Width="80"/>
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,5,70,23"/>
-            </StackPanel.Clip>
-        </StackPanel>
-
-        <!---Tabla de Lista Productos-->
-        <StackPanel Margin="174,130,18,70" Background="#FF242A82">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,655,300"/>
-            </StackPanel.Clip>
-            <DataGrid x:Name="tblListaProductos1" Height="306" ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionMode="Single" Width="659">
+            <!--Tabla-->
+            <StackPanel Margin="482,202,10,115" Background="#FF242A82">
+            <DataGrid x:Name="tblListaProductos1" Height="558" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1005" FontFamily="Century Gothic">
+                    <DataGrid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#396781" Offset="0"/>
+                        <GradientStop Color="#FFC5E857" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DataGrid.Background>
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#FF38424D"/>
+                        <Setter Property="Foreground" Value="#FFC5E857"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="0.7"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="Nasalization Rg"/>
+                            <Setter Property="FontSize" Value="22"/>
+                        </Style>
+                    </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id Producto" Width="50" Binding="{Binding idProducto}"/>
-                    <DataGridTextColumn Header="Descripción" Width="100" Binding="{Binding descripcion}"/>
-                    <DataGridTextColumn Header="idCategoria" Width="100" Binding="{Binding categoriaProducto.idCategoria}"/>
-                    <DataGridTextColumn Header="Categoria" Width="80" Binding="{Binding categoriaProducto.descripcion}"/>
-                    <DataGridTextColumn Header="Disponibles" Width="100" Binding="{Binding cantidad}"/>
-                    <DataGridTextColumn Header="Cantidad minima" Width="120" Binding="{Binding cantidadMinima}"/>
-                    <DataGridTextColumn Header="Precio Compra" Width="120" Binding="{Binding precioCompra}"/>
-                    <DataGridTextColumn Header="Precio Venta" Width="120" Binding="{Binding precioVenta}"/>
-
+                    <DataGridTextColumn Header="ID P" Width="100" Binding="{Binding idProducto}"/>
+                    <DataGridTextColumn Header="DES" Width="150" Binding="{Binding descripcion}"/>
+                    <DataGridTextColumn Header="ID CAT" Width="100" Binding="{Binding categoriaProducto.idCategoria}"/>
+                    <DataGridTextColumn Header="CAT" Width="150" Binding="{Binding categoriaProducto.descripcion}"/>
+                    <DataGridTextColumn Header="DIS" Width="100" Binding="{Binding cantidad}"/>
+                    <DataGridTextColumn Header="C MIN" Width="100" Binding="{Binding cantidadMinima}"/>
+                    <DataGridTextColumn Header="P COMP" Width="150" Binding="{Binding precioCompra}"/>
+                    <DataGridTextColumn Header="P VENTA" Width="150" Binding="{Binding precioVenta}"/>
                 </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
-    </Grid>
+                </DataGrid>
+            </StackPanel>
+
+        </Grid>
+
 </UserControl>

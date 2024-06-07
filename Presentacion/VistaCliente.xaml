@@ -5,114 +5,100 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Presentacion"
              mc:Ignorable="d" 
-             d:DesignWidth="820" Height="491">
-    <Grid>
-        <StackPanel Margin="10,5,635,15" Orientation="Vertical" Background="Gray">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,1,200,487"/>
-            </StackPanel.Clip>
-            <Label x:Name="lbDetalleCliente" Content="Cliente" Foreground="White" FontFamily="Century Gothic" FontSize="20" Height="37" HorizontalAlignment="Center" Margin="0,20,0,0" FontWeight="Bold" Width="81"/>
-            <Label x:Name="lbNumDoc" Content="Documento" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="30" HorizontalAlignment="Center" Margin="0,20,0,4"/>
-            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="126">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,1,120,22"/>
-                </Border.Clip>
-                <TextBox x:Name="txtDocumentoCliente" TextWrapping="Wrap" Width="126" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" HorizontalAlignment="Center" Height="27"/>
-            </Border>
-            <Label x:Name="lbNombreCliente" Content="Nombre" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="74" Margin="0,10,0,0" FontStyle="Italic" HorizontalAlignment="Center"/>
-            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,1,120,22"/>
-                </Border.Clip>
-                <TextBox x:Name="txtNombreCliente" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" Height="25"/>
-            </Border>
+             d:DesignWidth="1494" Height="871">
+    
+    
 
-            <Label x:Name="lbCorreo" Content="Correo" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="63" Margin="0,10,0,0" FontStyle="Italic" HorizontalAlignment="Center"/>
-            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,1,120,22"/>
-                </Border.Clip>
-                <TextBox x:Name="txtCorreoCliente" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" Height="27"/>
-            </Border>
+        <Grid Background="#FF18181A">
 
-            <Label x:Name="lbTel" Content="Telefono" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="77" Margin="0,10,0,0" FontStyle="Italic" HorizontalAlignment="Center"/>
-            <Border Margin="10,0,10,0" HorizontalAlignment="Center" Width="127">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,1,120,22"/>
-                </Border.Clip>
-                <TextBox x:Name="txtTelefonoCliente" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="16" TextAlignment="Center" Height="27"/>
-            </Border>
+            <!--Stack Usuarios-->
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF18181A" Margin="10,0,0,0" Height="851" Width="446">
+                <Border CornerRadius="10" Padding="20" Width="436" Height="847">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FF35273C" Offset="0.5"/>
+                            <GradientStop Color="#FFDE88D3" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Vertical">
 
-            <!--Botones guardar, limpiar, eliminar-->
-            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
-                </Border.Clip>
-                <Button x:Name="btnGuardarProveedor" Click="btnGuardarProveedor_Click" Content="GUARDAR" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF565656" Height="23" VerticalAlignment="Center" Margin="0,0,-1,0"/>
-            </Border>
+                        <Image Source="/IMAGEN/Clientes.png" Height="78"/>
+                        <!-- Documento -->
+                    <Label x:Name="lbNumDoc"  Content="DOCUMENTO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" Margin="0,50,0,4" FontWeight="Bold"/>
+                    <TextBox x:Name="txtDocumentoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
 
-            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
-                </Border.Clip>
-                <Button x:Name="btnLimpiarCliente" Click="btnLimpiarCliente_Click"  Content="LIMPIAR" HorizontalAlignment="Center" Width="122" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="#FF242A82"/>
-            </Border>
+                        <!-- Nombre -->
+                    <Label x:Name="lbNombreCliente" Content="NOMBRE" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="144" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <TextBox x:Name="txtNombreCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
 
-            <Border Margin="10,20,5,0" Width="121" Background="Transparent" CornerRadius="10" HorizontalAlignment="Center" Height="23">
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,1,120,21"/>
-                </Border.Clip>
-                <Button x:Name="btnEliminarCliente" Click="btnEliminarCliente_Click" Content="ELIMINAR" HorizontalAlignment="Center" Width="140" FontFamily="Century Gothic" FontSize="14" BorderBrush="Transparent" Foreground="White" Background="Red"/>
-            </Border>
-        </StackPanel>
+                        <!-- Correo -->
+                    <Label x:Name="lbCorreo" Content="CORREO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="124" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <TextBox x:Name="txtCorreoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
 
-        <!--Lista Cliente-->
-        <StackPanel Margin="244,12,52,432" Background="Gray" Orientation="Horizontal">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,3,552,60"/>
-            </StackPanel.Clip>
-            <Label x:Name="lbDCliente" Content="Lista Clientes" Foreground="White" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" Width="164" Height="33" Margin="10,0,0,0"/>
-            <Label x:Name="lbBusCliente" Content="Buscar:" Foreground="White" FontFamily="Century Gothic" FontSize="16" FontStyle="Italic" Height="28" Width="66" Margin="20,0,0,3"/>
-            <StackPanel Background="#FF242A82" Height="30" Width="199">
-                <StackPanel.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="3,1,192,26"/>
-                </StackPanel.Clip>
-                <TextBox x:Name="BoxBuscarListClientes" Foreground="#FF040000" FontFamily="Century Gothic" FontSize="14" FontStyle="Italic" Height="28" HorizontalAlignment="Center" Width="198" TextAlignment="Center"/>
+                        <!-- Telefono -->
+                    <Label x:Name="lbTel" Content="TELEFONO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <TextBox x:Name="txtTelefonoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
+
+                        <!-- BtnsGuardar -->
+                    <Button x:Name="btnGuardarProveedor" Click="btnGuardarProveedor_Click" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF35273C" Foreground="#FFDE88D3" Background="#FF35273C" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+
+                        <!-- BtnLimpiar -->
+                    <Button x:Name="btnLimpiarCliente" Click="btnLimpiarCliente_Click" Content="LIMPIAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF35273C" Foreground="#FF18181A" Background="#FFDE88D3" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+
+                        <!-- BtnEliminar -->
+                    <Button x:Name="btnEliminarCliente" Click="btnEliminarCliente_Click" Content="ELIMINAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF35273C" Foreground="#FFDE88D3" Background="#FF35273C" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    </StackPanel>
+                </Border>
             </StackPanel>
-            <StackPanel Height="34" Width="81">
-                <StackPanel.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="5,5,70,23"/>
-                </StackPanel.Clip>
-                <Button x:Name="BtnBuscarClientes" Content="🔍" Height="29" Background="White" FontFamily="Century Gothic" Margin="0,3,0,0" Width="80" Click="BtnBuscarListProveedor_Click"/>
-            </StackPanel>
-        </StackPanel>
 
-        <!--Tabla-->
-        <StackPanel Margin="244,118,52,72" Background="#FF242A82">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="1,2,550,300"/>
-            </StackPanel.Clip>
-            <DataGrid x:Name="tblCliente" Height="320" ItemsSource="{Binding}" AutoGenerateColumns="False"  Width="556" HorizontalAlignment="Center">
+            <!--Stack Buscar U-->
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF18181A" Margin="482,10,0,0" Height="140" Width="1002">
+                <Border CornerRadius="10" Padding="20" Width="1000" Height="138">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF35273C" Offset="0.3"/>
+                        <GradientStop Color="#FFDE88D3" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Horizontal">
+
+                        <!-- Buscar -->
+                    <Label x:Name="lbBusCliente" Content="BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="132" Height="36" FontWeight="Bold" Margin="250,0,0,0"/>
+                    <TextBox x:Name="BoxBuscarListClientes" TextAlignment="Center" TextWrapping="Wrap" Width="279" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF35273C" BorderBrush="#FF4646CE"/>
+                    <Button x:Name="BtnBuscarClientes" Click="BtnBuscarListProveedor_Click" Content="🔍" Height="36" Background="#FF35273C" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFDE88D3" BorderBrush="#FF35273C"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+                
+                <!--Tabla-->
+        <StackPanel Margin="482,202,10,115" Background="#FF242A82">
+            <DataGrid x:Name="tblCliente" Height="558" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1005" FontFamily="Century Gothic">
+                <DataGrid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF35273C" Offset="0"/>
+                        <GradientStop Color="#FFDE88D3" Offset="1"/>
+                    </LinearGradientBrush>
+                </DataGrid.Background>
                 <DataGrid.Resources>
-                    <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#FF808080"/>
-                        <Setter Property="Foreground" Value="White"/>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF35273C"/>
+                        <Setter Property="Foreground" Value="#FFDE88D3"/>
                         <Setter Property="BorderBrush" Value="Black"/>
                         <Setter Property="BorderThickness" Value="0.7"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         <Setter Property="VerticalContentAlignment" Value="Center"/>
-                        <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontFamily" Value="Nasalization Rg"/>
+                        <Setter Property="FontSize" Value="24"/>
                     </Style>
                 </DataGrid.Resources>
-
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Documento" Width="100" Binding="{Binding Documento}"/>
-                    <DataGridTextColumn Header="Nombre" Width="130" Binding="{Binding NombreCliente}"/>
-                    <DataGridTextColumn Header="Correo" Width="120" Binding="{Binding Correo}"/>
-                    <DataGridTextColumn Header="Telefono" Width="120" Binding="{Binding Telefono}"/>
+                    <DataGridTextColumn Header="DOCUMENTO" Width="250" Binding="{Binding Documento}"/>
+                    <DataGridTextColumn Header="NOMBRE" Width="250" Binding="{Binding NombreCliente}"/>
+                    <DataGridTextColumn Header="CORREO" Width="250" Binding="{Binding Correo}"/>
+                    <DataGridTextColumn Header="TELEFONO" Width="250" Binding="{Binding Telefono}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
+
     </Grid>
 </UserControl>

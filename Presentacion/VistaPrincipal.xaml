@@ -6,11 +6,14 @@
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
         Title="VistaPrincipal"
-        Height="610" Width="1100"
+        Height="940" Width="1857"
         Background="{x:Null}"
         AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen">
+        ResizeMode="CanResize"
+        MinHeight="940"
+        MinWidth="1857">
 
     <Window.Resources>
         <!-- Estilo para el ContextMenu del btnReportes -->
@@ -33,6 +36,21 @@
                 </Style>
             </Style.Resources>
         </Style>
+        <!--BtnStyle-->
+        <Style x:Key="CircularButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="15"
+                            BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
 
@@ -40,115 +58,244 @@
         <DropShadowEffect BlurRadius="20" ShadowDepth="10" Opacity="0.5" Color="Black"/>
     </Window.Effect>
 
-    <Grid>
+    <Grid Margin="0,10,0,0">
 
         <!--StackPanel Principal-->
-        <StackPanel Background="White" Orientation="Vertical">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="2,2,1095,605"/>
-            </StackPanel.Clip>
-
-            <Grid Width="850" Height="510" Margin="210,75,0,0">
-                <Grid.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,850,510"/>
-                </Grid.Clip>
-
-                <Frame x:Name="frameVenta" NavigationUIVisibility="Hidden" Background="#FF545454" Foreground="Transparent" />
-            </Grid>
+        <StackPanel Background="White" Orientation="Vertical" Margin="353,-1,10,10">
+            <Frame x:Name="frameVenta" NavigationUIVisibility="Hidden" Foreground="Transparent" Height="871" Width="1494" Margin="0,50,0,0">
+                <Frame.Background>
+                    <ImageBrush ImageSource="/IMAGEN/ImagInicio.jpg" Stretch="Fill"/>
+                </Frame.Background>
+            </Frame>
         </StackPanel>
 
-
         <!--StackPanel Navegacion-->
-        <StackPanel Margin="0,0,890,0" Background="White" Orientation="Vertical">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="2,2,800,605"/>
-            </StackPanel.Clip>
+        <StackPanel Margin="88,-1,1504,11" Background="#FF333333" Orientation="Vertical">
             <StackPanel.Effect>
                 <DropShadowEffect BlurRadius="20" ShadowDepth="10" Opacity="0.5" Color="Black"/>
             </StackPanel.Effect>
-            <Image Height="123" Width="150" Margin="0,4,0,0" Source="Logazon.png"/>
-
-            <!--VentasBtn-->
-            <Button x:Name="btnVentas" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btnVentas_Click">
-                <StackPanel Orientation="Horizontal" Width="98">
-                    <Image Source="IMAGEN/Ventas.png" Width="24" Height="24"/>
-                    <TextBlock Text="Ventas" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="57" FontWeight="Bold" FontSize="16"/>
-                </StackPanel>
+            <!-- Botón con Imagen -->
+            <Button Margin="10" Click="ImageButton_Click" Foreground="Transparent" BorderBrush="Transparent" Width="265" HorizontalAlignment="Center">
+                <Button.Background>
+                    <ImageBrush ImageSource="/IMAGEN/Logazon.png" Stretch="Uniform"/>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
+                            <Image Height="126" Source="/IMAGEN/Logozon2.png"  Margin="9,0,9,0" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
+
+            <!-- VentasBtn -->
+            <Button x:Name="btnVentas" Width="265" Height="95" Click="btnVentas_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal" Width="175" Height="65">
+                                <Image Source="IMAGEN/Ventas.png" Width="50" Height="45"/>
+                                <TextBlock Text="VENTAS" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="94" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
 
             <!--ComprasBtn-->
-            <Button x:Name="btnCompras" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btnCompras_Click">
-                <StackPanel Orientation="Horizontal" Width="111">
-                    <Image Source="IMAGEN/Comprar.png" Width="24" Height="24"/>
-                    <TextBlock Text="Compras" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="75" FontWeight="Bold" FontSize="16"/>
-                </StackPanel>
-            </Button>
-
-            <!--ProveedorBtn-->
-            <Button x:Name="btrnProveedores" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btrnProveedores_Click">
-                <StackPanel Orientation="Horizontal" Width="118">
-                    <Image Source="IMAGEN/Proveedor.png" Width="24" Height="24"/>
-                    <TextBlock Text="Proveedor" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="82" FontWeight="Bold" FontSize="16"/>
-                </StackPanel>
-            </Button>
-
-            <!--ClienteBtn-->
-            <Button x:Name="btnCliente" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btrnClientes_Click">
-                <StackPanel Orientation="Horizontal" Width="118">
-                    <Image Source="IMAGEN/Proveedor.png" Width="24" Height="24"/>
-                    <TextBlock Text="Clientes" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Century Gothic" Width="66" FontWeight="Bold" FontSize="16"/>
-                </StackPanel>
-            </Button>
-
-            <!--UsuarioBtn-->
-            <Button x:Name="btnUsuario" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btnUsuario_Click">
-                <StackPanel Orientation="Horizontal" Width="121">
-                    <Image Source="IMAGEN/Usuario.png" Width="24" Height="24"/>
-                    <TextBlock Text="Usuarios" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Century Gothic" Width="71" FontWeight="Bold" FontSize="16"/>
-                </StackPanel>
+            <Button x:Name="btnCompras" Width="265" Height="95" Click="btnCompras_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal" Width="184" Height="65">
+                                <Image Source="IMAGEN/Comprar.png" Width="50" Height="45"/>
+                                <TextBlock Text="COMPRAS" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="128" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
 
             <!--ProductoBtn-->
-            <Button x:Name="Producto" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="Producto_Click">
-                <StackPanel Orientation="Horizontal" Width="115">
-                    <Image Source="IMAGEN/producto.png" Width="24" Height="24"/>
-                    <TextBlock Text="Producto" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="75" FontWeight="Bold" FontSize="16"/>
-                </StackPanel>
+            <Button x:Name="Producto" Width="265" Height="95" Click="Producto_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal" Width="196" Height="65">
+                                <Image Source="IMAGEN/producto.png" Width="50" Height="45"/>
+                                <TextBlock Text="PRODUCTO" VerticalAlignment="Center" Margin="15,0,0,0" FontFamily="Century Gothic" Width="129" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!--ProveedorBtn-->
+            <Button x:Name="btrnProveedores" Width="265" Height="95" Click="btrnProveedores_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal" Width="198" Height="65">
+                                <Image Source="IMAGEN/Proveedor.png" Width="50" Height="45"/>
+                                <TextBlock Text="PROVEEDOR" VerticalAlignment="Center" FontFamily="Century Gothic" Width="142" FontWeight="Bold" FontSize="24" Height="30" Margin="5,0,0,0" Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
 
             <!--CategoriaBtn-->
-            <Button x:Name="Categoria" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="Categoria_Click">
-                <StackPanel Orientation="Horizontal" Width="121">
-                    <Image Source="IMAGEN/categoria.png" Width="24" Height="24"/>
-                    <TextBlock Text="Categoria" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="83" FontWeight="Bold" FontSize="16"/>
-                </StackPanel>
+            <Button x:Name="Categoria" Width="265" Height="95" Click="Categoria_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal" Width="198" Height="65">
+                                <Image Source="IMAGEN/categoria.png" Width="50" Height="45"/>
+                                <TextBlock Text="CATEGORIA" VerticalAlignment="Center" Margin="5,0,0,0" FontFamily="Century Gothic" Width="141" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
 
             <!--ReportesBtn-->
-            <Button x:Name="btnReportes" Width="208" Height="55" Background="White" Foreground="Gray" FontWeight="Bold" BorderBrush="Transparent" Click="btnReportes_Click">
+            <Button x:Name="btnReportes" Width="265" Height="95" Click="btnReportes_Click">
                 <Button.ContextMenu>
                     <ContextMenu Style="{StaticResource ContextMenuStyle}">
                         <MenuItem Header="REPORTE VENTA" Click="ReporteVentas_Click"/>
                         <MenuItem Header="REPORTE COMPRA" Click="ReporteCompras_Click"/>
                     </ContextMenu>
                 </Button.ContextMenu>
-                <StackPanel Orientation="Horizontal" Width="121">
-                    <Image Source="IMAGEN/Reporte.png" Width="24" Height="24"/>
-                    <TextBlock Text="Reportes" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="83" FontWeight="Bold" FontSize="16"/>
-                </StackPanel>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal" Width="175" Height="65">
+                                <Image Source="IMAGEN/Reporte.png" Width="50" Height="45"/>
+                                <TextBlock Text="REPORTES" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="113" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!--ClienteBtn-->
+            <Button x:Name="btnCliente" Width="265" Height="95" Click="btrnClientes_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal" Width="175" Height="65">
+                                <Image Source="IMAGEN/Clientes.png" Width="50" Height="45"/>
+                                <TextBlock Text="CLIENTES" VerticalAlignment="Center" Margin="15,0,0,0" FontFamily="Century Gothic" Width="100" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!--UsuarioBtn-->
+            <Button x:Name="btnUsuario" Width="265" Height="95" Click="btnUsuario_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal" Width="186" Height="65">
+                                <Image Source="IMAGEN/Usuario.png" Width="50" Height="45"/>
+                                <TextBlock Text="USUARIOS" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Century Gothic" Width="116" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF18181A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
         </StackPanel>
+        <StackPanel Background="Gray" Margin="650,50,0,750" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 
-        <StackPanel Background="Gray" Margin="210,2,2,555">
-            <StackPanel.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,887,605"/>
-            </StackPanel.Clip>
-            <Label Content="TVV" Width="111" FontSize="43" Height="47" Foreground="White" FontFamily="MrRobot" Margin="5,3,0,0"/>
+        <!--Botones de Control de Ventana-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,25,0">
+            <Button x:Name="btnMinimizar" Click="btnMinimizar_Click" Width="30" Height="30"
+                    Background="Yellow" BorderBrush="Yellow" Foreground="White" FontFamily="Century Gothic"
+                    FontWeight="Bold" FontSize="14" 
+                    Style="{StaticResource CircularButtonStyle}" Margin="2"/>
+            <Button x:Name="btnMaximize" Click="btnMaximize_Click" Width="30" Height="30"
+                    Background="Blue" BorderBrush="Blue" Foreground="White" FontFamily="Century Gothic"
+                    FontWeight="Bold" FontSize="14" 
+                    Style="{StaticResource CircularButtonStyle}" Margin="2"/>
+            <Button x:Name="btnCerrar" Click="btnCerrar_Click" Width="30" Height="30"
+                    Background="Red" BorderBrush="Red" Foreground="White" FontFamily="Century Gothic"
+                    FontWeight="Bold" FontSize="14" 
+                    Style="{StaticResource CircularButtonStyle}" Margin="2"/>
         </StackPanel>
-        <StackPanel Background="Gray" Margin="210,2,859,555"/>
-
-        <Button x:Name="btnCerrar" Content="X" Click="btnCerrar_Click" Background="Transparent" BorderBrush="Transparent" Width="38" Foreground="White" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20" Margin="1045,10,17,574"/>
-        <Button x:Name="btnMinimizar" Content="---" Click="btnMinimizar_Click" Background="Transparent" BorderBrush="Transparent" Width="38" Foreground="White" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20" Margin="1007,10,55,574"/>
     </Grid>
 
 </Window>

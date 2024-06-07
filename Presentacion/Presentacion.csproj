@@ -121,6 +121,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\MR ROBOT.ttf" />
+    <Resource Include="Fonts\nasalization-rg.otf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -263,6 +264,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Logazon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGEN\Clientes.png" />
+    <Resource Include="IMAGEN\ImagInicio.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGEN\Logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGEN\Logozon2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

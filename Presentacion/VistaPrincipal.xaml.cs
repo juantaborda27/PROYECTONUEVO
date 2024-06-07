@@ -113,5 +113,26 @@ namespace Presentacion
         {
             frameVenta.Navigate(new Uri("VistaCliente.xaml", UriKind.Relative));
         }
+
+        private void btnMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Normal)
+            {
+                this.WindowState = WindowState.Maximized;
+                this.WindowStyle = WindowStyle.None;
+                this.ResizeMode = ResizeMode.NoResize;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+                this.WindowStyle = WindowStyle.SingleBorderWindow;
+                this.ResizeMode = ResizeMode.CanResize;
+            }
+        }
+
+        private void ImageButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
