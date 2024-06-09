@@ -34,7 +34,7 @@ namespace Presentacion
             if (tbVenta.SelectedItem != null)
             {
                 var venta = (Venta)tbVenta.SelectedItem;
-                DetalleVentaVista ventana = new DetalleVentaVista(venta.detalles);
+                DetalleVentaVista ventana = new DetalleVentaVista(venta.idVenta);
                 ventana.Show();
             }
             else

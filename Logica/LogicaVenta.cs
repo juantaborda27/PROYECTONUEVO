@@ -33,6 +33,11 @@ namespace Logica
                 return "No existe dicha venta";
             }
         }
+
+        public List<DetalleVenta> LeerDetalleCompra(string idVenta)
+        {
+            return archivoVenta.GetVentaList(idVenta);
+        }
         public void Salida(Venta venta)
         {
             foreach (var item in venta.detalles)

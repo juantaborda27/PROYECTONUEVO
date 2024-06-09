@@ -25,8 +25,8 @@
 
         <StackPanel Margin="400,46,51,46" Orientation="Vertical">
             <Image Height="257" Width="343" Source="IMAGEN/Logozon2.png"/>
-            <Label Content="TVV" Width="92" FontSize="36" Foreground="White" FontFamily="Nasalization Rg"/>
-            <Label Content="Organizing Your Life" Width="185" FontSize="16" Foreground="#FFEF423B" FontFamily="Nasalization Rg" FontStyle="Italic"/>
+            <Label Content="TVV" Width="88" FontSize="36" Foreground="White" FontFamily="Nasalization Rg"/>
+            <Label Content="Organizing Your Life" Width="188" FontSize="16" Foreground="#FFEF423B" FontFamily="Nasalization Rg" FontStyle="Italic"/>
         </StackPanel>
 
         <StackPanel Margin="36,46,405,46" Orientation="Vertical" Width="360" Height="360">

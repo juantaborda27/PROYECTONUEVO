@@ -207,7 +207,7 @@ namespace Presentacion
                 compra.montoTotal = double.Parse(lbPago.Content.ToString());
                 compra.detalles = detalles;
                 //cambiar
-                logicaCompra.Add(compra, detalles);
+                logicaCompra.Add(compra);
                 MessageBox.Show("Factura registrada con exito", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }

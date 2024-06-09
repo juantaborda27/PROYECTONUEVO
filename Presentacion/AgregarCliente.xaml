@@ -1,0 +1,76 @@
+﻿<Window x:Class="Presentacion.AgregarCliente"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentacion"
+             mc:Ignorable="d" Width="453" Height="843"
+                Background="{x:Null}"
+            AllowsTransparency="True"
+            WindowStartupLocation="CenterScreen"
+            WindowStyle="None"
+            ResizeMode="CanResize">
+
+    <Window.Resources>
+        <Style x:Key="CircularButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    CornerRadius="15"
+                    BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF18181A" Margin="10,0,0,0" Height="851" Width="446">
+            <Border CornerRadius="10" Padding="20" Width="404" Height="847">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF35273C" Offset="0.5"/>
+                        <GradientStop Color="#FFDE88D3" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel Orientation="Vertical">
+
+                    <!-- BOTON CERRAR -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,25,0">
+
+                        <Button x:Name="btnCerrarPestaña" Click="btnCerrarPestaña_Click" Width="15" Height="15"
+                                Background="Red" BorderBrush="Red" Foreground="White" FontFamily="Century Gothic"
+                                FontWeight="Bold" FontSize="14" 
+                                Style="{StaticResource CircularButtonStyle}" Margin="2"/>
+                    </StackPanel>
+
+                    <Image Source="/IMAGEN/Clientes.png" Height="78"/>
+                    <!-- Documento -->
+                    <Label x:Name="lbNumDoc"  Content="DOCUMENTO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" Margin="0,50,0,4" FontWeight="Bold"/>
+                    <TextBox x:Name="txtDocumentoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
+
+                    <!-- Nombre -->
+                    <Label x:Name="lbNombreCliente" Content="NOMBRE" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="144" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <TextBox x:Name="txtNombreCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
+
+                    <!-- Correo -->
+                    <Label x:Name="lbCorreo" Content="CORREO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="124" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <TextBox x:Name="txtCorreoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
+
+                    <!-- Telefono -->
+                    <Label x:Name="lbTel" Content="TELEFONO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <TextBox x:Name="txtTelefonoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
+
+                    <!-- BtnsGuardar -->
+                    <Button x:Name="btnGuardarProveedor" Click="btnGuardarProveedor_Click" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF35273C" Foreground="#FFDE88D3" Background="#FF35273C" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+
+                    
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

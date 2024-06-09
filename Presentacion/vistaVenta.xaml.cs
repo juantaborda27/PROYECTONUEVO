@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Net;
 using System.Net.Mail;
 using Infraestructura;
+using System.Windows.Media.Media3D;
 
 namespace Presentacion
 {
@@ -29,7 +30,7 @@ namespace Presentacion
         LogicaVenta logicaVenta = new LogicaVenta();
         List<DetalleVenta> detalles = new List<DetalleVenta>();
         double total = 0;
-        int id = 0;
+        LogicaCliente logicaCliente = new LogicaCliente();
         public vistaVenta()
         {
             InitializeComponent();
@@ -56,6 +57,7 @@ namespace Presentacion
             {
                 lbValor.Content = producto.precioVenta.ToString();
                 lbProducto.Content = producto.descripcion;
+                lbCategoria.Content = producto.categoriaProducto.descripcion;
             }
             else
             {
@@ -72,8 +74,8 @@ namespace Presentacion
                     if (ValidarExistente(txtIdProducto.Text))
                     {
                             DetalleVenta detalle = new DetalleVenta();
-                            id++;
-                            detalle.idDetalleVenta = id;
+                            
+                            detalle.idVenta = int.Parse(lbIdVentas.Content.ToString());
                             detalle.precioVenta = logicaProducto.Buscar(txtIdProducto.Text).precioVenta;
                             detalle.producto = logicaProducto.Buscar(txtIdProducto.Text);
                             if (ValidarNumero(txtCantidadVent.Text))
@@ -141,11 +143,11 @@ namespace Presentacion
                 MessageBox.Show("No existen productos para facturar", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
-            if(txtNombreClienteVentas.Text.Length == 0)
-            {
-                MessageBox.Show("Nombre de cliente vacío", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
-                return false;
-            }
+            //if(txtNombreClienteVentas.Text.Length == 0)
+            //{
+            //    MessageBox.Show("Nombre de cliente vacío", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            //    return false;
+            //}
             if (txtRecibidoVenta.Text.Length==0)
             {
                 MessageBox.Show("Cantidad recibida vacía", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -175,15 +177,24 @@ namespace Presentacion
                 venta.FechaVenta = DateTime.Parse(fecha);
                 venta.montoTotal = double.Parse(lbPagoVenta.Content.ToString());
                 venta.detalles = detalles;
-                if (ValidarNombre(txtNombreClienteVentas.Text))
+                //if (ValidarNombre(txtNombreClienteVentas.Text))
+                //{
+                if(txtCedulaClienteVentas.Text.Length != 0)
                 {
-                    venta.nombreCliente = txtNombreClienteVentas.Text;
+                    venta.cliente = logicaCliente.Buscar(txtCedulaClienteVentas.Text);
+
                 }
                 else
                 {
-                    return;
+                    MessageBox.Show("Cedula Cliente vacía", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 }
-                
+                //}
+                //else
+                //{
+                //    return;
+                //}
+
                 if (ValidarPrecioContenido(txtRecibidoVenta.Text))
                 {
                     venta.montoPago = double.Parse(txtRecibidoVenta.Text);
@@ -196,7 +207,9 @@ namespace Presentacion
                 logicaVenta.Add(venta);
                 MessageBox.Show("Factura registrada con exito", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                 Email email = new Email();
-                email.Enviar(venta,txtCorreo.Text);
+                //email.Enviar(venta,txtCorreo.Text);
+
+                Limpiar();
             }
         }
         bool ValidarPrecioContenido(string campo)
@@ -270,11 +283,13 @@ namespace Presentacion
                     i++;
                 }
                 ActualizarTabla();
+                lbCambioVenta.Content = "";
             }
             else
             {
                 MessageBox.Show("Seleccione un producto a eliminar", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            
         }
 
         private void txtRecibidoVenta_KeyDown(object sender, KeyEventArgs e)
@@ -290,5 +305,48 @@ namespace Presentacion
             }
             
         }
+
+        private void btnAgregarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            AgregarCliente vista = new AgregarCliente();
+            vista.Show();
+        }
+
+        private void btnBuscarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtCedulaClienteVentas.Text.Equals(""))
+            {
+                MessageBox.Show("La cedula del cliente se encuentra vacia", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            Cliente cliente = logicaCliente.Buscar(txtCedulaClienteVentas.Text);
+            if (cliente != null)
+            {
+                txtNombre.Content = cliente.NombreCliente;
+                txtCorreo.Content = cliente.Correo;
+                
+            }
+            else
+            {
+                MessageBox.Show("El producto no existe", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        void Limpiar()
+        {
+            txtCedulaClienteVentas.Clear();
+            lbCambioVenta.Content = "";
+            lbCategoria.Content = "";
+            lbPagoVenta.Content = "";
+            lbProducto.Content = "";
+            lbValor.Content = "";
+            txtCorreo.Content = "";
+            txtNombre.Content = "";
+            tblVistaVenta = null;
+            txtRecibidoVenta.Clear();
+            lbCambioVenta.Content = "";
+        }
+
+        
     }
 }

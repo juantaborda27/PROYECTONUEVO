@@ -57,7 +57,7 @@
                     <!-- StackPanel Des -->
                     <StackPanel Margin="0,0,10,0">
                         <Label Content="DESCRIPCION" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FF38424D" Margin="0,0,0,5" Width="181"/>
-                        <ComboBox x:Name="cbProveedor" Width="195" Height="32"  FontFamily="Century Gothic" FontSize="20" Foreground="White" Margin="0,5,0,0" BorderBrush="#FFEF423B" Background="#FF18181A" />
+                        <ComboBox x:Name="cbProveedor" Width="195" Height="32"  FontFamily="Century Gothic" FontSize="20" Foreground="Black" Margin="0,5,0,0" BorderBrush="#FFEF423B" Background="#FF18181A" ItemsSource="{Binding Proveedor}" DisplayMemberPath="NombreProveedor"  SelectionChanged="ComboBox_SelectionChanged"/>
                     </StackPanel>
 
                     <!-- StackPanel Doc -->
@@ -126,6 +126,8 @@
                 </Border.Background>
                 <StackPanel Orientation="Vertical" Margin="0,-10,0,17">
                     <!--Agregar-->
+                    <!-- Botón Eliminar -->
+                    <!--Agregar-->
                     <Button x:Name="btnAdd" Height="89" Margin="0,50,0,0" Click="btnAdd_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">
@@ -152,17 +154,17 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
+                    <Button x:Name="btnEliminar" Content="ELIMINAR" Width="273" FontFamily="Nasalization Rg" FontSize="25" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FFFF2500" Click="btnEliminar_Click" Height="40" Margin="0,15,0,0"/>
 
-                    
+
                     <!-- Total a Pagar -->
                     <Label Content="PAGO TOTAL" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Height="35" Width="176" FontWeight="Bold" Margin="0,10,0,0"/>
                     <Label x:Name="lbPago" FontFamily="Century Gothic" FontSize="24" Foreground="#FFEF423B" BorderBrush="Transparent" Height="40" Width="198" HorizontalAlignment="Center"/>
 
                     <!-- Botón Registrar -->
-                    <Button x:Name="BtnRegistrar" Content="REGISTRAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF92F0C9" Foreground="#FF92F0C9" Background="#FF18181A" Height="40" Click="BtnRegistrar_Click" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    <Button x:Name="BtnRegistrar" Content="REGISTRAR" FontFamily="Nasalization Rg" FontSize="25" BorderBrush="#FF92F0C9" Foreground="#FF92F0C9" Background="#FF18181A" Height="72" Click="BtnRegistrar_Click" HorizontalAlignment="Center" Width="266" Margin="0,50,0,0"/>
 
                     <!-- Botón Eliminar -->
-                    <Button x:Name="btnEliminar" Content="ELIMINAR" HorizontalAlignment="Center" Width="170" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FF92F0C9" Click="btnEliminar_Click" Height="40" Margin="0,20,0,0"/>
                 </StackPanel>
             </Border>
         </StackPanel>

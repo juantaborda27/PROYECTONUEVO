@@ -94,11 +94,11 @@
                     <DataGridTextColumn Header="ID P" Width="100" Binding="{Binding idProducto}"/>
                     <DataGridTextColumn Header="DES" Width="150" Binding="{Binding descripcion}"/>
                     <DataGridTextColumn Header="ID CAT" Width="100" Binding="{Binding categoriaProducto.idCategoria}"/>
-                    <DataGridTextColumn Header="CAT" Width="150" Binding="{Binding categoriaProducto.descripcion}"/>
-                    <DataGridTextColumn Header="DIS" Width="100" Binding="{Binding cantidad}"/>
-                    <DataGridTextColumn Header="C MIN" Width="100" Binding="{Binding cantidadMinima}"/>
-                    <DataGridTextColumn Header="P COMP" Width="150" Binding="{Binding precioCompra}"/>
-                    <DataGridTextColumn Header="P VENTA" Width="150" Binding="{Binding precioVenta}"/>
+                    <DataGridTextColumn Header="CATEGORIA" Width="150" Binding="{Binding categoriaProducto.descripcion}"/>
+                    <DataGridTextColumn Header="DISPON" Width="100" Binding="{Binding cantidad}"/>
+                    <DataGridTextColumn Header="C. MIN" Width="100" Binding="{Binding cantidadMinima}"/>
+                    <DataGridTextColumn Header="P. COMP" Width="150" Binding="{Binding precioCompra}"/>
+                    <DataGridTextColumn Header="P. VENTA" Width="150" Binding="{Binding precioVenta}"/>
                 </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

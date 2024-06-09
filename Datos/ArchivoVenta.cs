@@ -18,13 +18,12 @@ namespace Datos
         ArchivoUsuario archivoUsuario = new ArchivoUsuario();
         ArchivoCliente archivoCliente = new ArchivoCliente();
         ArchivoProducto archivoProducto = new ArchivoProducto();
-        public void Add(Venta venta, List<DetalleVenta> detallesVentas)
+        public void Add(Venta venta)
         {
             string registroVenta = "INSERT INTO VENTA (IdVenta,IdUsuario,DocumentoCliente,MontoPago,MontoCambio,MontoTotal) VALUES " +
                 "(@IdVenta,@IdUsuario,@DocumentoCliente,@MontoPago,@MontoCambio,@MontoTotal)";
             string registroDetalleVenta = "INSERT INTO DETALLECOMPRA (IdVenta,IdProducto,PrecioVenta,Cantidad,SubTotal) " +
-                "VALUES " +
-                "(@IdVenta, @IdProducto, @PrecioVenta,@PrecioVenta,@Cantidad,@SubTotal)";
+                "VALUES" + "(@IdVenta, @IdProducto, @PrecioVenta,@Cantidad,@SubTotal)";
 
             SqlTransaction accion = null;
 
@@ -45,7 +44,7 @@ namespace Datos
                 }
 
                 //Recorremos los detalles
-                foreach (var detalle in detallesVentas)
+                foreach (var detalle in venta.detalles)
                 {
                     using (SqlCommand command = new SqlCommand(registroDetalleVenta, conexion, accion))
                     {
@@ -243,6 +242,7 @@ namespace Datos
             DetalleVenta detalleVenta = new DetalleVenta
             {
                 idDetalleVenta = Convert.ToInt32(reader["IdDetalleVenta"]),
+                idVenta = Convert.ToInt32(reader["IdVenta"]),
                 precioVenta = Convert.ToDouble(reader["PrecioVenta"]),
                 cantidad = Convert.ToInt32(reader["Cantidad"]),
                 total = Convert.ToDouble(reader["SubTotal"])
@@ -251,7 +251,6 @@ namespace Datos
             string idProducto = Convert.ToString(reader["IdProducto"]);
             detalleVenta.producto = ObtenerProducto(idProducto);
 
-            detalleVenta.idVenta = Convert.ToInt32(reader["IdCompra"]);
             return detalleVenta;
         }
 
@@ -270,9 +269,10 @@ namespace Datos
             return archivoCliente.Leer().Find(p => p.Documento == Documento);
         }
 
-        public List<DetalleVenta> GetVentaList(int idVenta)
+        public List<DetalleVenta> GetVentaList(string idVenta)
         {
-            return leerDetalleVenta().Where(detalle => detalle.idVenta == idVenta).ToList();
+            return leerDetalleVenta().Where(detalle => detalle.idVenta.Equals(idVenta)).ToList();
         }
+
     }
 }

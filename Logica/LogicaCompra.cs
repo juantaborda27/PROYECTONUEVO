@@ -12,9 +12,9 @@ namespace Logica
         ArchivoCompra datos = new ArchivoCompra();
         LogicaProducto logicaProducto = new LogicaProducto();
         
-        public string Add(Compra compra, List<DetalleCompra> detalles)
+        public string Add(Compra compra)
         {
-            datos.Add(compra, detalles);
+            datos.Add(compra);
             Entrada(compra);
             return "Se registro la venta correctamente";
         }

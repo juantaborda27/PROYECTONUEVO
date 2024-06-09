@@ -77,6 +77,22 @@
                     </LinearGradientBrush>
                 </DataGrid.Background>
                 <DataGrid.Resources>
+
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="Background" Value="#ef423b"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0.5"/>
+                        <Setter Property="FontFamily" Value="Nasalization Rg"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="#ef423b"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0.5"/>
+                    </Style>
+
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#ef423b"/>
                         <Setter Property="Foreground" Value="#FF38424D"/>
@@ -89,10 +105,10 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID PROVEEDOR" Width="250" Binding="{Binding idProveedor}"/>
-                    <DataGridTextColumn Header="DOCUMENTO" Width="250" Binding="{Binding documento}"/>
-                    <DataGridTextColumn Header="NOMBRE" Width="250" Binding="{Binding NombreProveedor}"/>
-                    <DataGridTextColumn Header="TELEFONO" Width="250" Binding="{Binding telefono}"/>
+                    <DataGridTextColumn Header="ID" Width="60" Binding="{Binding idProveedor}"/>
+                    <DataGridTextColumn Header="DOCUMENTO" Width="230" Binding="{Binding documento}"/>
+                    <DataGridTextColumn Header="NOMBRE" Width="300" Binding="{Binding NombreProveedor}"/>
+                    <DataGridTextColumn Header="TELEFONO" Width="300" Binding="{Binding telefono}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

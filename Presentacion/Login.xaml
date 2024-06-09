@@ -47,8 +47,7 @@
         </StackPanel>
 
         <Image Height="254" Width="393" Margin="0,50,0,0" Source="IMAGEN/Logazon.png" />
-        <Label Content="BIENVENIDO" Width="255" FontSize="36" Foreground="#FFEF423B" FontFamily="Nasalization Rg"/>
-        <Label Content="Iniciar sesión" Width="137" FontSize="18" Foreground="White" FontFamily="Nasalization Rg"/>
+        <Label Content="BIENVENIDO" Width="253" FontSize="36" Foreground="#FFEF423B" FontFamily="Nasalization Rg"/>
 
         <Border CornerRadius="10" BorderThickness="2" BorderBrush="#FFEF423B" Margin="10,50,10,10" Width="300" Height="45">
             <Border CornerRadius="10" Background="Transparent" BorderThickness="0">

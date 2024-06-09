@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
         Title="DetalleVentaVista" Height="236" Width="521">
-    <Grid>
-        <DataGrid x:Name="tblVistaVenta" Height="221" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="523">
+    <Grid Margin="0,0,-139,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="518*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="tblVistaVenta" Height="221" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Margin="0,0,4,-1" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Codigo" Width="100" Binding="{Binding idDetalleVenta}"/>
                 <DataGridTextColumn Header="Categoria" Width="100" Binding="{Binding producto.categoriaProducto.descripcion}"/>

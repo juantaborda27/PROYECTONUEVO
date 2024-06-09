@@ -103,6 +103,20 @@
                         <Setter Property="FontFamily" Value="Nasalization Rg"/>
                         <Setter Property="FontSize" Value="24"/>
                     </Style>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="Background" Value="#FF46FDAE"/>
+                        <Setter Property="Foreground" Value="#FF068258"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0.7"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
+                        <Setter Property="FontSize" Value="16"/>
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="#FF46FDAE"/>
+                        <Setter Property="Foreground" Value="#FF068258"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0.7"/>
+                    </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID VENTA" Width="310" Binding="{Binding idVenta}"/>

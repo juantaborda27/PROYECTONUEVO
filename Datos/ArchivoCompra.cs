@@ -18,7 +18,7 @@ namespace Datos
         ArchivoProveedor archivoProveedor = new ArchivoProveedor();
         ArchivoProducto archivoProducto = new ArchivoProducto();
         ArchivoUsuario archivoUsuario = new ArchivoUsuario();
-        public void Add(Compra compra, List<DetalleCompra> detallesCompra)
+        public void Add(Compra compra)
         {
             string registroCompra = "INSERT INTO COMPRA (IdCompra,IdUsuario,IdProveedor,MontoTotal) VALUES " +
                 "(@IdCompra,@IdUsuario, @IdProveedor, @MontoTotal)";
@@ -42,7 +42,7 @@ namespace Datos
                 }
 
                 //Recorremos los detalles
-                foreach (var detalle in detallesCompra)
+                foreach (var detalle in compra.detalles)
                 {
                     using (SqlCommand command = new SqlCommand(registroDetalleCompra, conexion, accion))
                     {

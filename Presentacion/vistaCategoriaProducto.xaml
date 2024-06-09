@@ -85,8 +85,8 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID CATEGORIA" Binding="{Binding idCategoria}" Width="500" FontFamily="Century Gothic"/>
-                    <DataGridTextColumn Header="DESCRIPCION" Binding="{Binding descripcion}" Width="500" FontFamily="Century Gothic"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding idCategoria}" Width="60" FontFamily="Century Gothic"/>
+                    <DataGridTextColumn Header="DESCRIPCION" Binding="{Binding descripcion}" Width="400" FontFamily="Century Gothic"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
