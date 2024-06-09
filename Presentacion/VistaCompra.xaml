@@ -15,7 +15,7 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0"/>
-                        <GradientStop Color="#92F0C9" Offset="0.5"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel>
@@ -32,11 +32,11 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0"/>
-                        <GradientStop Color="#92F0C9" Offset="0.5"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel>
-                    <Label Content="ID COMPRAS" Width="180" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FF38424D" Height="36" FontWeight="Bold"/>
+                    <Label Content="ID COMPRAS" Width="180" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Height="36" FontWeight="Bold"/>
                     <Label x:Name="lbIdCompra"  FontFamily="Century Gothic" Foreground="#FFEF423B" FontSize="24" Height="40" Width="150" Margin="0,10,0,0" FontWeight="Bold"/>
                 </StackPanel>
             </Border>
@@ -49,14 +49,14 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0.5"/>
-                        <GradientStop Color="#92F0C9" Offset="0"/>
+                        <GradientStop Color="#396781" Offset="0"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
                 <StackPanel Orientation="Horizontal">
                     <!-- StackPanel Des -->
                     <StackPanel Margin="0,0,10,0">
-                        <Label Content="DESCRIPCION" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FF38424D" Margin="0,0,0,5" Width="181"/>
+                        <Label Content="DESCRIPCION" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Margin="0,0,0,5" Width="181"/>
                         <ComboBox x:Name="cbProveedor" Width="195" Height="32"  FontFamily="Century Gothic" FontSize="20" Foreground="Black" Margin="0,5,0,0" BorderBrush="#FFEF423B" Background="#FF18181A" ItemsSource="{Binding Proveedor}" DisplayMemberPath="NombreProveedor"  SelectionChanged="ComboBox_SelectionChanged"/>
                     </StackPanel>
 
@@ -75,7 +75,7 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0.5"/>
-                        <GradientStop Color="#92F0C9" Offset="0.5"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel Orientation="Horizontal">
@@ -83,33 +83,33 @@
                     <StackPanel Orientation="Vertical" Margin="0,0,20,0" Width="246" Height="90">
                         <Label x:Name="labelProducto" Content="ID PRODUTO" Width="170" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Height="36" Margin="0,0,85,0" FontWeight="Bold"/>
                         <StackPanel Orientation="Horizontal" Width="243">
-                            <TextBox x:Name="txtCodProducto" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF92F0C9"/>
-                            <Button x:Name="BtnBuscar" Content="🔍" Height="37" Background="#FF18181A" FontFamily="Century Gothic" Margin="10,0,4,0" Width="46" Click="BtnBuscar_Click" BorderBrush="#FF92F0C9" Foreground="#FF92F0C9"/>
+                            <TextBox x:Name="txtCodProducto" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
+                            <Button x:Name="BtnBuscar" Content="🔍" Height="37" Background="#FF18181A" FontFamily="Century Gothic" Margin="10,0,4,0" Width="46" Click="BtnBuscar_Click" BorderBrush="#FFEF423B" Foreground="#FFEF423B"/>
                         </StackPanel>
                     </StackPanel>
 
                     <!-- Producto -->
                     <StackPanel Orientation="Vertical" Margin="0,0,20,0" Height="90" Width="176">
                         <Label Content="PRODUCTO" Width="154" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Height="36" FontWeight="Bold"/>
-                        <TextBox x:Name="txtProducto" Width="174" Height="40" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" BorderBrush="#FF92F0C9" SelectionBrush="#FF18181A"/>
+                        <TextBox x:Name="txtProducto" Width="174" Height="40" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" BorderBrush="#FFEF423B" SelectionBrush="#FF18181A"/>
                     </StackPanel>
 
                     <!-- PCompra -->
                     <StackPanel Orientation="Vertical" Margin="0,0,20,0" Height="90" Width="167">
                         <Label Content="P COMPRA" Width="153" FontFamily="Nasalization Rg" FontSize="24" Foreground="WhiteSmoke" Height="36" FontWeight="Bold"/>
-                        <TextBox x:Name="txtPrecioCompra" Width="154" Height="40" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="24" BorderBrush="#FF18181A" SelectionBrush="#FF18181A"/>
+                        <TextBox x:Name="txtPrecioCompra" Width="154" Height="40" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="24" BorderBrush="#FFEF423B" SelectionBrush="#FF18181A"/>
                     </StackPanel>
 
                     <!-- PVenta -->
                     <StackPanel Orientation="Vertical" Margin="0,0,20,0" Height="90" Width="155">
-                        <Label Content="P VENTA" Width="129" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FF38424D" Height="36" FontWeight="Bold"/>
-                        <TextBox x:Name="txtPrecioVenta" Width="154" Height="40" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="24" BorderBrush="#FF18181A" SelectionBrush="#FF18181A"/>
+                        <Label Content="P VENTA" Width="129" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Height="36" FontWeight="Bold"/>
+                        <TextBox x:Name="txtPrecioVenta" Width="154" Height="40" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="24" BorderBrush="#FFEF423B" SelectionBrush="#FF18181A"/>
                     </StackPanel>
 
                     <!-- Cantidad -->
                     <StackPanel Orientation="Vertical" Height="90" Width="154">
-                        <Label Content="CANTIDAD" Width="146" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FF38424D" Height="36" FontWeight="Bold"/>
-                        <TextBox x:Name="txtCantidad" TextAlignment="Center" TextWrapping="Wrap" Width="147" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF18181A"/>
+                        <Label Content="CANTIDAD" Width="146" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Height="36" FontWeight="Bold"/>
+                        <TextBox x:Name="txtCantidad" TextAlignment="Center" TextWrapping="Wrap" Width="147" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -121,21 +121,21 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0.5"/>
-                        <GradientStop Color="#92F0C9" Offset="0"/>
+                        <GradientStop Color="#396781" Offset="0"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel Orientation="Vertical" Margin="0,-10,0,17">
                     <!--Agregar-->
                     <!-- Botón Eliminar -->
                     <!--Agregar-->
-                    <Button x:Name="btnAdd" Height="89" Margin="0,50,0,0" Click="btnAdd_Click">
+                    <Button x:Name="btnAdd" Height="89" Margin="0,120,0,0" Click="btnAdd_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">
                                 <Border x:Name="border">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                             <GradientStop Color="#FF38424D" Offset="0.5"/>
-                                            <GradientStop Color="#92F0C9" Offset="0.5"/>
+                                            <GradientStop Color="#396781" Offset="0.5"/>
                                         </LinearGradientBrush>
                                     </Border.Background>
                                     <StackPanel Orientation="Horizontal" Margin="61,14,43,14">
@@ -154,7 +154,7 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-                    <Button x:Name="btnEliminar" Content="ELIMINAR" Width="273" FontFamily="Nasalization Rg" FontSize="25" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FFFF2500" Click="btnEliminar_Click" Height="40" Margin="0,15,0,0"/>
+                    <Button x:Name="btnEliminar" Content="ELIMINAR" Width="278" FontFamily="Nasalization Rg" FontSize="25" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FFFF2500" Click="btnEliminar_Click" Height="50" Margin="0,15,0,0"/>
 
 
                     <!-- Total a Pagar -->
@@ -162,7 +162,7 @@
                     <Label x:Name="lbPago" FontFamily="Century Gothic" FontSize="24" Foreground="#FFEF423B" BorderBrush="Transparent" Height="40" Width="198" HorizontalAlignment="Center"/>
 
                     <!-- Botón Registrar -->
-                    <Button x:Name="BtnRegistrar" Content="REGISTRAR" FontFamily="Nasalization Rg" FontSize="25" BorderBrush="#FF92F0C9" Foreground="#FF92F0C9" Background="#FF18181A" Height="72" Click="BtnRegistrar_Click" HorizontalAlignment="Center" Width="266" Margin="0,50,0,0"/>
+                    <Button x:Name="BtnRegistrar" Content="REGISTRAR" FontFamily="Nasalization Rg" FontSize="25" BorderBrush="#FF396781" Foreground="#FF396781" Background="#FF18181A" Height="50" Click="BtnRegistrar_Click" HorizontalAlignment="Center" Width="278" Margin="0,10,0,0"/>
 
                     <!-- Botón Eliminar -->
                 </StackPanel>
@@ -176,14 +176,14 @@
             <DataGrid x:Name="tblVistaCompra" Height="404" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1027" FontFamily="Century Gothic">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#396781" Offset="0"/>
-                        <GradientStop Color="#92F0C9" Offset="1"/>
+                        <GradientStop Color="#FF38424D" Offset="0"/>
+                        <GradientStop Color="#396781" Offset="1"/>
                     </LinearGradientBrush>
                 </DataGrid.Background>
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FF38424D"/>
-                        <Setter Property="Foreground" Value="#92F0C9"/>
+                        <Setter Property="Foreground" Value="White"/>
                         <Setter Property="BorderBrush" Value="Black"/>
                         <Setter Property="BorderThickness" Value="0.7"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>

@@ -1,0 +1,86 @@
+﻿<Window x:Class="Presentacion.HiddenMarkTVV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentacion"
+        mc:Ignorable="d"
+        Title="HiddenMarkTVV" Height="948" Width="1445"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="20" ShadowDepth="10" Opacity="0.5" Color="Black"/>
+    </Window.Effect>
+
+    <Window.Resources>
+        <Style x:Key="CircularButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    CornerRadius="15"
+                    BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FF18181A" VerticalAlignment="Center" Height="1124">
+
+        <!--Botones de Control de Ventana-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,101,10,0" Width="130">
+            <Label Content=" ⭠ REGRESAR" FontFamily="Nasalization Rg" Foreground="White"/>
+            <Button x:Name="btnRegresar" Click="btnRegresar_Click" Width="30" Height="30"
+             Background="Blue" BorderBrush="Blue" Foreground="White" FontFamily="Century Gothic"
+             FontWeight="Bold" FontSize="14" 
+             Style="{StaticResource CircularButtonStyle}" Margin="3,2,2,2"/>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" Margin="0,135,0,765">
+            <Label Width="168" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="ALVARO VIDAL" />
+            <Label Width="140" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="JOSE VIDAL" />
+            <Label Width="176" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="JUAN TABORDA" />
+            <Label Width="109" Foreground="#FFEF423B" FontSize="20" FontFamily="Crimes Times Six" Content="ALVARO VIDAL" />
+            <Label Width="92" Foreground="#FFEF423B" FontSize="20" FontFamily="Crimes Times Six" Content="JOSE VIDAL" />
+            <Label Width="117" Foreground="#FFEF423B" FontSize="20" FontFamily="Crimes Times Six" Content="JUAN TABORDA" />
+            <Label Width="169" Foreground="#FFEF423B" FontSize="20" FontFamily="MrRobot" Content="ALVARO VIDAL" />
+            <Label Width="140" Foreground="#FFEF423B" FontSize="20" FontFamily="MrRobot" Content="JOSE VIDAL" />
+            <Label Width="176" Foreground="#FFEF423B" FontSize="20" FontFamily="MrRobot" Content="JUAN TABORDA" />
+            <Label Width="168" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="ALVARO VIDAL" />
+            <Label Width="140" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="JOSE VIDAL" />
+            <Label Width="176" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="JUAN TABORDA" />
+        </StackPanel>
+
+        <StackPanel Margin="3,170,-3,-130">
+            <Image Source="IMAGEN/wearewatching.png" Height="794" HorizontalAlignment="Left" Width="1510" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="3,966,-3,-140">
+            <Label Width="168" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="ALVARO VIDAL" />
+            <Label Width="140" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="JOSE VIDAL" />
+            <Label Width="176" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="JUAN TABORDA" />
+            <Label Width="109" Foreground="#FFEF423B" FontSize="20" FontFamily="Crimes Times Six" Content="ALVARO VIDAL" />
+            <Label Width="92" Foreground="#FFEF423B" FontSize="20" FontFamily="Crimes Times Six" Content="JOSE VIDAL" />
+            <Label Width="117" Foreground="#FFEF423B" FontSize="20" FontFamily="Crimes Times Six" Content="JUAN TABORDA" />
+            <Label Width="169" Foreground="#FFEF423B" FontSize="20" FontFamily="MrRobot" Content="ALVARO VIDAL" />
+            <Label Width="140" Foreground="#FFEF423B" FontSize="20" FontFamily="MrRobot" Content="JOSE VIDAL" />
+            <Label Width="176" Foreground="#FFEF423B" FontSize="20" FontFamily="MrRobot" Content="JUAN TABORDA" />
+            <Label Width="168" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="ALVARO VIDAL" />
+            <Label Width="140" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="JOSE VIDAL" />
+            <Label Width="176" Foreground="#FFEF423B" FontSize="20" FontFamily="Nasalization Rg" Content="JUAN TABORDA" />
+        </StackPanel>
+
+
+
+
+
+
+    </Grid>
+</Window>

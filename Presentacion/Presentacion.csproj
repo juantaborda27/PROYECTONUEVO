@@ -68,6 +68,9 @@
     <Compile Include="DetalleVentaVista.xaml.cs">
       <DependentUpon>DetalleVentaVista.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HiddenMarkTVV.xaml.cs">
+      <DependentUpon>HiddenMarkTVV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReportesCompra.xaml.cs">
       <DependentUpon>ReportesCompra.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,7 @@
     </EmbeddedResource>
     <Resource Include="Fonts\MR ROBOT.ttf" />
     <Resource Include="Fonts\nasalization-rg.otf" />
+    <Resource Include="Fonts\Crimes Times Six.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -143,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DetalleVentaVista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HiddenMarkTVV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -281,6 +289,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMAGEN\Logozon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGEN\wearewatching.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

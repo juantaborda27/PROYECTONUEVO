@@ -13,8 +13,8 @@
             <Border CornerRadius="10" Padding="20" Width="1222" Height="138">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF2264E6" Offset="0.3"/>
-                        <GradientStop Color="#FF73BAE8" Offset="0.5"/>
+                        <GradientStop Color="#FF38424D" Offset="0.3"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel Orientation="Horizontal">
@@ -26,7 +26,7 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <Grid Margin="0,-6,-23,-15">
-                                        <Ellipse Fill="#FF73BAE8"/>
+                                        <Ellipse Fill="#396781"/>
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                     </Grid>
                                 </ControlTemplate>
@@ -45,7 +45,7 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <Grid Margin="0,-6,-23,-15">
-                                        <Ellipse Fill="#FF2264E6"/>
+                                        <Ellipse Fill="#FF38424D"/>
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                     </Grid>
                                 </ControlTemplate>
@@ -59,7 +59,7 @@
                     <!-- Buscar -->
                     <Label x:Name="lbBusCliente" Content="ID BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="156" Height="36" FontWeight="Bold"/>
                     <TextBox x:Name="idBuscarRventa" TextAlignment="Center" TextWrapping="Wrap" Width="179" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF35273C" BorderBrush="#FF4646CE"/>
-                    <Button x:Name="BtnBuscarReporteVent" Click="BtnBuscarVenta_Click" Content="🔍" Height="36" Background="#FF2264E6" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FF73BAE8" BorderBrush="#FF2264E6"/>
+                    <Button x:Name="BtnBuscarReporteVent" Click="BtnBuscarVenta_Click" Content="🔍" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -69,16 +69,16 @@
             <Border CornerRadius="10" Padding="20" Width="308" Height="206" HorizontalAlignment="Center">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF2264E6" Offset="0.5"/>
-                        <GradientStop Color="#FF73BAE8" Offset="0.5"/>
+                        <GradientStop Color="#FF38424D" Offset="0.5"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel Orientation="Vertical" Margin="0,0,-10,0">
                     <!-- Detalle -->
-                    <Button x:Name="btnDetalles" Click="BtnDetalle_Click" Content="DETALLES" Height="36" Background="#FF2264E6" FontFamily="Nasalization Rg" Width="159" FontSize="24" Foreground="#FF73BAE8" BorderBrush="#FF73BAE8" Margin="0,20,0,0"/>
+                    <Button x:Name="btnDetalles" Click="BtnDetalle_Click" Content="DETALLES" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Width="159" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="0,20,0,0"/>
 
                     <!-- Eliminar -->
-                    <Button x:Name="btnEliminar" Click="BtnEliminar_Click" Content="ELIMINAR" Height="36" Background="#FF73BAE8" FontFamily="Nasalization Rg" Width="159" FontSize="24" Foreground="#FF2264E6" BorderBrush="#FF2264E6" Margin="0,50,0,0"/>
+                    <Button x:Name="btnEliminar" Click="BtnEliminar_Click" Content="ELIMINAR" Height="36" Background="#FFEF423B" FontFamily="Nasalization Rg" Width="159" FontSize="24" Foreground="#FF18181A" BorderBrush="#FF38424D" Margin="0,50,0,0"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -89,14 +89,14 @@
             <DataGrid x:Name="tbVenta" Height="480" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1224" FontFamily="Century Gothic">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF2264E6" Offset="0"/>
-                        <GradientStop Color="#FF73BAE8" Offset="1"/>
+                        <GradientStop Color="#FF38424D" Offset="0"/>
+                        <GradientStop Color="#396781" Offset="1"/>
                     </LinearGradientBrush>
                 </DataGrid.Background>
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#FF73BAE8"/>
-                        <Setter Property="Foreground" Value="#FF2264E6"/>
+                        <Setter Property="Background" Value="#FF38424D"/>
+                        <Setter Property="Foreground" Value="White"/>
                         <Setter Property="BorderBrush" Value="Black"/>
                         <Setter Property="BorderThickness" Value="0.7"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>

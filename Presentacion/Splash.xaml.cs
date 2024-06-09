@@ -44,9 +44,18 @@ namespace Presentacion
         }
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            barraProgreso.Value = e.ProgressPercentage;
+            ProgBar.Value = e.ProgressPercentage;
 
-            if (barraProgreso.Value == 100)
+            if (ProgBar.Value >= 80)
+            {
+                lbOR.Visibility = Visibility.Visible;
+            }
+            if (ProgBar.Value >= 85)
+            {
+                lbEnded.Visibility = Visibility.Visible;
+            }
+
+            if (ProgBar.Value == 100)
             {
                 Login mainwindow = new Login();
                 Close();

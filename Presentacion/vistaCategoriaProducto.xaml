@@ -15,8 +15,8 @@
             <Border CornerRadius="10" Padding="20" Width="436" Height="847">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF6B4D35" Offset="0.5"/>
-                        <GradientStop Color="#FFFFAE6A" Offset="0.5"/>
+                        <GradientStop Color="#FF38424D" Offset="0.5"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel Orientation="Vertical">
@@ -25,20 +25,20 @@
 
                     <!-- ID Categoria -->
                     <Label x:Name="lbIdCategoria" Content="ID CATEGORIA" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" Margin="0,100,0,4" FontWeight="Bold"/>
-                    <TextBox x:Name="txtIdCategoria" TextAlignment="Center" TextWrapping="Wrap" Width="216" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFFFAE6A"/>
+                    <TextBox x:Name="txtIdCategoria" TextAlignment="Center" TextWrapping="Wrap" Width="216" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- DESCRIP -->
                     <Label x:Name="lbDescr" Content="DESCRIPCION" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="194" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,70,0,0"/>
-                    <TextBox x:Name="txtDescripProducto" TextAlignment="Center" TextWrapping="Wrap" Width="224" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFFFAE6A"/>
+                    <TextBox x:Name="txtDescripProducto" TextAlignment="Center" TextWrapping="Wrap" Width="224" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- BtnsGuardar -->
-                    <Button x:Name="btnGuardar" Click="BtnGuuardar" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF6B4D35" Foreground="#FFFFAE6A" Background="#FF6B4D35" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,70,0,0"/>
+                    <Button x:Name="btnGuardar" Click="BtnGuuardar" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF38424D" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,70,0,0"/>
 
                     <!-- BtnLimpiar -->
-                    <Button x:Name="btnLimpiar" Click="BtnLIMPPIAR" Content="LIMPIAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF6B4D35" Foreground="#FF6B4D35" Background="#FFFFAE6A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    <Button x:Name="btnLimpiar" Click="BtnLIMPPIAR" Content="LIMPIAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF396781" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
 
                     <!-- BtnEliminar -->
-                    <Button x:Name="btnEliminar" Click="BtnEEliminar" Content="ELIMINAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF6B4D35" Foreground="#FFFFAE6A" Background="#FF6B4D35" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    <Button x:Name="btnEliminar" Click="BtnEEliminar" Content="ELIMINAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FFEF423B" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -48,15 +48,15 @@
             <Border CornerRadius="10" Padding="20" Width="1000" Height="138">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF6B4D35" Offset="0.3"/>
-                        <GradientStop Color="#FFFFAE6A" Offset="0.5"/>
+                        <GradientStop Color="#FF38424D" Offset="0.3"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel Orientation="Horizontal">
                     <!-- Buscar -->
                     <Label x:Name="lbBuscarCategoria" Content="BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="132" Height="36" FontWeight="Bold" Margin="250,0,0,0"/>
                     <TextBox x:Name="txtBuscarListaCategoria" TextAlignment="Center" TextWrapping="Wrap" Width="279" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
-                    <Button x:Name="BtnBuscarCategoria" Click="BtnBuscarCategoria_Click" Content="🔍" Height="36" Background="#FF6B4D35" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFFFAE6A" BorderBrush="#FF38424D"/>
+                    <Button x:Name="BtnBuscarCategoria" Click="BtnBuscarCategoria_Click" Content="🔍" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -65,17 +65,17 @@
         <!--Tabla-->
 
         <StackPanel Margin="482,202,10,115" Background="#FF242A82">
-            <DataGrid x:Name="tblListaCategoria" Height="558" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1005" FontFamily="Century Gothic">
+            <DataGrid x:Name="tblListaCategoria" Height="558" AutoGenerateColumns="False" FontSize="20" SelectionMode="Single" ItemsSource="{Binding}" Width="1005" FontFamily="Nasalization Rg">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF6B4D35" Offset="0"/>
-                        <GradientStop Color="#FFFFAE6A" Offset="1"/>
+                        <GradientStop Color="#FF38424D" Offset="0"/>
+                        <GradientStop Color="#396781" Offset="1"/>
                     </LinearGradientBrush>
                 </DataGrid.Background>
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#FFFFAE6A"/>
-                        <Setter Property="Foreground" Value="#FF6B4D35"/>
+                        <Setter Property="Background" Value="#396781"/>
+                        <Setter Property="Foreground" Value="White"/>
                         <Setter Property="BorderBrush" Value="Black"/>
                         <Setter Property="BorderThickness" Value="0.7"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -85,8 +85,8 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding idCategoria}" Width="60" FontFamily="Century Gothic"/>
-                    <DataGridTextColumn Header="DESCRIPCION" Binding="{Binding descripcion}" Width="400" FontFamily="Century Gothic"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding idCategoria}" Width="500" FontFamily="Nasalization Rg"/>
+                    <DataGridTextColumn Header="DESCRIPCION" Binding="{Binding descripcion}" Width="500" FontFamily="Nasalization Rg"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

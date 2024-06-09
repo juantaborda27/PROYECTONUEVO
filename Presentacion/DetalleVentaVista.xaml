@@ -5,20 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="DetalleVentaVista" Height="236" Width="521">
-    <Grid Margin="0,0,-139,0">
+        Title="DetalleVentaVista" Height="382" Width="814">
+
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="518*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="248*"/>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="tblVistaVenta" Height="221" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Margin="0,0,4,-1" Grid.ColumnSpan="2">
+        <DataGrid x:Name="tblVistaVenta" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Grid.ColumnSpan="2">
+            <DataGrid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF38424D" Offset="0"/>
+                    <GradientStop Color="#396781" Offset="1"/>
+                </LinearGradientBrush>
+            </DataGrid.Background>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF38424D"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="0.7"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="FontFamily" Value="Nasalization Rg"/>
+                    <Setter Property="FontSize" Value="22"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Codigo" Width="100" Binding="{Binding idDetalleVenta}"/>
-                <DataGridTextColumn Header="Categoria" Width="100" Binding="{Binding producto.categoriaProducto.descripcion}"/>
-                <DataGridTextColumn Header="Descripcion" Width="150" Binding="{Binding producto.descripcion}"/>
-                <DataGridTextColumn Header="Precio" Width="100" Binding="{Binding precioVenta}"/>
-                <DataGridTextColumn Header="Cantidad" Width="100" Binding="{Binding cantidad}"/>
-                <DataGridTextColumn Header="Subtotal" Width="100" Binding="{Binding total}"/>
+                <DataGridTextColumn Header="CD" Width="70" Binding="{Binding idDetalleVenta}"/>
+                <DataGridTextColumn Header="CAT" Width="100" Binding="{Binding producto.categoriaProducto.descripcion}"/>
+                <DataGridTextColumn Header="DES" Width="180" Binding="{Binding producto.descripcion}"/>
+                <DataGridTextColumn Header="PRECIO" Width="150" Binding="{Binding precioVenta}"/>
+                <DataGridTextColumn Header="CANTIDAD" Width="150" Binding="{Binding cantidad}"/>
+                <DataGridTextColumn Header="SUBTOTAL" Width="160" Binding="{Binding total}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -132,7 +132,9 @@ namespace Presentacion
 
         private void ImageButton_Click(object sender, RoutedEventArgs e)
         {
-
+            HiddenMarkTVV nuevaVista = new HiddenMarkTVV(new VistaPrincipal());
+            nuevaVista.Show();
+            this.Hide();
         }
     }
 }
