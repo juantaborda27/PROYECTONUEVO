@@ -21,7 +21,7 @@
                     <!--FECHA INICIO-->
                     <Label Content="FECHA INICIAL" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="201" Height="36" FontWeight="Bold"/>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="97" Width="170">
-                        <Button x:Name="btnSelectInitialDate" Width="30" Height="30" Click="btnSelectInitialDate_Click" Margin="5,0,0,5">
+                        <Button x:Name="btnSelectInitialDate" Width="30" Height="30"  Margin="5,0,0,5">
                             <Button.Template>
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <Grid Margin="0,-6,-23,-15">
@@ -40,7 +40,7 @@
                     <!--Fecha Final-->
                     <Label Content="FECHA FINAL" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="201" Height="36" FontWeight="Bold"/>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="97" Width="170">
-                        <Button x:Name="btnSelectFinalDate" Width="30" Height="30" Click="btnSelectFinalDate_Click" Margin="5,0,0,5">
+                        <Button x:Name="btnSelectFinalDate" Width="30" Height="30"  Margin="5,0,0,5">
                             <Button.Template>
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <Grid Margin="0,-6,-23,-15">
@@ -119,10 +119,11 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID COMPRA" Width="310" Binding="{Binding IdCompra}"/>
-                    <DataGridTextColumn Header="FECHA" Width="310" Binding="{Binding FechaCompra}"/>
+                    <DataGridTextColumn Header="Id Compra" Width="310" Binding="{Binding IdCompra}"/>
+                    <DataGridTextColumn Header="Fecha" Width="310" Binding="{Binding FechaCompra}"/>
+                    <DataGridTextColumn Header="Usuario" Width="310" Binding="{Binding usuario.nombre}"/>
                     <DataGridTextColumn Header="Proveedor" Width="310" Binding="{Binding proveedor.NombreProveedor}"/>
-                    <DataGridTextColumn Header="TOTAL" Width="310" Binding="{Binding montoTotal}"/>
+                    <DataGridTextColumn Header="Total" Width="310" Binding="{Binding montoTotal}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

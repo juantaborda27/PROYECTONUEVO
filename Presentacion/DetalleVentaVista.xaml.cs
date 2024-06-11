@@ -1,5 +1,6 @@
 ﻿using ENTIDADES;
 using Logica;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -11,10 +12,12 @@ namespace Presentacion
     public partial class DetalleVentaVista : Window
     {
         LogicaVenta logicaVenta = new LogicaVenta();
-        public DetalleVentaVista(string idCompra)
+        public DetalleVentaVista(string idVenta)
         {
+
             InitializeComponent();
-            tblVistaVenta.DataContext = logicaVenta.LeerDetalleCompra(idCompra);
+            List<DetalleVenta> detalles = logicaVenta.LeerDetalleVenta(idVenta);
+            tbVistaVenta.DataContext = detalles;
         }
 
     }

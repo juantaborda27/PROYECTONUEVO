@@ -12,9 +12,10 @@ namespace ENTIDADES
         public double precioVenta { get; set; }
         public int cantidad { get; set; }
         public double total { get; set; }
-        public void CalcularTotal()
+        public double CalcularTotal()
         {
             total = cantidad*precioVenta;
+            return total;
         }
     }
 }

@@ -148,6 +148,7 @@ namespace Datos
         {
             Usuario usuario = new Usuario
             {
+                idUsuario = Convert.ToString(reader["IdUsuario"]),
                 userName = Convert.ToString(reader["UserName"]),
                 cedula = Convert.ToString(reader["Cedula"]),
                 nombre = Convert.ToString(reader["Nombre"]),

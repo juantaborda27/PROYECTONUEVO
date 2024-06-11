@@ -91,7 +91,9 @@ namespace Presentacion
                             {
                                return;
                             }
-                            detalle.CalcularTotal();
+                            double total = detalle.CalcularTotal();
+                            detalle.total = total;
+                        
                             detalles.Add(detalle);
                             ActualizarTabla();
                         
@@ -177,12 +179,13 @@ namespace Presentacion
                 venta.idVenta = lbIdVentas.Content.ToString();
                 venta.FechaVenta = DateTime.Parse(fecha);
                 venta.montoTotal = double.Parse(lbPagoVenta.Content.ToString());
+                
                 venta.detalles = detalles;
                 //if (ValidarNombre(txtNombreClienteVentas.Text))
                 //{
                 if(txtCedulaClienteVentas.Text.Length != 0)
                 {
-                    venta.cliente = logicaCliente.Buscar(txtCedulaClienteVentas.Text);
+                    venta.cliente= logicaCliente.Buscar(txtCedulaClienteVentas.Text);
 
                 }
                 else
@@ -208,8 +211,7 @@ namespace Presentacion
                 logicaVenta.Add(venta);
                 MessageBox.Show("Factura registrada con exito", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                 Email email = new Email();
-                //email.Enviar(venta,txtCorreo.Text);
-
+                email.Enviar(venta,venta.cliente.Correo);
                 Limpiar();
             }
         }

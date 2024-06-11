@@ -148,9 +148,9 @@ namespace Datos
             return archivoProducto.Leer().Find(pr => pr.idProducto == idProducto);
         }
 
-        private Usuario ObtenerUsuario(string cedula)
+        private Usuario ObtenerUsuario(string idUsuario)
         {
-            return archivoUsuario.Leer().Find(p=>p.cedula == cedula);
+            return archivoUsuario.Leer().Find(p=>p.idUsuario == idUsuario);
         }
 
         public DetalleCompra MapDetalleCompra(SqlDataReader reader)

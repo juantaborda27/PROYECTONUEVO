@@ -22,7 +22,7 @@
                     <!--FECHA INICIO-->
                     <Label Content="FECHA INICIAL" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="201" Height="36" FontWeight="Bold"/>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="97" Width="170">
-                        <Button x:Name="btnSelectInitialDate" Width="30" Height="30" Click="btnSelectInitialDate_Click" Margin="5,0,0,5">
+                        <Button x:Name="btnSelectInitialDate" Width="30" Height="30"  Margin="5,0,0,5">
                             <Button.Template>
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <Grid Margin="0,-6,-23,-15">
@@ -41,7 +41,7 @@
                     <!--Fecha Final-->
                     <Label Content="FECHA FINAL" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="201" Height="36" FontWeight="Bold"/>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="97" Width="170">
-                        <Button x:Name="btnSelectFinalDate" Width="48" Height="48" Click="btnSelectFinalDate_Click" Margin="5,0,0,5" RenderTransformOrigin="0.5,0.5">
+                        <Button x:Name="btnSelectFinalDate" Width="48" Height="48"  Margin="5,0,0,5" RenderTransformOrigin="0.5,0.5">
                             <Button.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -83,10 +83,10 @@
                 </Border.Background>
                 <StackPanel Orientation="Vertical" Margin="0,0,-10,0">
                     <!-- Detalle -->
-                    <Button x:Name="btnDetalles" Click="BtnDetalle_Click" Content="DETALLES" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Width="159" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="0,20,0,0"/>
+                    <Button x:Name="btnDetalles" Click="BtnDetalle_Click" Content="DETALLES" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Width="159" FontSize="24" Foreground="White" BorderBrush="#FFEF423B" Margin="0,20,0,0"/>
 
                     <!-- Eliminar -->
-                    <Button x:Name="btnEliminar" Click="BtnEliminar_Click" Content="ELIMINAR" Height="36" Background="#FFEF423B" FontFamily="Nasalization Rg" Width="159" FontSize="24" Foreground="#FF18181A" BorderBrush="#FF38424D" Margin="0,50,0,0"/>
+                    <Button x:Name="btnEliminar" Click="BtnEliminar_Click" Content="ELIMINAR" Height="36" Background="#FFEF423B" FontFamily="Nasalization Rg" Width="159" FontSize="24" Foreground="#FF18181A" BorderBrush="#FF396781" Margin="0,50,0,0"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -94,7 +94,7 @@
         <!--Tabla-->
 
         <StackPanel Margin="150,375,118,14" Background="#FF242A82">
-            <DataGrid x:Name="tbVenta" Height="480" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1224" FontFamily="Century Gothic">
+            <DataGrid x:Name="tablaVenta" Height="480" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1224" FontFamily="Century Gothic">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0"/>
@@ -103,7 +103,7 @@
                 </DataGrid.Background>
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#FF38424D"/>
+                        <Setter Property="Background" Value="#396781"/>
                         <Setter Property="Foreground" Value="White"/>
                         <Setter Property="BorderBrush" Value="Black"/>
                         <Setter Property="BorderThickness" Value="0.7"/>
@@ -112,15 +112,31 @@
                         <Setter Property="FontFamily" Value="Nasalization Rg"/>
                         <Setter Property="FontSize" Value="24"/>
                     </Style>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="Background" Value="#396781"/>
+                        <Setter Property="Foreground" Value="#FF38424D"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0.7"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
+                        <Setter Property="FontSize" Value="16"/>
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="#396781"/>
+                        <Setter Property="Foreground" Value="#FF38424D"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0.7"/>
+                    </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID VENTA" Width="310" Binding="{Binding idVenta}"/>
-                    <DataGridTextColumn Header="FECHA" Width="310" Binding="{Binding FechaVenta}"/>
-                    <DataGridTextColumn Header="CLIENTE" Width="310" Binding="{Binding cliente.NombreCliente}"/>
-                    <DataGridTextColumn Header="TOTAL" Width="310" Binding="{Binding montoTotal}"/>
+                    <DataGridTextColumn Header="Id Venta" Width="110" Binding="{Binding idVenta}"/>
+                    <DataGridTextColumn Header="Fecha Venta" Width="310" Binding="{Binding FechaVenta}"/>
+                    <DataGridTextColumn Header="Usuario" Width="310" Binding="{Binding usuario.nombre}"/>
+                    <DataGridTextColumn Header="Cliente" Width="310" Binding="{Binding cliente.NombreCliente}"/>
+                    <DataGridTextColumn Header="TOTAL" Width="100" Binding="{Binding montoTotal}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
+
 
         <!--IMG-->
         <StackPanel Margin="150,170,1068,517">

@@ -71,32 +71,6 @@ namespace Presentacion
             datePickerInitial.SelectedDateChanged -= DatePickerInitial_SelectedDateChanged;
         }
 
-        private void btnSelectFinalDate_Click(object sender, RoutedEventArgs e)
-        {
-
-            datePickerFinal.Visibility = Visibility.Visible;
-            datePickerFinal.IsDropDownOpen = true;
-            datePickerFinal.SelectedDateChanged += DatePickerFinal_SelectedDateChanged;
-        }
-
-        private void DatePickerFinal_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (datePickerFinal.SelectedDate.HasValue)
-            {
-                btnSelectFinalDate.Content = datePickerFinal.SelectedDate.Value.ToString("dd/MM/yyyy");
-            }
-
-            datePickerFinal.Visibility = Visibility.Collapsed;
-            datePickerFinal.SelectedDateChanged -= DatePickerFinal_SelectedDateChanged;
-        }
-
-        private void btnSelectInitialDate_Click(object sender, RoutedEventArgs e)
-        {
-            datePickerFinal.Visibility = Visibility.Visible;
-            datePickerFinal.IsDropDownOpen = true;
-            datePickerFinal.SelectedDateChanged += DatePickerFinal_SelectedDateChanged;
-        }
-
         private void BtnBuscarCompra_Click(object sender, RoutedEventArgs e)
         {
 

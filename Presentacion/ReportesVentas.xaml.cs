@@ -26,28 +26,15 @@ namespace Presentacion
         public ReportesVentas()
         {
             InitializeComponent();
-            tbVenta.DataContext = logicaVenta.Leer();
-        }
-
-        private void BtnDetalle_Click(object sender, RoutedEventArgs e)
-        {
-            if (tbVenta.SelectedItem != null)
-            {
-                var venta = (Venta)tbVenta.SelectedItem;
-                DetalleVentaVista ventana = new DetalleVentaVista(venta.idVenta);
-                ventana.Show();
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una factura", "Alerta", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            List<Venta> ventas = logicaVenta.Leer();
+            tablaVenta.DataContext= ventas;
         }
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            if (tbVenta.SelectedItem != null)
+            if (tablaVenta.SelectedItem != null)
             {
-                var venta = (Venta)tbVenta.SelectedItem;
+                var venta = (Venta)tablaVenta.SelectedItem;
                 MessageBoxResult result = MessageBox.Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -62,18 +49,8 @@ namespace Presentacion
         }
         void ActualizarTabla()
         {
-            tbVenta.DataContext = null;
-            tbVenta.DataContext = logicaVenta.Leer();
-
-        }
-
-        private void btnSelectInitialDate_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnSelectFinalDate_Click(object sender, RoutedEventArgs e)
-        {
+            tablaVenta.DataContext = null;
+            tablaVenta.DataContext = logicaVenta.Leer();
 
         }
 
@@ -89,9 +66,9 @@ namespace Presentacion
 
             if (buscado != null)
             {
-                tbVenta.DataContext = null;
+                tablaVenta.DataContext = null;
                 List<Venta> categorias = new List<Venta>() { buscado };
-                tbVenta.DataContext = categorias;
+                tablaVenta.DataContext = categorias;
             }
             else
             {
@@ -114,8 +91,8 @@ namespace Presentacion
                     {
                         List<Venta> filtro = ventas.Where(item => item.FechaVenta >= fechaInicio && item.FechaVenta <= fechaFin).ToList();
 
-                        tbVenta.DataContext = null;
-                        tbVenta.DataContext = filtro;
+                        tablaVenta.DataContext = null;
+                        tablaVenta.DataContext = filtro;
                     }
                     else
                     {
@@ -130,6 +107,20 @@ namespace Presentacion
             else
             {
                 MessageBox.Show("Por favor seleccione ambas fechas", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void BtnDetalle_Click(object sender, RoutedEventArgs e)
+        {
+            if (tablaVenta.SelectedItem != null)
+            {
+                Venta venta = (Venta)tablaVenta.SelectedItem;
+                DetalleVentaVista ventana = new DetalleVentaVista(venta.idVenta);
+                ventana.Show();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una factura", "Alerta", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

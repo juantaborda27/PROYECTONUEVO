@@ -7,7 +7,6 @@ namespace ENTIDADES
     {
         public string idVenta { get; set; }
         public Usuario usuario { get; set; }
-        public string nombreCliente { get; set; }
         public List<DetalleVenta> detalles { get; set; }
         public double montoPago { get; set; }
         public double montoCambio { get; set; }

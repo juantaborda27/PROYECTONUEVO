@@ -39,59 +39,89 @@ namespace Infraestructura
         private MemoryStream GenerarPDF(Venta venta)
         {
             MemoryStream stream = new MemoryStream();
-            Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+            Rectangle pageSize = new Rectangle(80f * 72f / 25.4f, 297f * 72f / 25.4f); // 80 mm width, A4 height
+            Document document = new Document(pageSize, 10f, 10f, 10f, 10f);
             PdfWriter writer = PdfWriter.GetInstance(document, stream);
             document.Open();
 
+            // Configurar fuentes
+            Font fontNormal = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+            Font fontBold = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
 
-            string imagePath = "C:/Users/juant/Downloads/EDICIONPROYECT/EDICIONPROYECT/PROYECTOEDICIONTODO/ProyectoRest/ProyectoRest/IMAGEN/Logazon.png";
+            // Añadir la imagen
+            string imagePath = "C:\\Users\\juant\\source\\repos\\VISTA\\Presentacion\\IMAGEN\\Logozon2.png";
             Image img = Image.GetInstance(imagePath);
-            img.ScaleToFit(200f, 200f); // Ajusta el tamaño de la imagen
-            img.SetAbsolutePosition(50, document.PageSize.Height - 100); // Posición en la parte superior izquierda
+            img.ScaleToFit(100f, 100f); // Ajusta el tamaño de la imagen
+            img.Alignment = Element.ALIGN_CENTER;
             document.Add(img);
 
-            // Añadir título
-            document.Add(new Paragraph(""));
-            document.Add(new Paragraph(""));
-            document.Add(new Paragraph(""));
-            document.Add(new Paragraph(""));
-            document.Add(new Paragraph(""));
-            document.Add(new Paragraph("Factura de Venta"));
-            document.Add(new Paragraph($"ID Venta: {venta.idVenta}"));
-            document.Add(new Paragraph(""));
-            //document.Add(new Paragraph($"Usuario: {venta.usuario.idUsuario}"));
-            document.Add(new Paragraph($"Cliente: {venta.nombreCliente}"));
-            document.Add(new Paragraph(""));
-            document.Add(new Paragraph($"Fecha de Venta: {venta.FechaVenta.ToShortDateString()}"));
-            document.Add(new Paragraph(""));
-            document.Add(new Paragraph("")); // Espacio en blanco
+            // Añadir información de la empresa
+            document.Add(new Paragraph("ALMACEN MOTO TALLER LA 4TA", fontBold) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph("RUC: 49776788", fontNormal) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph("CRA 4ta #17a-37", fontNormal) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph("motorepuestoslacuarta@gmail.com", fontNormal) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph("TELÉFONO: 3015855961", fontNormal) { Alignment = Element.ALIGN_CENTER });
 
-            // Añadir detalles de la venta
-            PdfPTable table = new PdfPTable(4);
-            table.AddCell("Descripción del Producto");
-            table.AddCell("Precio");
-            table.AddCell("Cantidad");
-            table.AddCell("SubTotal");
+            document.Add(new Paragraph("--------------------------------------------------------------", fontNormal) { Alignment = Element.ALIGN_CENTER });
+
+            // Añadir información del cliente
+            document.Add(new Paragraph($"CLIENTE: {venta.cliente.NombreCliente}", fontBold));
+            document.Add(new Paragraph($"CC: {venta.cliente.Documento}", fontNormal)); // Assumed to be ID Venta for simplicity
+
+            document.Add(new Paragraph("--------------------------------------------------------------", fontNormal) { Alignment = Element.ALIGN_CENTER });
+
+            // Añadir detalles del comprobante
+            document.Add(new Paragraph($"COMPROBANTE ELECTRÓNICO DE VENTA", fontBold));
+            document.Add(new Paragraph($"No.: {venta.idVenta}", fontNormal)); // Assumed formatting
+            document.Add(new Paragraph($"FECHA: {venta.FechaVenta.ToString("dd/MM/yyyy HH:mm:ss")}", fontNormal));
+            document.Add(new Paragraph("--------------------------------------------------------------", fontNormal) { Alignment = Element.ALIGN_CENTER });
+
+            // Añadir encabezados de productos
+            document.Add(new Paragraph("CANT  PRECIO  DESCRIPCIÓN  SUBTOTAL", fontBold));
+            document.Add(new Paragraph("--------------------------------------------------------------", fontNormal) { Alignment = Element.ALIGN_CENTER });
+
+            PdfContentByte cb = writer.DirectContent;
+            float yPosition = writer.GetVerticalPosition(true) - 20; // Initial vertical position
 
             foreach (var detalle in venta.detalles)
             {
-                table.AddCell(detalle.producto.descripcion);
-                table.AddCell("$"+detalle.precioVenta.ToString());
-                table.AddCell(detalle.cantidad.ToString());
-                table.AddCell("$"+detalle.total.ToString());
+                cb.BeginText();
+                cb.SetFontAndSize(fontNormal.BaseFont, 10);
+                cb.SetTextMatrix(document.Left, yPosition); // Position for cantidad
+                cb.ShowText(detalle.cantidad.ToString());
+                cb.SetTextMatrix(document.Left + 30, yPosition); // Position for precio
+                cb.ShowText($"${detalle.precioVenta:F2}");
+                cb.SetTextMatrix(document.Left + 80, yPosition); // Position for descripción
+                cb.ShowText(detalle.producto.descripcion);
+                cb.SetTextMatrix(document.Left + 180, yPosition); // Position for subtotal
+                cb.ShowText($"${detalle.total:F2}");
+                cb.EndText();
+                yPosition -= 12; // Move to the next line
             }
 
-            document.Add(table);
+            document.Add(new Paragraph("\n\n--------------------------------------------------------------", fontNormal) { Alignment = Element.ALIGN_CENTER });
 
-            // Añadir montos
-            document.Add(new Paragraph(" "));
-            document.Add(new Paragraph($"Monto Total: ${venta.montoTotal.ToString()}"));
-            document.Add(new Paragraph($"Monto Pagado: ${venta.montoPago.ToString()}"));
-            document.Add(new Paragraph($"Monto Cambio: ${venta.montoCambio.ToString()}"));
-            
+            // Añadir totales
+            document.Add(new Paragraph($"\nMONTO TOTAL: ${venta.montoTotal:F2}", fontBold));
+            document.Add(new Paragraph($"MONTO PAGADO: ${venta.montoPago:F2}", fontBold));
+            document.Add(new Paragraph($"MONTO CAMBIO: ${venta.montoCambio:F2}", fontBold));
+            document.Add(new Paragraph("GRACIAS POR COMPRAR", fontNormal) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph("VUELVA PRONTO", fontNormal) { Alignment = Element.ALIGN_CENTER });
+
             writer.CloseStream = false;
             document.Close();
+            stream.Position = 0; // Reinicia la posición del stream para leer desde el principio
+            GuardarPDFEnArchivo(stream, $"C:\\Users\\juant\\OneDrive\\Escritorio\\IV-SEMESTRE\\FACTURAS\\FACTURA{venta.idVenta}.pdf");
             return stream;
+
+        }
+
+        public void GuardarPDFEnArchivo(MemoryStream pdfStream, string filePath)
+        {
+            using (FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            {
+                pdfStream.CopyTo(file);
+            }
         }
 
         public string Enviar(Venta venta, string correo)

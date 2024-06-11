@@ -35,7 +35,7 @@ namespace Datos
                 using (SqlCommand command = new SqlCommand(registroVenta, conexion, accion))
                 {
                     command.Parameters.AddWithValue("@IdVenta", venta.idVenta);
-                    command.Parameters.AddWithValue("@IdUsuario", venta.usuario.idUsuario);
+                    command.Parameters.AddWithValue("@IdUsuario", int.Parse(venta.usuario.idUsuario));
                     command.Parameters.AddWithValue("@DocumentoCliente", venta.cliente.Documento);
                     command.Parameters.AddWithValue("@MontoPago", venta.montoPago);
                     command.Parameters.AddWithValue("@MontoCambio", venta.montoCambio);
@@ -70,6 +70,7 @@ namespace Datos
             {
                 CerrarConexion();
             }
+            
         }
         
         public List<Venta> Leer()
@@ -259,9 +260,9 @@ namespace Datos
             return archivoProducto.Leer().Find(pr => pr.idProducto == idProducto);
         }
 
-        private Usuario ObtenerUsuario(string cedula)
+        private Usuario ObtenerUsuario(string idUsuario)
         {
-            return archivoUsuario.Leer().Find(p => p.cedula == cedula);
+            return archivoUsuario.Leer().Find(p => p.idUsuario == idUsuario);
         }
 
         private Cliente ObtenerCliente(string Documento)
@@ -271,7 +272,8 @@ namespace Datos
 
         public List<DetalleVenta> GetVentaList(string idVenta)
         {
-            return leerDetalleVenta().Where(detalle => detalle.idVenta.Equals(idVenta)).ToList();
+            return leerDetalleVenta().Where(detalle => detalle.idVenta.Equals(int.Parse(idVenta))).ToList();
+
         }
 
     }

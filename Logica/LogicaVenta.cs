@@ -34,7 +34,7 @@ namespace Logica
             }
         }
 
-        public List<DetalleVenta> LeerDetalleCompra(string idVenta)
+        public List<DetalleVenta> LeerDetalleVenta(string idVenta)
         {
             return archivoVenta.GetVentaList(idVenta);
         }
