@@ -8,6 +8,7 @@ namespace Logica
     public class LogicaLogin
     {
         ArchivoUsuario data;
+        public static Usuario usuario { get; set; }
         public LogicaLogin()
         {
             data = new ArchivoUsuario();
@@ -20,6 +21,7 @@ namespace Logica
             {
                 if (item.userName.Equals(loguear.userName) && (item.contraseña.Equals(loguear.contraseña)))
                 {
+                    usuario = item;
                     return item;
                 }
             }

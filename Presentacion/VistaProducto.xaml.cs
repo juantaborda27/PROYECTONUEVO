@@ -31,8 +31,10 @@ namespace Presentacion
         {
             InitializeComponent();
             List<Producto> productos = logicaProducto.Leer();
-            List<CategoriaProducto> categoriaProducto = logicaCategoria.Leer();
+            List<CategoriaProducto> categorias = logicaCategoria.Leer();
             tblListaProductos1.DataContext = productos;
+            cbCategoria.ItemsSource = categorias;
+            cbFiltrar.ItemsSource = categorias;
             AlertaBajoStock();
         }
 
@@ -65,23 +67,15 @@ namespace Presentacion
                     MessageBox.Show("La cantidad solo puede contener números y un máximo de 30 elementos", "Alerta", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                if (ValidarNumero(txtCategoria.Text))
+                if (cbCategoria.SelectedItem != null)
                 {
-                    foreach (var item in logicaCategoria.Leer())
-                    {
-                        if(item.idCategoria == int.Parse(txtCategoria.Text))
-                        {
-                            producto.categoriaProducto = item;
-                            break;
-                        }
-                    }
+                    producto.categoriaProducto=(CategoriaProducto) cbCategoria.SelectedItem;
                 }
                 else
                 {
-                    MessageBox.Show("El código Categoria solo puede contener números", "Alerta", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Seleccione una categoria", "Alerta", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                
                 logicaProducto.Add(producto);
                 ActualizarTablaProducto();
                 Limpiar();
@@ -173,6 +167,8 @@ namespace Presentacion
             txtMinima.Clear();
             BoxBuscarListProductos.Clear();
             ActualizarTablaProducto();
+            cbFiltrar.SelectedItem = null;
+            cbCategoria.SelectedItem = null;
         }
 
         void AlertaBajoStock()
@@ -198,7 +194,30 @@ namespace Presentacion
 
         }
 
-
-
+        private void cbFiltrar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CategoriaProducto categoria = (CategoriaProducto)cbFiltrar.SelectedItem;
+            List<Producto> filtro = new List<Producto>();
+            if (cbFiltrar.SelectedItem != null )
+            {
+                if (logicaProducto.Leer() != null)
+                {
+                    foreach (var item in logicaProducto.Leer())
+                    {
+                        if (item.categoriaProducto.idCategoria.Equals(categoria.idCategoria))
+                        {
+                            filtro.Add(item);
+                        }
+                    }
+                    tblListaProductos1.DataContext = null;
+                    tblListaProductos1.DataContext = filtro;
+                }
+                else
+                {   
+                  MessageBox.Show("No existen productos", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);   
+                }
+            }
+            
+        }
     }
 }

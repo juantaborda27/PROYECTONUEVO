@@ -200,6 +200,7 @@ namespace Presentacion
             if (ValidarCamposFactura())
             {
                 Compra compra = new Compra();
+                compra.usuario = LogicaLogin.usuario;
                 compra.IdCompra = lbIdCompra.Content.ToString();
                 string fecha = lbFecha.Content.ToString();
                 compra.FechaCompra = DateTime.Parse(fecha);

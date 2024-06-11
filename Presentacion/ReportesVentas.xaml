@@ -32,7 +32,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <Button.Content>
-                                <Image Source="IMAGEN/calendario.png" Width="20" Height="20"/>
+                                <Image Source="IMAGEN/calendario.png" Width="63" Height="30"/>
                             </Button.Content>
                         </Button>
                         <DatePicker x:Name="datePickerInitial" SelectedDateFormat="Short" Visibility="Collapsed" Margin="10,0,0,0"/>
@@ -41,7 +41,15 @@
                     <!--Fecha Final-->
                     <Label Content="FECHA FINAL" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="201" Height="36" FontWeight="Bold"/>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="97" Width="170">
-                        <Button x:Name="btnSelectFinalDate" Width="30" Height="30" Click="btnSelectFinalDate_Click" Margin="5,0,0,5">
+                        <Button x:Name="btnSelectFinalDate" Width="48" Height="48" Click="btnSelectFinalDate_Click" Margin="5,0,0,5" RenderTransformOrigin="0.5,0.5">
+                            <Button.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="0.214"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Button.RenderTransform>
                             <Button.Template>
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <Grid Margin="0,-6,-23,-15">
@@ -51,7 +59,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <Button.Content>
-                                <Image Source="IMAGEN/calendario.png" Width="25" Height="24"/>
+                                <Image Source="IMAGEN/calendario.png" Width="35" Height="47"/>
                             </Button.Content>
                         </Button>
                         <DatePicker x:Name="datePickerFinal" SelectedDateFormat="Short" Visibility="Collapsed" Margin="10,0,0,0"/>
@@ -108,12 +116,12 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID VENTA" Width="310" Binding="{Binding idVenta}"/>
                     <DataGridTextColumn Header="FECHA" Width="310" Binding="{Binding FechaVenta}"/>
-                    <DataGridTextColumn Header="CLIENTE" Width="310" Binding="{Binding nombreCliente}"/>
+                    <DataGridTextColumn Header="CLIENTE" Width="310" Binding="{Binding cliente.NombreCliente}"/>
                     <DataGridTextColumn Header="TOTAL" Width="310" Binding="{Binding montoTotal}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        
+
         <!--IMG-->
         <StackPanel Margin="150,170,1068,517">
             <Image Source="IMAGEN/Reporte.png" Width="152" Height="130" Margin="0,25,0,0"/>
@@ -122,6 +130,8 @@
         <StackPanel Margin="1100,170,118,517">
             <Image Source="IMAGEN/Ventas.png" Width="152" Height="130" Margin="0,25,0,0"/>
         </StackPanel>
+        <DatePicker Name="dpFecha1" HorizontalAlignment="Left" Margin="360,103,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <DatePicker Name="dpFecha2" HorizontalAlignment="Left" Margin="747,115,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
 
     </Grid>
 </UserControl>

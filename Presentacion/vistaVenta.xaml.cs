@@ -173,6 +173,7 @@ namespace Presentacion
             {
                 Venta venta = new Venta();
                 string fecha = lbFechaVentas.Content.ToString();
+                venta.usuario = LogicaLogin.usuario;
                 venta.idVenta = lbIdVentas.Content.ToString();
                 venta.FechaVenta = DateTime.Parse(fecha);
                 venta.montoTotal = double.Parse(lbPagoVenta.Content.ToString());

@@ -22,7 +22,7 @@ namespace Datos
         {
             string registroVenta = "INSERT INTO VENTA (IdVenta,IdUsuario,DocumentoCliente,MontoPago,MontoCambio,MontoTotal) VALUES " +
                 "(@IdVenta,@IdUsuario,@DocumentoCliente,@MontoPago,@MontoCambio,@MontoTotal)";
-            string registroDetalleVenta = "INSERT INTO DETALLECOMPRA (IdVenta,IdProducto,PrecioVenta,Cantidad,SubTotal) " +
+            string registroDetalleVenta = "INSERT INTO DETALLEVENTA (IdVenta,IdProducto,PrecioVenta,Cantidad,SubTotal) " +
                 "VALUES" + "(@IdVenta, @IdProducto, @PrecioVenta,@Cantidad,@SubTotal)";
 
             SqlTransaction accion = null;
@@ -35,7 +35,7 @@ namespace Datos
                 using (SqlCommand command = new SqlCommand(registroVenta, conexion, accion))
                 {
                     command.Parameters.AddWithValue("@IdVenta", venta.idVenta);
-                    command.Parameters.AddWithValue("@IdUsuario", 1);
+                    command.Parameters.AddWithValue("@IdUsuario", venta.usuario.idUsuario);
                     command.Parameters.AddWithValue("@DocumentoCliente", venta.cliente.Documento);
                     command.Parameters.AddWithValue("@MontoPago", venta.montoPago);
                     command.Parameters.AddWithValue("@MontoCambio", venta.montoCambio);

@@ -119,9 +119,9 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID VENTA" Width="310" Binding="{Binding idVenta}"/>
-                    <DataGridTextColumn Header="FECHA" Width="310" Binding="{Binding FechaVenta}"/>
-                    <DataGridTextColumn Header="CLIENTE" Width="310" Binding="{Binding nombreCliente}"/>
+                    <DataGridTextColumn Header="ID COMPRA" Width="310" Binding="{Binding IdCompra}"/>
+                    <DataGridTextColumn Header="FECHA" Width="310" Binding="{Binding FechaCompra}"/>
+                    <DataGridTextColumn Header="Proveedor" Width="310" Binding="{Binding proveedor.NombreProveedor}"/>
                     <DataGridTextColumn Header="TOTAL" Width="310" Binding="{Binding montoTotal}"/>
                 </DataGrid.Columns>
             </DataGrid>
@@ -135,6 +135,8 @@
         <StackPanel Margin="1100,170,118,517">
             <Image Source="IMAGEN/Comprar.png" Width="152" Height="130" Margin="0,25,0,0"/>
         </StackPanel>
+        <DatePicker Name="dpFecha1" HorizontalAlignment="Left" Margin="360,103,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <DatePicker Name="dpFecha2" HorizontalAlignment="Left" Margin="747,115,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
 
     </Grid>
 </UserControl>

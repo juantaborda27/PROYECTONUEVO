@@ -99,5 +99,39 @@ namespace Presentacion
             }
             idBuscarRventa.Clear();
         }
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dpFecha1.SelectedDate.HasValue && dpFecha2.SelectedDate.HasValue)
+            {
+                DateTime fechaInicio = dpFecha1.SelectedDate.Value;
+                DateTime fechaFin = dpFecha2.SelectedDate.Value;
+
+                if (DateTime.Compare(fechaInicio, fechaFin) <= 0)
+                {
+                    var ventas = logicaVenta.Leer();
+                    if (ventas != null)
+                    {
+                        List<Venta> filtro = ventas.Where(item => item.FechaVenta >= fechaInicio && item.FechaVenta <= fechaFin).ToList();
+
+                        tbVenta.DataContext = null;
+                        tbVenta.DataContext = filtro;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existen facturas", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha inicial es mayor a la fecha final", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione ambas fechas", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
     }
 }
+

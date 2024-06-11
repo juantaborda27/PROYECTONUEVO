@@ -35,7 +35,7 @@ namespace Datos
                 using (SqlCommand command = new SqlCommand(registroCompra, conexion, accion))
                 {
                     command.Parameters.AddWithValue("@IdCompra", compra.IdCompra);
-                    command.Parameters.AddWithValue("@IdUsuario", 1);
+                    command.Parameters.AddWithValue("@IdUsuario", compra.usuario.idUsuario);
                     command.Parameters.AddWithValue("@IdProveedor", compra.proveedor.idProveedor);
                     command.Parameters.AddWithValue("@MontoTotal", compra.montoTotal);
                     command.ExecuteNonQuery();

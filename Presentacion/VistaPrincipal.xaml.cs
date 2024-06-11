@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,14 @@ namespace Presentacion
     {
         public VistaPrincipal()
         {
+            
             InitializeComponent();
+            if (LogicaLogin.usuario.rol.Equals("Empleado"))
+            {
+                btnUsuario.IsEnabled = false;
+                btnReportes.IsEnabled = false;
+                Producto.IsEnabled = false;
+            }
 
         }
 
