@@ -30,6 +30,7 @@ namespace Presentacion
                 btnReportes.IsEnabled = false;
                 Producto.IsEnabled = false;
             }
+            lbUsuario.Content = $"Usuario:{LogicaLogin.usuario.userName}";
 
         }
 

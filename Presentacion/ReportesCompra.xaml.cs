@@ -27,7 +27,7 @@ namespace Presentacion
             if (tbCompra.SelectedItem != null)
             {
                 var compra = (Compra)tbCompra.SelectedItem;
-                DetalleCompraVista vista = new DetalleCompraVista(compra.IdCompra);
+                DetalleCompraVista vista = new DetalleCompraVista(compra.detalles);
                 vista.Show();
             }
             else
@@ -126,6 +126,11 @@ namespace Presentacion
             {
                 MessageBox.Show("Por favor seleccione ambas fechas", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarTabla();
         }
     }
     }

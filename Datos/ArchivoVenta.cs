@@ -1,6 +1,7 @@
 ﻿using ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -236,6 +237,19 @@ namespace Datos
             string Documento = Convert.ToString(reader["DocumentoCliente"]);
             venta.cliente = ObtenerCliente(Documento);
             return venta;
+        }
+        public List<Venta> LeerVentas()
+        {
+            List<Venta> ventas = new List<Venta>();
+            if (Leer() != null)
+            {
+                foreach (var item in Leer())
+                {
+                    item.detalles = GetVentaList(item.idVenta);
+                    ventas.Add(item);
+                }
+            }
+            return ventas;
         }
 
         public DetalleVenta MapDetalleVenta(SqlDataReader reader)

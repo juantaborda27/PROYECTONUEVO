@@ -99,6 +99,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
+        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
 
     </Grid>
 </UserControl>

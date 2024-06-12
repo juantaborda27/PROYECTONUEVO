@@ -33,7 +33,18 @@ namespace Presentacion
             cbFiltrar.Items.Add("Administrador");
             cbFiltrar.Items.Add("Empleado");
         }
-
+        bool ValidarNombre(string campo)
+        {
+            foreach (var item in campo)
+            {
+                if (!char.IsLetter(item) && item != ' ' && item != 'ñ' && item != 'Ñ')
+                {
+                    MessageBox.Show("Formato de nombre incorrecto", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return false;
+                }
+            }
+            return true;
+        }
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario = new Usuario();
@@ -52,19 +63,23 @@ namespace Presentacion
                 else
                 {
                     MessageBox.Show("El usuario solo debe ser numero", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
 
                 }
-                if (TxtNombreUs.Text.Equals("") || TxtNombreUs.Text.Equals("0"))
-                {
-                    MessageBox.Show("Nombre se ecuentra vacio", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
+                if (ValidarNombre(TxtNombreUs.Text))
                 {
                     usuario.nombre = TxtNombreUs.Text;
                 }
-                if (TxtUsernameUs.Text.Equals("") || TxtUsernameUs.Text.Equals("0"))
+                else
+                {
+                   
+                    MessageBox.Show("El nombre solo acepta letras", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+                if (TxtUsernameUs.Text.Count()!=0)
                 {
                     MessageBox.Show("Username se ecuentra vacio", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
                 }
                 else
                 {
@@ -77,6 +92,7 @@ namespace Presentacion
                 else
                 {
                     MessageBox.Show("El Telefono solo pueden ser numeros", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
                 }
                 usuario.contraseña = TxtContraseñaUs.Text;
                 //Definicion
@@ -134,7 +150,7 @@ namespace Presentacion
 
         bool ValidarCamposVacios()
         {
-            if (cbRol.SelectedItem == null || TxtIdUsuario.Text == null || TxtNombreUs.Text == null || TxtUsernameUs.Text == null || TxtContraseñaUs.Text == null || TxtTelefonoUs.Text == null)
+            if (cbRol.SelectedItem == null || TxtIdUsuario.Text.Count()==0 || TxtNombreUs.Text.Count() == 0 || TxtUsernameUs.Text.Count() == 0 || TxtContraseñaUs.Text.Count() == 0 || TxtTelefonoUs.Text.Count() == 0)
             {
                 return false;
             }
@@ -220,6 +236,69 @@ namespace Presentacion
                 }
             }
             
+        }
+
+        private void BtnActualizarTabla_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarTablaUsuario();
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (logicaUsuario.Buscar(TxtIdUsuario.Text) != null)
+            {
+                Usuario usuario = logicaUsuario.Buscar(TxtIdUsuario.Text);
+                if (TxtNombreUs.Text.Count()!=0)
+                {
+                    if (ValidarNombre(TxtNombreUs.Text))
+                    {
+                        usuario.nombre = txtBuscarUsuarios.Text;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    
+                }
+                if (TxtUsernameUs.Text.Count()!=0)
+                {
+                    usuario.userName = TxtUsernameUs.Text;
+                }
+                if (TxtTelefonoUs.Text.Count() != 0)
+                {
+                    if (ValidarNumero(TxtTelefonoUs.Text))
+                    {
+                        usuario.telefono = TxtTelefonoUs.Text;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El telefono debe contener valores numéricos", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return;
+                    }
+                }
+                if (TxtContraseñaUs.Text.Count() != 0)
+                {
+                    usuario.contraseña = TxtContraseñaUs.Text;
+                }
+                if (cbRol.SelectedItem != null)
+                {
+                    if (cbRol.SelectedItem.ToString().Equals("Administrador"))
+                    {
+                        usuario.rol = "Administrador";
+                    }
+                    else
+                    {
+                        usuario.rol = "Empleado";
+                    }
+                }
+                MessageBox.Show(logicaUsuario.Actualizar(usuario), "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                ActualizarTablaUsuario();
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Usuario no existe", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

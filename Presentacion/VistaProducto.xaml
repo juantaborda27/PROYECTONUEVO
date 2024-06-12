@@ -34,7 +34,7 @@
                     <TextBox x:Name="txtMinima" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFC5E857"/>
 
                     <!-- Categoria -->
-                    <Label x:Name="lbCategoria" Content="ID CATEGORIA" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <Label x:Name="lbCategoria" Content="CATEGORIA" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
                     <ComboBox x:Name="cbCategoria" Width="232" Height="32"  FontFamily="Century Gothic" FontSize="20" Foreground="#FF4646CE" BorderBrush="#FF4646CE" Background="#FF18181A" ItemsSource="{Binding CategoriaProducto}" DisplayMemberPath="descripcion" />
 
                     <!-- BtnsGuardar -->
@@ -104,6 +104,7 @@
         </StackPanel>
         <Label x:Name="lbBuscarProducto_Copiar" Content="POR CATEGORIA:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" FontWeight="Bold" Margin="513,31,775,804"/>
         <ComboBox x:Name="cbFiltrar"  FontFamily="Century Gothic" FontSize="20" Foreground="#FF4646CE" BorderBrush="#FF4646CE" Background="#FF18181A" Margin="513,72,748,767" ItemsSource="{Binding CategoriaProducto}" DisplayMemberPath="descripcion" SelectionChanged="cbFiltrar_SelectionChanged"/>
+        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
 
     </Grid>
 

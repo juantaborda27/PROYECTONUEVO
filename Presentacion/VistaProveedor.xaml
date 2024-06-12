@@ -32,7 +32,7 @@
                     <TextBox x:Name="TxtNombreProveedor" TextAlignment="Center" TextWrapping="Wrap" Width="338" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
 
                     <!-- Telefono -->
-                    <Label x:Name="lbTel" Content="TELEFONO" Foreground="#FF18181A" FontFamily="Nasalization Rg" FontSize="24" Width="154" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,50,0,0"/>
+                    <Label x:Name="lbTel" Content="TELEFONO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="130" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,50,0,0"/>
                     <TextBox x:Name="TxtTelefono" TextAlignment="Center" TextWrapping="Wrap" Width="324" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF18181A"/>
 
                     <!-- BtnsGuardar -->
@@ -112,6 +112,8 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
+        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
+        <Button x:Name="btnActualizar" Click="BtnActualizar_Click" Content="Actualizar" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FF18181A" Background="#FF38424D" Margin="148,801,1176,30"/>
 
     </Grid>
 </UserControl>

@@ -11,13 +11,11 @@ namespace Presentacion
     /// </summary>
     public partial class DetalleVentaVista : Window
     {
-        LogicaVenta logicaVenta = new LogicaVenta();
-        public DetalleVentaVista(string idVenta)
+        public DetalleVentaVista(List<DetalleVenta> ventas)
         {
 
             InitializeComponent();
-            List<DetalleVenta> detalles = logicaVenta.LeerDetalleVenta(idVenta);
-            tbVistaVenta.DataContext = detalles;
+            tbVistaVenta.DataContext = ventas;
         }
 
     }

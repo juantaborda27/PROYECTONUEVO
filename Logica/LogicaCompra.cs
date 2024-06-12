@@ -25,7 +25,7 @@ namespace Logica
         
         public List<Compra> Leer()
         {
-            return datos.LeerCompra();
+            return datos.LeerCompras();
         }
         public List<DetalleCompra> LeerDetalleCompra(string idCompra)
         {

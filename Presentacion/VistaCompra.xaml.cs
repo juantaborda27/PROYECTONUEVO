@@ -18,15 +18,15 @@ namespace Presentacion
         LogicaProducto logicaProducto = new LogicaProducto();
         LogicaCompra logicaCompra = new LogicaCompra();
         List<DetalleCompra> detalles = new List<DetalleCompra>();
-        int id = 0;
+       
 
         public VistaCompra()
         {
             InitializeComponent();
             List<Proveedor> proveedores = logicaProveedor.Leer();
-            if (logicaCompra.Leer().Count != 1)
+            if (logicaCompra.Leer().Count !=0)
             {
-                lbIdCompra.Content = int.Parse(logicaCompra.Leer().Last().IdCompra) + 2;
+                lbIdCompra.Content = int.Parse(logicaCompra.Leer().Last().IdCompra) + 1;
             }
             else
             {
@@ -78,8 +78,6 @@ namespace Presentacion
                         if (ValidarPrecio(txtPrecioCompra.Text, txtPrecioVenta.Text))
                         {
                             DetalleCompra detalle = new DetalleCompra();
-                            id++;
-                            //detalle.idDetalleCompra = id;
                             detalle.idCompra = lbIdCompra.Content.ToString();
                             detalle.producto = logicaProducto.Buscar(txtCodProducto.Text);
                             if (ValidarPrecioContenido(txtPrecioCompra.Text))
@@ -204,13 +202,25 @@ namespace Presentacion
                 compra.IdCompra = lbIdCompra.Content.ToString();
                 string fecha = lbFecha.Content.ToString();
                 compra.FechaCompra = DateTime.Parse(fecha);
-                compra.proveedor = logicaProveedor.Buscar(lbDocumento.Content.ToString());
+                compra.proveedor = (Proveedor)cbProveedor.SelectedItem;
                 compra.montoTotal = double.Parse(lbPago.Content.ToString());
                 compra.detalles = detalles;
-                //cambiar
                 logicaCompra.Add(compra);
+                Limpiar();
                 MessageBox.Show("Factura registrada con exito", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+        void Limpiar()
+        {
+            txtCantidad.Clear();
+            txtCodProducto.Clear();
+            txtPrecioCompra.Clear();
+            txtPrecioVenta.Clear();
+            txtProducto.Clear();
+            cbProveedor.SelectedItem = null;
+            tblVistaCompra.DataContext = null;
+            lbDocumento.Content = null;
+            lbIdCompra.Content = int.Parse(lbIdCompra.Content.ToString())+1;
         }
         bool ValidarExistente(string idProducto)
         {

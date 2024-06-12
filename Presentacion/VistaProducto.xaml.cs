@@ -139,11 +139,6 @@ namespace Presentacion
         }
         private void buscaR(object sender, RoutedEventArgs e)
         {
-            if (BoxBuscarListProductos.Text.Equals("") || BoxBuscarListProductos.Text == null)
-            {
-                ActualizarTablaProducto();
-                return;
-            }
             string buscar = BoxBuscarListProductos.Text;
             Producto buscado = logicaProducto.Buscar(buscar);
 
@@ -166,9 +161,9 @@ namespace Presentacion
             txtCodigoProducto.Clear();
             txtMinima.Clear();
             BoxBuscarListProductos.Clear();
-            ActualizarTablaProducto();
             cbFiltrar.SelectedItem = null;
             cbCategoria.SelectedItem = null;
+            ActualizarTablaProducto();
         }
 
         void AlertaBajoStock()
@@ -218,6 +213,11 @@ namespace Presentacion
                 }
             }
             
+        }
+
+        private void BtnActualizarTabla_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarTablaProducto();
         }
     }
 }

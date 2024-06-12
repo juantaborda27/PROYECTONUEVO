@@ -85,11 +85,12 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding idCategoria}" Width="500" FontFamily="Nasalization Rg"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding idCategoria}" Width="150" FontFamily="Nasalization Rg"/>
                     <DataGridTextColumn Header="DESCRIPCION" Binding="{Binding descripcion}" Width="500" FontFamily="Nasalization Rg"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
+        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
 
     </Grid>
 </UserControl>

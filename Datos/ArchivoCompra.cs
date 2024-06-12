@@ -120,6 +120,19 @@ namespace Datos
             }
             return compras;
         }
+        public List<Compra> LeerCompras()
+        {
+            List<Compra> compras = new List<Compra>();
+            if (LeerCompra() != null)
+            {
+                foreach (var item in LeerCompra())
+                {
+                    item.detalles = GetCompraList(item.IdCompra);
+                    compras.Add(item);
+                }
+            }
+            return compras;
+        }
 
         public Compra Buscar(string IdCompra)
         {
@@ -176,12 +189,13 @@ namespace Datos
             Compra compra = new Compra
             {
                 IdCompra = Convert.ToString(reader["IdCompra"]),
-                montoTotal = Convert.ToDouble(reader["MontoTotal"])
+                montoTotal = Convert.ToDouble(reader["MontoTotal"]),
+                FechaCompra = Convert.ToDateTime(reader["FechaCompra"])
             };
 
             string IdProveedor = Convert.ToString(reader["IdProveedor"]);
             compra.proveedor = ObtenerProveedor(IdProveedor);
-
+            
             string IdUsuario = Convert.ToString(reader["IdUsuario"]);
             compra.usuario = ObtenerUsuario(IdUsuario);
             return compra;

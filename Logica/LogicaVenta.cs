@@ -21,7 +21,7 @@ namespace Logica
         }
         public List<Venta> Leer()
         {
-            return archivoVenta.Leer();
+            return archivoVenta.LeerVentas();
         }
         public string Eliminar(string idVenta)
         {
@@ -32,11 +32,6 @@ namespace Logica
             {
                 return "No existe dicha venta";
             }
-        }
-
-        public List<DetalleVenta> LeerDetalleVenta(string idVenta)
-        {
-            return archivoVenta.GetVentaList(idVenta);
         }
         public void Salida(Venta venta)
         {

@@ -151,11 +151,6 @@ namespace Presentacion
 
         private void BtnBuscarListProveedor_Click(object sender, RoutedEventArgs e)
         {
-            if (BoxBuscarListProveedor.Text.Equals("") || BoxBuscarListProveedor.Text == null)
-            {
-                ActualizarTablaProveedor();
-                return;
-            }
             Proveedor buscado = logicaProveedor.Buscar(BoxBuscarListProveedor.Text);
 
             if (buscado != null)
@@ -169,6 +164,35 @@ namespace Presentacion
                 MessageBox.Show("Proveedor no existente", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             Limpiar();
+        }
+
+        private void BtnActualizarTabla_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarTablaProveedor();
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (logicaProveedor.Buscar(TxtNumDocumento.Text) != null)
+            {
+                Proveedor proveedor = logicaProveedor.Buscar(TxtNumDocumento.Text);
+                if (TxtNombreProveedor.Text.Count() != 0)
+                {
+                    proveedor.NombreProveedor = TxtNombreProveedor.Text;
+                }
+                if (TxtTelefono.Text.Count() != 0)
+                {
+                    proveedor.telefono = TxtTelefono.Text;
+                }
+               
+                MessageBox.Show(logicaProveedor.Actualizar(proveedor), "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                ActualizarTablaProveedor();
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Producto no existe", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

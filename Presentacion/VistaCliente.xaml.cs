@@ -40,10 +40,32 @@ namespace Presentacion
             Cliente cliente = new Cliente();
             if (logicaCliente.Buscar(txtDocumentoCliente.Text) == null)
             {
-                
-                cliente.Documento = txtDocumentoCliente.Text;
-                cliente.NombreCliente = txtNombreCliente.Text;
-                cliente.Telefono = txtTelefonoCliente.Text;
+                if (ValidarNumero(txtDocumentoCliente.Text))
+                {
+                    cliente.Documento = txtDocumentoCliente.Text;
+                }
+                else
+                {
+                    MessageBox.Show("Formato de documento incorrecto", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+                if (ValidarNombre(txtNombreCliente.Text))
+                {
+                    cliente.NombreCliente = txtNombreCliente.Text;
+                }
+                else
+                {
+                    return;
+                }
+                if (ValidarNumero(txtTelefonoCliente.Text))
+                {
+                    cliente.Telefono = txtTelefonoCliente.Text;
+                }
+                else
+                {
+                    MessageBox.Show("Formato del telefono es incorrecto", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
                 cliente.Correo = txtCorreoCliente.Text;
                 logicaCliente.Add(cliente);
                 ActualizarTabla();
@@ -56,7 +78,29 @@ namespace Presentacion
             }
 
         }
-
+        bool ValidarNombre(string campo)
+        {
+            foreach (var item in campo)
+            {
+                if (!char.IsLetter(item) && item != ' ' && item != 'ñ' && item != 'Ñ')
+                {
+                    MessageBox.Show("Formato de nombre incorrecto", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return false;
+                }
+            }
+            return true;
+        }
+        bool ValidarNumero(string campo)
+        {
+            foreach (var item in campo)
+            {
+                if (!char.IsDigit(item))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
         void ActualizarTabla()
         {
@@ -120,6 +164,11 @@ namespace Presentacion
             {
                 MessageBox.Show("El Cliente no existe", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void BtnActualizarTabla_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarTabla();
         }
     }
 }

@@ -148,6 +148,7 @@
         </StackPanel>
         <DatePicker Name="dpFecha1" HorizontalAlignment="Left" Margin="360,103,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
         <DatePicker Name="dpFecha2" HorizontalAlignment="Left" Margin="747,115,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <Button x:Name="BtnActualizar" Click="BtnActualizar_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1296,329,118,506"/>
 
     </Grid>
 </UserControl>

@@ -116,6 +116,9 @@ namespace Presentacion
             return true;
         }
 
-        
+        private void BtnActualizarTabla_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarTabla();
+        }
     }
 }

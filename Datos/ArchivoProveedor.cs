@@ -94,7 +94,7 @@ namespace Datos
             }
         }
 
-        public Proveedor Buscar(string IdProveedor)
+        public Proveedor Buscar(string documento)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace Datos
                 {
                     return null;
                 }
-                return proveedores.FirstOrDefault(p => p.idProveedor == IdProveedor);
+                return proveedores.FirstOrDefault(p => p.documento.Equals( documento));
             }
             catch (Exception)
             {
@@ -115,14 +115,14 @@ namespace Datos
         {
             try
             {
-                string Actualizar = "ModificarProveedor";
-                SqlCommand command = new SqlCommand(Actualizar, conexion);
-                command.Parameters.AddWithValue("@DocumentoProveedor", proveedorNew.documento);
+                string actualizar = "UPDATE PROVEEDOR SET NombreProveedor = @NombreProveedor, Telefono = @Telefono WHERE DocumentoProveedor = @Documento";
+                SqlCommand command = new SqlCommand(actualizar, conexion);
+                command.Parameters.AddWithValue("@Documento", proveedorNew.documento);
                 command.Parameters.AddWithValue("@NombreProveedor", proveedorNew.NombreProveedor);
                 command.Parameters.AddWithValue("@Telefono", proveedorNew.telefono);
-                command.CommandType = CommandType.StoredProcedure;
+                command.CommandType = CommandType.Text;
                 AbrirConexion();
-                var index = command.ExecuteNonQuery();
+                var rowsAffected = command.ExecuteNonQuery();
                 CerrarConexion();
             }
             catch (Exception)

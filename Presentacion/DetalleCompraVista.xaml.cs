@@ -10,12 +10,11 @@ namespace Presentacion
     /// </summary>
     public partial class DetalleCompraVista : Window
     {
-        LogicaCompra logicaCompra = new LogicaCompra();
-        public DetalleCompraVista(string detalles)
+        public DetalleCompraVista(List<DetalleCompra> detalles)
         {
 
             InitializeComponent();
-            tbDetalleCompra.DataContext = logicaCompra.LeerDetalleCompra(detalles);
+            tbDetalleCompra.DataContext = detalles;
         }
     }
 }

@@ -20,13 +20,13 @@
                 </Border.Background>
                 <StackPanel Orientation="Vertical">
 
-                    <Image Source="/IMAGEN/Usuario.png" Height="78"/>
+                    <Image Source="/IMAGEN/Usuario.png" Height="63" Width="382"/>
                     <!-- Cedula -->
                     <Label x:Name="lbUsuario2" Content="CEDULA" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" Margin="0,5,0,4" FontWeight="Bold"/>
                     <TextBox x:Name="TxtIdUsuario" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
+                    <Label x:Name="lbUsuario3" Content="NOMBRE" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="134" Height="36" FontWeight="Bold"/>
 
                     <!-- Nombre -->
-                    <Label x:Name="lbUsuario3" Content="NOMBRE" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="134" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
                     <TextBox x:Name="TxtNombreUs" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
 
                     <!-- Username -->
@@ -42,7 +42,7 @@
                     <TextBox x:Name="TxtTelefonoUs" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF18181A"/>
 
                     <!-- Rol -->
-                    <Label x:Name="lbUsuario8" Content="ROL" Foreground="#FF18181A" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <Label x:Name="lbUsuario8" Content="ROL" Foreground="#FF18181A" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10,0,0"/>
                     <ComboBox x:Name="cbRol" Width="195" Height="32"  FontFamily="Century Gothic" FontSize="20" Foreground="#FF4646CE" Margin="0,5,0,0" BorderBrush="#FF4646CE" Background="#FF18181A" />
 
                     <!-- BtnsGuardar -->
@@ -69,7 +69,7 @@
                 <StackPanel Orientation="Horizontal">
                     <!-- Rol -->
                     <Label x:Name="lbUsuario10" Content="ROL:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="76" Height="36" FontWeight="Bold" Margin="10,0,0,0"/>
-                    <ComboBox x:Name="cbFiltrar" Width="233" Height="32"  FontFamily="Century Gothic" FontSize="20" Foreground="#FF4646CE" BorderBrush="#FF4646CE" Background="#FF18181A"/>
+                    <ComboBox x:Name="cbFiltrar" Width="233" Height="32"  FontFamily="Century Gothic" FontSize="20" Foreground="#FF4646CE" BorderBrush="#FF4646CE" Background="#FF18181A" SelectionChanged="cbFiltrar_SelectionChanged"/>
 
                     <!-- Buscar -->
                     <Label x:Name="lbUsuario11" Content="BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="132" Height="36" FontWeight="Bold" Margin="50,0,0,0"/>
@@ -78,7 +78,7 @@
                 </StackPanel>
             </Border>
         </StackPanel>
-        
+
         <!--Tabla-->
         <StackPanel Margin="482,202,10,115" Background="#FF242A82">
             <DataGrid x:Name="tblUsuarios" Height="558" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1005" FontFamily="Century Gothic">
@@ -127,6 +127,8 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
+        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
+        <Button x:Name="btnActualizar" Click="BtnActualizar_Click" Content="Actualizar" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FF18181A" Background="#FF38424D" Margin="148,779,1176,52"/>
 
 
 

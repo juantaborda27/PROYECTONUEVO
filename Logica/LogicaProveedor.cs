@@ -27,9 +27,9 @@ namespace Logica
                 return "No existe el id ingresado";
             }
         }
-        public Proveedor Buscar(string IdProveedor)
+        public Proveedor Buscar(string documento)
         {
-            return archivoProveedor.Buscar(IdProveedor);
+            return archivoProveedor.Buscar(documento);
         }
         public string Actualizar(Proveedor proveedor)
         {
@@ -39,7 +39,7 @@ namespace Logica
             }
             else
             {
-                return "Producto no identificado";
+                return "No se pudo modificar el proveedor";
             }
         }
     }

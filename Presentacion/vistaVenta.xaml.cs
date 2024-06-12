@@ -145,11 +145,6 @@ namespace Presentacion
                 MessageBox.Show("No existen productos para facturar", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
-            //if(txtNombreClienteVentas.Text.Length == 0)
-            //{
-            //    MessageBox.Show("Nombre de cliente vacío", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    return false;
-            //}
             if (txtRecibidoVenta.Text.Length==0)
             {
                 MessageBox.Show("Cantidad recibida vacía", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -181,8 +176,7 @@ namespace Presentacion
                 venta.montoTotal = double.Parse(lbPagoVenta.Content.ToString());
                 
                 venta.detalles = detalles;
-                //if (ValidarNombre(txtNombreClienteVentas.Text))
-                //{
+              
                 if(txtCedulaClienteVentas.Text.Length != 0)
                 {
                     venta.cliente= logicaCliente.Buscar(txtCedulaClienteVentas.Text);
@@ -193,11 +187,7 @@ namespace Presentacion
                     MessageBox.Show("Cedula Cliente vacía", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
-                //}
-                //else
-                //{
-                //    return;
-                //}
+               
 
                 if (ValidarPrecioContenido(txtRecibidoVenta.Text))
                 {
@@ -210,8 +200,12 @@ namespace Presentacion
                 venta.CalcularCambio();
                 logicaVenta.Add(venta);
                 MessageBox.Show("Factura registrada con exito", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-                Email email = new Email();
-                email.Enviar(venta,venta.cliente.Correo);
+                MessageBoxResult result = MessageBox.Show("¿Desea enviar la factura por email?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Email email = new Email();
+                    email.Enviar(venta,venta.cliente.Correo);
+                }
                 Limpiar();
             }
         }
@@ -331,7 +325,7 @@ namespace Presentacion
             }
             else
             {
-                MessageBox.Show("El producto no existe", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("El cliente no existe", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -345,9 +339,12 @@ namespace Presentacion
             lbValor.Content = "";
             txtCorreo.Content = "";
             txtNombre.Content = "";
-            tblVistaVenta = null;
+            tblVistaVenta.DataContext= null;
             txtRecibidoVenta.Clear();
             lbCambioVenta.Content = "";
+            txtIdProducto.Clear();
+            txtCantidadVent.Clear();
+            lbIdVentas.Content = int.Parse(lbIdVentas.Content.ToString()) + 1;
         }
 
         

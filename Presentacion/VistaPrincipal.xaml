@@ -62,11 +62,12 @@
 
         <!--StackPanel Principal-->
         <StackPanel Background="White" Orientation="Vertical" Margin="353,-1,10,10">
-            <Frame x:Name="frameVenta" NavigationUIVisibility="Hidden" Foreground="Transparent" Height="871" Width="1494" Margin="0,50,0,0">
+            <Frame x:Name="frameVenta" NavigationUIVisibility="Hidden" Foreground="Transparent" Height="870" Width="1494" Margin="0,50,0,0">
                 <Frame.Background>
                     <ImageBrush ImageSource="/IMAGEN/ImagInicio.jpg" Stretch="Fill"/>
                 </Frame.Background>
             </Frame>
+            <Label x:Name="lbNumDoc" Content="NUMERO DE DOCUMENTO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" FontWeight="Bold"/>
         </StackPanel>
 
         <!--StackPanel Navegacion-->
@@ -211,8 +212,8 @@
             <Button x:Name="btnReportes" Width="265" Height="95" Click="btnReportes_Click">
                 <Button.ContextMenu>
                     <ContextMenu Style="{StaticResource ContextMenuStyle}">
-                        <MenuItem Header="REPORTE VENTA" Click="ReporteVentas_Click"/>
-                        <MenuItem Header="REPORTE COMPRA" Click="ReporteCompras_Click"/>
+                        <MenuItem Header="VENTA" Click="ReporteVentas_Click"/>
+                        <MenuItem Header="COMPRA" Click="ReporteCompras_Click"/>
                     </ContextMenu>
                 </Button.ContextMenu>
                 <Button.Template>
@@ -220,7 +221,7 @@
                         <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
                             <StackPanel Orientation="Horizontal" Width="175" Height="65">
                                 <Image Source="IMAGEN/Reporte.png" Width="50" Height="45"/>
-                                <TextBlock Text="REPORTES" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="113" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
+                                <TextBlock Text="FACTURAS" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="121" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -296,6 +297,7 @@
                     FontWeight="Bold" FontSize="14" 
                     Style="{StaticResource CircularButtonStyle}" Margin="2"/>
         </StackPanel>
+        <Label x:Name="lbUsuario" Content="Usuario:" Foreground="Black" FontFamily="Nasalization Rg" FontSize="24" FontWeight="Bold" Margin="358,8,1185,886"/>
     </Grid>
 
 </Window>

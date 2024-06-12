@@ -115,13 +115,18 @@ namespace Presentacion
             if (tablaVenta.SelectedItem != null)
             {
                 Venta venta = (Venta)tablaVenta.SelectedItem;
-                DetalleVentaVista ventana = new DetalleVentaVista(venta.idVenta);
+                DetalleVentaVista ventana = new DetalleVentaVista(venta.detalles);
                 ventana.Show();
             }
             else
             {
                 MessageBox.Show("Seleccione una factura", "Alerta", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarTabla();
         }
     }
 }

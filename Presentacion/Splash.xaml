@@ -28,7 +28,7 @@
             <Label Content="TVV" Width="88" FontSize="36" Foreground="White" FontFamily="Nasalization Rg"/>
             <Label Content="Organizing Your Life" Width="188" FontSize="16" Foreground="#FFEF423B" FontFamily="Nasalization Rg" FontStyle="Italic"/>
             <Label x:Name="lbOR" Content="OR" Width="37" FontSize="24"  Visibility="Collapsed" Foreground="#FFEF423B" FontFamily="Crimes Times Six"/>
-            <Label x:Name="lbEnded" Content="ERASED IT" Width="95" Visibility="Collapsed" FontSize="22" Foreground="#FFEF423B" FontFamily="Crimes Times Six"/>
+            <Label x:Name="lbEnded" Content="DELETING IT" Width="95" Visibility="Collapsed" FontSize="22" Foreground="#FFEF423B" FontFamily="Crimes Times Six"/>
         </StackPanel>
 
         <StackPanel Margin="36,46,405,46" Orientation="Vertical" Width="360" Height="360">
