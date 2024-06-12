@@ -12,13 +12,13 @@
             <DataGrid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#396781" Offset="0"/>
-                    <GradientStop Color="#FFC5E857" Offset="1"/>
+                    <GradientStop Color="#FF38424D" Offset="1"/>
                 </LinearGradientBrush>
             </DataGrid.Background>
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF38424D"/>
-                    <Setter Property="Foreground" Value="#FFC5E857"/>
+                    <Setter Property="Foreground" Value="White"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="BorderThickness" Value="0.7"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -29,11 +29,11 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 
-                <DataGridTextColumn Header="Categoria" Width="150" Binding="{Binding producto.categoriaProducto.descripcion}"/>
-                <DataGridTextColumn Header="Producto" Width="150" Binding="{Binding producto.descripcion}"/>
-                <DataGridTextColumn Header="Precio" Width="150" Binding="{Binding precioVenta}"/>
-                <DataGridTextColumn Header="Cantidad" Width="120" Binding="{Binding cantidad}"/>
-                <DataGridTextColumn Header="TOTAL" Width="100" Binding="{Binding total}"/>
+                <DataGridTextColumn Header="ID VENTA" Width="180" Binding="{Binding idVenta}"/>
+                <DataGridTextColumn Header="PRODUCTO" Width="180" Binding="{Binding producto.descripcion}"/>
+                <DataGridTextColumn Header="PRECIO" Width="150" Binding="{Binding precioVenta}"/>
+                <DataGridTextColumn Header="CANTIDAD" Width="180" Binding="{Binding cantidad}"/>
+                <DataGridTextColumn Header="TOTAL" Width="110" Binding="{Binding total}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

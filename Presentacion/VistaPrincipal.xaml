@@ -219,7 +219,7 @@
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
-                            <StackPanel Orientation="Horizontal" Width="175" Height="65">
+                            <StackPanel Orientation="Horizontal" Height="65" Margin="44,14,32,14">
                                 <Image Source="IMAGEN/Reporte.png" Width="50" Height="45"/>
                                 <TextBlock Text="FACTURAS" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Century Gothic" Width="121" FontWeight="Bold" FontSize="24" Height="30" Foreground="White"/>
                             </StackPanel>
@@ -237,7 +237,7 @@
             </Button>
 
             <!--ClienteBtn-->
-            <Button x:Name="btnCliente" Width="265" Height="95" Click="btrnClientes_Click">
+            <Button x:Name="btnCliente" Width="265" Height="95" Click="btrnClientes_Click" FontFamily="Nasalization Rg">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="#FF333333" BorderBrush="Transparent" BorderThickness="1">
@@ -288,16 +288,12 @@
                     Background="Yellow" BorderBrush="Yellow" Foreground="White" FontFamily="Century Gothic"
                     FontWeight="Bold" FontSize="14" 
                     Style="{StaticResource CircularButtonStyle}" Margin="2"/>
-            <Button x:Name="btnMaximize" Click="btnMaximize_Click" Width="30" Height="30"
-                    Background="Blue" BorderBrush="Blue" Foreground="White" FontFamily="Century Gothic"
-                    FontWeight="Bold" FontSize="14" 
-                    Style="{StaticResource CircularButtonStyle}" Margin="2"/>
             <Button x:Name="btnCerrar" Click="btnCerrar_Click" Width="30" Height="30"
                     Background="Red" BorderBrush="Red" Foreground="White" FontFamily="Century Gothic"
                     FontWeight="Bold" FontSize="14" 
                     Style="{StaticResource CircularButtonStyle}" Margin="2"/>
         </StackPanel>
-        <Label x:Name="lbUsuario" Content="Usuario:" Foreground="Black" FontFamily="Nasalization Rg" FontSize="24" FontWeight="Bold" Margin="358,8,1185,886"/>
+        <Label x:Name="lbUsuario" Content="USUARIO:" Foreground="#FFEF423B" FontFamily="Nasalization Rg" FontSize="24" FontWeight="Bold" Margin="358,8,1182,886"/>
     </Grid>
 
 </Window>

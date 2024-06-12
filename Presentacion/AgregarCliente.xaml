@@ -29,12 +29,12 @@
     </Window.Resources>
 
     <Grid>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF18181A" Margin="10,0,0,0" Height="851" Width="446">
-            <Border CornerRadius="10" Padding="20" Width="404" Height="847">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF18181A" Margin="10,0,0,0" Height="834" Width="404">
+            <Border CornerRadius="10" Padding="20" Width="404" Height="826">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF35273C" Offset="0.5"/>
-                        <GradientStop Color="#FFDE88D3" Offset="0.5"/>
+                        <GradientStop Color="#FF38424D" Offset="0.5"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel Orientation="Vertical">
@@ -51,24 +51,24 @@
                     <Image Source="/IMAGEN/Clientes.png" Height="78"/>
                     <!-- Documento -->
                     <Label x:Name="lbNumDoc"  Content="DOCUMENTO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" Margin="0,50,0,4" FontWeight="Bold"/>
-                    <TextBox x:Name="txtDocumentoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
+                    <TextBox x:Name="txtDocumentoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- Nombre -->
                     <Label x:Name="lbNombreCliente" Content="NOMBRE" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="144" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
-                    <TextBox x:Name="txtNombreCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
+                    <TextBox x:Name="txtNombreCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- Correo -->
                     <Label x:Name="lbCorreo" Content="CORREO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="124" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
-                    <TextBox x:Name="txtCorreoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
+                    <TextBox x:Name="txtCorreoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- Telefono -->
                     <Label x:Name="lbTel" Content="TELEFONO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
-                    <TextBox x:Name="txtTelefonoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF35273C" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFDE88D3"/>
+                    <TextBox x:Name="txtTelefonoCliente" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- BtnsGuardar -->
-                    <Button x:Name="btnGuardarProveedor" Click="btnGuardarProveedor_Click" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF35273C" Foreground="#FFDE88D3" Background="#FF35273C" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    <Button x:Name="btnGuardarProveedor" Click="btnGuardarProveedor_Click" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
 
-                    
+
                 </StackPanel>
             </Border>
         </StackPanel>

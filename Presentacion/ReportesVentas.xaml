@@ -26,7 +26,7 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <Grid Margin="0,-6,-23,-15">
-                                        <Ellipse Fill="#396781"/>
+                                        <Ellipse Fill="#FFEF423B"/>
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                     </Grid>
                                 </ControlTemplate>
@@ -41,7 +41,7 @@
                     <!--Fecha Final-->
                     <Label Content="FECHA FINAL" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="201" Height="36" FontWeight="Bold"/>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="97" Width="170">
-                        <Button x:Name="btnSelectFinalDate" Width="48" Height="48"  Margin="5,0,0,5" RenderTransformOrigin="0.5,0.5">
+                        <Button x:Name="btnSelectFinalDate" Width="30" Height="30"  Margin="5,0,0,5" RenderTransformOrigin="0.5,0.5">
                             <Button.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -59,15 +59,15 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <Button.Content>
-                                <Image Source="IMAGEN/calendario.png" Width="35" Height="47"/>
+                                <Image Source="IMAGEN/calendario.png" Width="39" Height="30"/>
                             </Button.Content>
                         </Button>
                         <DatePicker x:Name="datePickerFinal" SelectedDateFormat="Short" Visibility="Collapsed" Margin="10,0,0,0"/>
                     </StackPanel>
                     <!-- Buscar -->
                     <Label x:Name="lbBusCliente" Content="ID BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="156" Height="36" FontWeight="Bold"/>
-                    <TextBox x:Name="idBuscarRventa" TextAlignment="Center" TextWrapping="Wrap" Width="179" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF35273C" BorderBrush="#FF4646CE"/>
-                    <Button x:Name="BtnBuscarReporteVent" Click="BtnBuscarVenta_Click" Content="🔍" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B"/>
+                    <TextBox x:Name="idBuscarRventa" TextAlignment="Center" TextWrapping="Wrap" Width="179" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="White" BorderBrush="#FFEF423B"/>
+                    <Button x:Name="BtnBuscarReporteVent" Click="BtnBuscarVenta_Click" Content="🔍" Height="36" Background="#FF18181A" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -112,27 +112,13 @@
                         <Setter Property="FontFamily" Value="Nasalization Rg"/>
                         <Setter Property="FontSize" Value="24"/>
                     </Style>
-                    <Style TargetType="{x:Type DataGridCell}">
-                        <Setter Property="Background" Value="#396781"/>
-                        <Setter Property="Foreground" Value="#FF38424D"/>
-                        <Setter Property="BorderBrush" Value="Black"/>
-                        <Setter Property="BorderThickness" Value="0.7"/>
-                        <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="16"/>
-                    </Style>
-                    <Style TargetType="{x:Type DataGridRow}">
-                        <Setter Property="Background" Value="#396781"/>
-                        <Setter Property="Foreground" Value="#FF38424D"/>
-                        <Setter Property="BorderBrush" Value="Black"/>
-                        <Setter Property="BorderThickness" Value="0.7"/>
-                    </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id Venta" Width="110" Binding="{Binding idVenta}"/>
-                    <DataGridTextColumn Header="Fecha Venta" Width="310" Binding="{Binding FechaVenta}"/>
-                    <DataGridTextColumn Header="Usuario" Width="310" Binding="{Binding usuario.nombre}"/>
-                    <DataGridTextColumn Header="Cliente" Width="310" Binding="{Binding cliente.NombreCliente}"/>
-                    <DataGridTextColumn Header="TOTAL" Width="100" Binding="{Binding montoTotal}"/>
+                    <DataGridTextColumn Header="ID VENTA" Width="150" Binding="{Binding idVenta}"/>
+                    <DataGridTextColumn Header="FECHA VENTA" Width="310" Binding="{Binding FechaVenta}"/>
+                    <DataGridTextColumn Header="USUARIO" Width="310" Binding="{Binding usuario.nombre}"/>
+                    <DataGridTextColumn Header="CLIENTE" Width="310" Binding="{Binding cliente.NombreCliente}"/>
+                    <DataGridTextColumn Header="TOTAL" Width="150" Binding="{Binding montoTotal}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
@@ -148,7 +134,7 @@
         </StackPanel>
         <DatePicker Name="dpFecha1" HorizontalAlignment="Left" Margin="360,103,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
         <DatePicker Name="dpFecha2" HorizontalAlignment="Left" Margin="747,115,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
-        <Button x:Name="BtnActualizar" Click="BtnActualizar_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1296,329,118,506"/>
+        <Button x:Name="BtnActualizar" Click="BtnActualizar_Click" Content="↻" Background="#FF18181A" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1296,329,118,506"/>
 
     </Grid>
 </UserControl>

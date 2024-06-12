@@ -15,7 +15,7 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0.5"/>
-                        <GradientStop Color="#FFC5E857" Offset="0.5"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel Orientation="Vertical">
@@ -23,28 +23,28 @@
                     <Image Source="/IMAGEN/producto.png" Height="78"/>
                     <!-- IDProducto -->
                     <Label x:Name="lbCod" Content="ID PRODUCTO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" Margin="0,50,0,4" FontWeight="Bold"/>
-                    <TextBox x:Name="txtCodigoProducto" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFC5E857"/>
+                    <TextBox x:Name="txtCodigoProducto" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- Descripcion -->
                     <Label x:Name="lbNombre" Content="DESCRIPCION" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="188" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
-                    <TextBox x:Name="txtDescripcion" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFC5E857"/>
+                    <TextBox x:Name="txtDescripcion" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- CanMinima -->
                     <Label x:Name="lbDescripCategoria" Content="CANTIDAD MINIMA" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="265" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,20,0,0"/>
-                    <TextBox x:Name="txtMinima" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFC5E857"/>
+                    <TextBox x:Name="txtMinima" TextAlignment="Center" TextWrapping="Wrap" Width="159" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- Categoria -->
                     <Label x:Name="lbCategoria" Content="CATEGORIA" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
-                    <ComboBox x:Name="cbCategoria" Width="232" Height="32"  FontFamily="Century Gothic" FontSize="20" Foreground="#FF4646CE" BorderBrush="#FF4646CE" Background="#FF18181A" ItemsSource="{Binding CategoriaProducto}" DisplayMemberPath="descripcion" />
+                    <ComboBox x:Name="cbCategoria" Width="232" Height="32"  FontFamily="Century Gothic" FontSize="20" Foreground="#FFEF423B" BorderBrush="#FF18181A" Background="#FF18181A" ItemsSource="{Binding CategoriaProducto}" DisplayMemberPath="descripcion" />
 
                     <!-- BtnsGuardar -->
-                    <Button x:Name="btnguardar" Click="Btnguardar" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FFC5E857" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    <Button x:Name="btnguardar" Click="Btnguardar" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
 
                     <!-- BtnLimpiar -->
-                    <Button x:Name="btnlimpiar" Click="Btnlimpiar" Content="LIMPIAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FF18181A"  Background="#FFC5E857" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    <Button x:Name="btnlimpiar" Click="Btnlimpiar" Content="LIMPIAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FFEF423B"  Background="#FF396781" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
 
                     <!-- BtnEliminar -->
-                    <Button x:Name="btneliminar" Click="Btneliminar" Content="ELIMINAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FFC5E857" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    <Button x:Name="btneliminar" Click="Btneliminar" Content="ELIMINAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FFEF423B" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -55,15 +55,15 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0.3"/>
-                        <GradientStop Color="#FFC5E857" Offset="0.5"/>
+                        <GradientStop Color="#396781" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel Orientation="Horizontal">
 
                     <!-- Buscar -->
-                    <Label x:Name="lbBuscarProducto" Content="BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="132" Height="36" FontWeight="Bold" Margin="250,0,0,0"/>
+                    <Label x:Name="lbBuscarProducto" Content="BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="184" Height="36" FontWeight="Bold" Margin="300,0,0,0"/>
                     <TextBox x:Name="BoxBuscarListProductos" TextAlignment="Center" TextWrapping="Wrap" Width="279" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
-                    <Button x:Name="BtnBuscarListProductos" Click="buscaR" Content="🔍" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFC5E857" BorderBrush="#FF38424D"/>
+                    <Button x:Name="BtnBuscarListProductos" Click="buscaR" Content="🔍" Height="36" Background="#FF18181A" FontFamily="Century Gothic" Margin="10,0,4,0" Width="46"  BorderBrush="#FFEF423B" Foreground="#FFEF423B"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -75,36 +75,36 @@
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#396781" Offset="0"/>
-                        <GradientStop Color="#FFC5E857" Offset="1"/>
+                        <GradientStop Color="#FF38424D" Offset="1"/>
                     </LinearGradientBrush>
                 </DataGrid.Background>
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FF38424D"/>
-                        <Setter Property="Foreground" Value="#FFC5E857"/>
+                        <Setter Property="Foreground" Value="White"/>
                         <Setter Property="BorderBrush" Value="Black"/>
                         <Setter Property="BorderThickness" Value="0.7"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         <Setter Property="VerticalContentAlignment" Value="Center"/>
-                        <Setter Property="FontFamily" Value="Nasalization Rg"/>
-                        <Setter Property="FontSize" Value="22"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
+                        <Setter Property="FontSize" Value="16"/>
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID P" Width="100" Binding="{Binding idProducto}"/>
-                    <DataGridTextColumn Header="DES" Width="150" Binding="{Binding descripcion}"/>
-                    <DataGridTextColumn Header="ID CAT" Width="100" Binding="{Binding categoriaProducto.idCategoria}"/>
-                    <DataGridTextColumn Header="CATEGORIA" Width="150" Binding="{Binding categoriaProducto.descripcion}"/>
-                    <DataGridTextColumn Header="DISPON" Width="100" Binding="{Binding cantidad}"/>
-                    <DataGridTextColumn Header="C. MIN" Width="100" Binding="{Binding cantidadMinima}"/>
-                    <DataGridTextColumn Header="P. COMP" Width="150" Binding="{Binding precioCompra}"/>
-                    <DataGridTextColumn Header="P. VENTA" Width="150" Binding="{Binding precioVenta}"/>
+                    <DataGridTextColumn Header="ID PRODUCTO" Width="120" Binding="{Binding idProducto}"/>
+                    <DataGridTextColumn Header="DESCRIPCION" Width="130" Binding="{Binding descripcion}"/>
+                    <DataGridTextColumn Header="ID CATEGORIA" Width="120" Binding="{Binding categoriaProducto.idCategoria}"/>
+                    <DataGridTextColumn Header="CATEGORIA" Width="120" Binding="{Binding categoriaProducto.descripcion}"/>
+                    <DataGridTextColumn Header="CANTIDAD" Width="100" Binding="{Binding cantidad}"/>
+                    <DataGridTextColumn Header="CANTIDAD MIN" Width="120" Binding="{Binding cantidadMinima}"/>
+                    <DataGridTextColumn Header="PRECIO COMPRA" Width="150" Binding="{Binding precioCompra}"/>
+                    <DataGridTextColumn Header="PRECIO VENTA" Width="150" Binding="{Binding precioVenta}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        <Label x:Name="lbBuscarProducto_Copiar" Content="POR CATEGORIA:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" FontWeight="Bold" Margin="513,31,775,804"/>
-        <ComboBox x:Name="cbFiltrar"  FontFamily="Century Gothic" FontSize="20" Foreground="#FF4646CE" BorderBrush="#FF4646CE" Background="#FF18181A" Margin="513,72,748,767" ItemsSource="{Binding CategoriaProducto}" DisplayMemberPath="descripcion" SelectionChanged="cbFiltrar_SelectionChanged"/>
-        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
+        <Label x:Name="lbBuscarProducto_Copiar" Content="POR CATEGORIA:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" FontWeight="Bold" Margin="513,22,748,809"/>
+        <ComboBox x:Name="cbFiltrar"  FontFamily="Century Gothic" FontSize="20" Foreground="#FF4646CE" BorderBrush="#FF4646CE" Background="#FF18181A" Margin="513,62,748,776" ItemsSource="{Binding CategoriaProducto}" DisplayMemberPath="descripcion" SelectionChanged="cbFiltrar_SelectionChanged" Height="36"/>
+        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#18181a" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
 
     </Grid>
 

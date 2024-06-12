@@ -25,24 +25,27 @@
                     
                     <!-- NumDoc -->
                     <Label x:Name="lbNumDoc" Content="NUMERO DE DOCUMENTO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Height="36" HorizontalAlignment="Center" Margin="0,50,0,4" FontWeight="Bold"/>
-                    <TextBox x:Name="TxtNumDocumento" TextAlignment="Center" TextWrapping="Wrap" Width="325" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
+                    <TextBox x:Name="TxtNumDocumento" TextAlignment="Center" TextWrapping="Wrap" Width="240" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- Nombre -->
                     <Label x:Name="lbNombreProveedor" Content="NOMBRE" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="134" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,50,0,0"/>
-                    <TextBox x:Name="TxtNombreProveedor" TextAlignment="Center" TextWrapping="Wrap" Width="338" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
+                    <TextBox x:Name="TxtNombreProveedor" TextAlignment="Center" TextWrapping="Wrap" Width="240" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- Telefono -->
-                    <Label x:Name="lbTel" Content="TELEFONO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="130" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,50,0,0"/>
-                    <TextBox x:Name="TxtTelefono" TextAlignment="Center" TextWrapping="Wrap" Width="324" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF18181A"/>
+                    <Label x:Name="lbTel" Content="TELEFONO" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="151" HorizontalAlignment="Center" Height="36" FontWeight="Bold" Margin="0,50,0,0"/>
+                    <TextBox x:Name="TxtTelefono" TextAlignment="Center" TextWrapping="Wrap" Width="240" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- BtnsGuardar -->
                     <Button x:Name="btnGuardarProveedor" Click="btnGuardarProveedor_Click" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FFEF423B" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
 
                     <!-- BtnLimpiar -->
-                    <Button x:Name="btnLimpiarProveedor" Click="btnLimpiarProveedor_Click" Content="LIMPIAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FFEF423B" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    <Button x:Name="btnLimpiarProveedor" Click="btnLimpiarProveedor_Click" Content="LIMPIAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FFEF423B" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,25,0,0"/>
 
                     <!-- BtnEliminar -->
-                    <Button x:Name="btnEliminarProveedor" Click="btnEliminarProveedor_Click" Content="ELIMINAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#FFEF423B" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
+                    <Button x:Name="btnEliminarProveedor" Click="btnEliminarProveedor_Click" Content="ELIMINAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FF18181A" Foreground="#18181a" Background="#FFEF423B" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,25,0,0"/>
+                    
+                    <!--btnActualizar-->
+                    <Button x:Name="btnActualizar" Click="BtnActualizar_Click" Content="Actualizar" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF38424D" Width="170" Height="40" Margin="0,25,0,0"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -59,8 +62,8 @@
                 <StackPanel Orientation="Horizontal">
                     <!-- Buscar -->
                     <Label x:Name="lbBusProveedor" Content="BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="132" Height="36" FontWeight="Bold" Margin="250,0,0,0"/>
-                    <TextBox x:Name="BoxBuscarListProveedor" TextAlignment="Center" TextWrapping="Wrap" Width="279" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
-                    <Button x:Name="BtnBuscarListProveedor" Click="BtnBuscarListProveedor_Click" Content="🔍" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FF38424D"/>
+                    <TextBox x:Name="BoxBuscarListProveedor" TextAlignment="Center" TextWrapping="Wrap" Width="279" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
+                    <Button x:Name="BtnBuscarListProveedor" Click="BtnBuscarListProveedor_Click" Content="🔍" Height="36" Background="#FF18181A" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -77,22 +80,6 @@
                     </LinearGradientBrush>
                 </DataGrid.Background>
                 <DataGrid.Resources>
-
-                    <Style TargetType="{x:Type DataGridCell}">
-                        <Setter Property="Background" Value="White"/>
-                        <Setter Property="Foreground" Value="Black"/>
-                        <Setter Property="BorderBrush" Value="Black"/>
-                        <Setter Property="BorderThickness" Value="0.5"/>
-                        <Setter Property="FontFamily" Value="Nasalization Rg"/>
-                        <Setter Property="FontSize" Value="20"/>
-                    </Style>
-                    <Style TargetType="{x:Type DataGridRow}">
-                        <Setter Property="Background" Value="White"/>
-                        <Setter Property="Foreground" Value="Black"/>
-                        <Setter Property="BorderBrush" Value="Black"/>
-                        <Setter Property="BorderThickness" Value="0.5"/>
-                    </Style>
-
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FF38424D"/>
                         <Setter Property="Foreground" Value="White"/>
@@ -112,8 +99,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
-        <Button x:Name="btnActualizar" Click="BtnActualizar_Click" Content="Actualizar" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FF18181A" Background="#FF38424D" Margin="148,801,1176,30"/>
+        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF18181A" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
 
     </Grid>
 </UserControl>

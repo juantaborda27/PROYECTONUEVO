@@ -120,5 +120,10 @@ namespace Presentacion
         {
             ActualizarTabla();
         }
+
+        private void tblListaCategoria_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

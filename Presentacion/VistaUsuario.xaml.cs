@@ -300,6 +300,7 @@ namespace Presentacion
                 MessageBox.Show("Usuario no existe", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
     }
 }
 

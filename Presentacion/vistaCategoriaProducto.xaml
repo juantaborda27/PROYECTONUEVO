@@ -32,7 +32,7 @@
                     <TextBox x:Name="txtDescripProducto" TextAlignment="Center" TextWrapping="Wrap" Width="224" Height="37" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
 
                     <!-- BtnsGuardar -->
-                    <Button x:Name="btnGuardar" Click="BtnGuuardar" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF38424D" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,70,0,0"/>
+                    <Button x:Name="btnGuardar" Click="BtnGuuardar" Content="GUARDAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF18181A" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,70,0,0"/>
 
                     <!-- BtnLimpiar -->
                     <Button x:Name="btnLimpiar" Click="BtnLIMPPIAR" Content="LIMPIAR" FontFamily="Nasalization Rg" FontSize="14" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF396781" Height="40" HorizontalAlignment="Center" Width="170" Margin="0,50,0,0"/>
@@ -55,8 +55,8 @@
                 <StackPanel Orientation="Horizontal">
                     <!-- Buscar -->
                     <Label x:Name="lbBuscarCategoria" Content="BUSCAR:" Foreground="White" FontFamily="Nasalization Rg" FontSize="24" Width="132" Height="36" FontWeight="Bold" Margin="250,0,0,0"/>
-                    <TextBox x:Name="txtBuscarListaCategoria" TextAlignment="Center" TextWrapping="Wrap" Width="279" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FF4646CE"/>
-                    <Button x:Name="BtnBuscarCategoria" Click="BtnBuscarCategoria_Click" Content="🔍" Height="36" Background="#FF38424D" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B"/>
+                    <TextBox x:Name="txtBuscarListaCategoria" TextAlignment="Center" TextWrapping="Wrap" Width="279" Height="36" FontFamily="Century Gothic" Foreground="#FF18181A" FontSize="20" SelectionBrush="#FF18181A" BorderBrush="#FFEF423B"/>
+                    <Button x:Name="BtnBuscarCategoria" Click="BtnBuscarCategoria_Click" Content="🔍" Height="36" Background="#FF18181A" FontFamily="Nasalization Rg" Margin="10,0,0,0" Width="80" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B"/>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -65,7 +65,7 @@
         <!--Tabla-->
 
         <StackPanel Margin="482,202,10,115" Background="#FF242A82">
-            <DataGrid x:Name="tblListaCategoria" Height="558" AutoGenerateColumns="False" FontSize="20" SelectionMode="Single" ItemsSource="{Binding}" Width="1005" FontFamily="Nasalization Rg">
+            <DataGrid x:Name="tblListaCategoria" Height="558" AutoGenerateColumns="False" FontSize="20" SelectionMode="Single" ItemsSource="{Binding}" Width="1005" FontFamily="Nasalization Rg" SelectionChanged="tblListaCategoria_SelectionChanged">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0"/>
@@ -85,12 +85,12 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding idCategoria}" Width="150" FontFamily="Nasalization Rg"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding idCategoria}" Width="500" FontFamily="Nasalization Rg"/>
                     <DataGridTextColumn Header="DESCRIPCION" Binding="{Binding descripcion}" Width="500" FontFamily="Nasalization Rg"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
+        <Button x:Name="BtnActualizarTabla" Click="BtnActualizarTabla_Click" Content="↻" Background="#FF18181A" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1387,155,27,680"/>
 
     </Grid>
 </UserControl>

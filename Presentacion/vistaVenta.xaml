@@ -56,10 +56,10 @@
 
                 <StackPanel Orientation="Horizontal">
                     <!-- StackPanel para el Nombre Cliente -->
-                    <StackPanel Margin="0,0,10,0" Height="154" Width="159">
+                    <StackPanel Margin="0,0,10,0" Height="154" Width="182">
                         <Label Content="CEDULA" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Margin="0,0,0,5" Width="115"/>
 
-                        <TextBox x:Name="txtCedulaClienteVentas" Width="195" Height="32" TextAlignment="Center" FontFamily="Century Gothic" FontSize="20" Foreground="#FF18181A" Margin="0,5,0,0" BorderBrush="#FFEF423B" SelectionBrush="#FF18181A"/>
+                        <TextBox x:Name="txtCedulaClienteVentas" Width="152" Height="32" TextAlignment="Center" FontFamily="Century Gothic" FontSize="20" Foreground="#FF18181A" Margin="0,5,0,0" BorderBrush="#FFEF423B" SelectionBrush="#FF18181A"/>
                         <StackPanel Orientation="Horizontal" Width="137" Height="70">
                             <Button x:Name="btnBuscarCliente" Content="🔍" Height="37" Background="#FF18181A" FontFamily="Century Gothic" Width="46" Click="btnBuscarCliente_Click" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Margin="0,20,0,0"/>
                             <Button x:Name="btnCrearCliente" Content="+" Height="37" Background="#FF18181A" FontFamily="Century Gothic" Width="46" Click="btnAgregarCliente_Click" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Margin="40,20,20,0"/>
@@ -70,12 +70,12 @@
                     <!-- StackPanel para el Correo electrónico -->
                     <StackPanel Orientation="Vertical" Width="215" Margin="20.1,0,0,0" Height="155">
                         <Label Content="NOMBRE" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Margin="50,0,0,5" Width="130" HorizontalAlignment="Left"/>
-                        <Label x:Name="txtNombre" Width="211" Height="34"  FontFamily="Nasalization Rg" FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="0,5,0,0" BorderBrush="#FFEF423B" FontWeight="Bold"/>
+                        <Label x:Name="txtNombre" Width="211" Height="34"  FontFamily="Nasalization Rg" FontSize="20" Foreground="#FFEF423B" HorizontalAlignment="Center" Margin="0,5,0,0" BorderBrush="#FFEF423B" FontWeight="Bold"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical" Width="257" Margin="20.1,0,0,0" Height="152">
-                        <Label Content="CORREO" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Margin="50,0,0,5" Width="116" HorizontalAlignment="Left"/>
-                        <Label x:Name="txtCorreo" Width="259" Height="34"  FontFamily="Nasalization Rg" FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="0,5,0,0" BorderBrush="#FFEF423B" FontWeight="Bold" />
+                        <Label Content="CORREO" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Margin="50,0,0,5" Width="120" HorizontalAlignment="Left"/>
+                        <Label x:Name="txtCorreo" Width="244" Height="34"  FontFamily="Nasalization Rg" FontSize="20" Foreground="#FFEF423B" HorizontalAlignment="Center" Margin="0,5,0,0" BorderBrush="#FFEF423B" FontWeight="Bold" />
                     </StackPanel>
 
                 </StackPanel>
@@ -166,7 +166,9 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-                    <Button x:Name="btnEliminarVenta" Content="ELIMINAR" Width="274" FontFamily="Nasalization Rg" FontSize="20" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FFEF423B" Click="btnEliminar_Click" Height="42" Margin="0,15,0,0"/>
+                    
+                    <!--Eliminar-->
+                    <Button x:Name="btnEliminarVenta" Content="ELIMINAR" Width="274" FontFamily="Nasalization Rg" FontSize="20" BorderBrush="#FF18181A" Foreground="#FF18181A" Background="#FFEF423B" Click="btnEliminar_Click" Height="60" Margin="0,15,0,0"/>
 
                     <!-- Recibido -->
                     <Label Content="RECIBIDO" Width="134" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" HorizontalAlignment="Center" Height="33" FontWeight="Bold" Margin="0,10,0,0"/>
@@ -174,16 +176,14 @@
 
                     <!-- Total a Pagar -->
                     <Label Content="TOTAL A PAGAR" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Height="35" Width="193" FontWeight="Bold"/>
-                    <Label x:Name="lbPagoVenta" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="Transparent" Height="40" Width="198" HorizontalAlignment="Center"/>
+                    <Label x:Name="lbPagoVenta"  FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="Transparent" Height="40" Width="167" HorizontalAlignment="Center"/>
 
                     <!-- Cambio -->
                     <Label Content="CAMBIO" Width="117" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" HorizontalAlignment="Center" Height="34" FontWeight="Bold" Margin="0,10,0,0"/>
-                    <Label x:Name="lbCambioVenta" Width="158" Height="40" FontFamily="Nasalization Rg" Foreground="#FFEF423B" FontSize="24" HorizontalAlignment="Center"/>
+                    <Label x:Name="lbCambioVenta"  Width="170" Height="40" FontFamily="Nasalization Rg" Foreground="#FFEF423B" FontSize="24" HorizontalAlignment="Center"/>
 
                     <!-- Botón Registrar -->
-                    <Button x:Name="btnRegistrarVenta" Content="REGISTRAR" FontFamily="Nasalization Rg" FontSize="25" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF18181A" Height="69" Click="btnRegistrarVenta_Click" HorizontalAlignment="Center" Width="278" Margin="0,20,0,0"/>
-
-                    <!-- Botón Eliminar -->
+                    <Button x:Name="btnRegistrarVenta" Content="REGISTRAR" FontFamily="Nasalization Rg" FontSize="25" BorderBrush="#FFEF423B" Foreground="#FFEF423B" Background="#FF18181A" Height="60" Click="btnRegistrarVenta_Click" HorizontalAlignment="Center" Width="278" Margin="0,20,0,0"/>
                 </StackPanel>
             </Border>
         </StackPanel>

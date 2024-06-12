@@ -12,28 +12,28 @@
             <DataGrid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#396781" Offset="0"/>
-                    <GradientStop Color="#FFC5E857" Offset="1"/>
+                    <GradientStop Color="#FF38424D" Offset="1"/>
                 </LinearGradientBrush>
             </DataGrid.Background>
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF38424D"/>
-                    <Setter Property="Foreground" Value="#FFC5E857"/>
+                    <Setter Property="Foreground" Value="White"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="BorderThickness" Value="0.7"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     <Setter Property="VerticalContentAlignment" Value="Center"/>
                     <Setter Property="FontFamily" Value="Nasalization Rg"/>
-                    <Setter Property="FontSize" Value="22"/>
+                    <Setter Property="FontSize" Value="16"/>
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="CD" Width="80" Binding="{Binding idDetalleCompra}"/>
-                <DataGridTextColumn Header="CAT" Width="100" Binding="{Binding producto.categoriaProducto.descripcion}"/>
-                <DataGridTextColumn Header="DES" Width="110" Binding="{Binding producto.descripcion}"/>
-                <DataGridTextColumn Header="P VENTA" Width="150" Binding="{Binding precioVenta}"/>
-                <DataGridTextColumn Header="P COMPRA" Width="150" Binding="{Binding precioCompra}"/>
-                <DataGridTextColumn Header="CANT" Width="120" Binding="{Binding cantidad}"/>
+                <DataGridTextColumn Header="ID" Width="80" Binding="{Binding idDetalleCompra}"/>
+                <DataGridTextColumn Header="CATEGORIA" Width="150" Binding="{Binding producto.categoriaProducto.descripcion}"/>
+                <DataGridTextColumn Header="DESCRIPCION" Width="150" Binding="{Binding producto.descripcion}"/>
+                <DataGridTextColumn Header="P VENTA" Width="110" Binding="{Binding precioVenta}"/>
+                <DataGridTextColumn Header="P COMPRA" Width="110" Binding="{Binding precioCompra}"/>
+                <DataGridTextColumn Header="CANTIDAD" Width="110" Binding="{Binding cantidad}"/>
                 <DataGridTextColumn Header="TOTAL" Width="100" Binding="{Binding total}"/>
             </DataGrid.Columns>
         </DataGrid>
