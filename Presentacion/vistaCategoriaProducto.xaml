@@ -76,12 +76,6 @@
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#396781"/>
                         <Setter Property="Foreground" Value="White"/>
-                        <Setter Property="BorderBrush" Value="Black"/>
-                        <Setter Property="BorderThickness" Value="0.7"/>
-                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                        <Setter Property="VerticalContentAlignment" Value="Center"/>
-                        <Setter Property="FontFamily" Value="Nasalization Rg"/>
-                        <Setter Property="FontSize" Value="24"/>
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>

@@ -75,7 +75,7 @@
 
                     <StackPanel Orientation="Vertical" Width="257" Margin="20.1,0,0,0" Height="152">
                         <Label Content="CORREO" FontFamily="Nasalization Rg" FontSize="24" Foreground="White" Margin="50,0,0,5" Width="120" HorizontalAlignment="Left"/>
-                        <Label x:Name="txtCorreo" Width="244" Height="34"  FontFamily="Nasalization Rg" FontSize="20" Foreground="#FFEF423B" HorizontalAlignment="Center" Margin="0,5,0,0" BorderBrush="#FFEF423B" FontWeight="Bold" />
+                        <Label x:Name="txtCorreo" Width="260" Height="34"  FontFamily="Nasalization Rg" FontSize="14" Foreground="#FFEF423B" HorizontalAlignment="Left" Margin="0,5,0,0" BorderBrush="#FFEF423B" FontWeight="Bold" />
                     </StackPanel>
 
                 </StackPanel>
@@ -192,7 +192,7 @@
 
         <!-- Panel de la tabla -->
         <StackPanel Margin="62,453,406,16" Background="#FF242A82">
-            <DataGrid x:Name="tblVistaVenta" Height="404" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1027" FontFamily="Century Gothic">
+            <DataGrid x:Name="tblVistaVenta" Height="404" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1027" FontFamily="Nasalization Rg" FontSize="20">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#396781" Offset="0"/>
@@ -212,7 +212,7 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Codigo" Width="150" Binding="{Binding idDetalleVenta}"/>
+                    <DataGridTextColumn Header="Codigo" Width="150" Binding="{Binding producto.idProducto}"/>
                     <DataGridTextColumn Header="Categoria" Width="172" Binding="{Binding producto.categoriaProducto.descripcion}"/>
                     <DataGridTextColumn Header="Nombre" Width="250" Binding="{Binding producto.descripcion}"/>
                     <DataGridTextColumn Header="Precio" Width="150" Binding="{Binding precioVenta}"/>

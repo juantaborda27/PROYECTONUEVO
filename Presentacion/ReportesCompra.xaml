@@ -85,7 +85,7 @@
         <!--Tabla-->
 
         <StackPanel Margin="150,375,118,14" Background="#FF242A82">
-            <DataGrid x:Name="tbCompra" Height="480" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1224" FontFamily="Century Gothic">
+            <DataGrid x:Name="tbCompra" Height="480" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1224" FontFamily="Nasalization Rg" FontSize="20">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0"/>
@@ -103,20 +103,7 @@
                         <Setter Property="FontFamily" Value="Nasalization Rg"/>
                         <Setter Property="FontSize" Value="24"/>
                     </Style>
-                    <Style TargetType="{x:Type DataGridCell}">
-                        <Setter Property="Background" Value="#396781"/>
-                        <Setter Property="Foreground" Value="#FF38424D"/>
-                        <Setter Property="BorderBrush" Value="Black"/>
-                        <Setter Property="BorderThickness" Value="0.7"/>
-                        <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="16"/>
-                    </Style>
-                    <Style TargetType="{x:Type DataGridRow}">
-                        <Setter Property="Background" Value="#396781"/>
-                        <Setter Property="Foreground" Value="#FF38424D"/>
-                        <Setter Property="BorderBrush" Value="Black"/>
-                        <Setter Property="BorderThickness" Value="0.7"/>
-                    </Style>
+                    
                 </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id Compra" Width="310" Binding="{Binding IdCompra}"/>
@@ -136,7 +123,7 @@
         <StackPanel Margin="1100,170,118,517">
             <Image Source="IMAGEN/Comprar.png" Width="152" Height="130" Margin="0,25,0,0"/>
         </StackPanel>
-        <DatePicker Name="dpFecha1" HorizontalAlignment="Left" Margin="360,103,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <DatePicker Name="dpFecha1" HorizontalAlignment="Left" Margin="361,103,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
         <DatePicker Name="dpFecha2" HorizontalAlignment="Left" Margin="747,115,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
         <Button x:Name="BtnActualizar" Click="BtnActualizar_Click" Content="↻" Background="#FF38424D" FontFamily="Nasalization Rg" FontSize="24" Foreground="#FFEF423B" BorderBrush="#FFEF423B" Margin="1296,329,118,506"/>
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -40,7 +41,7 @@ namespace Presentacion
             Cliente cliente = new Cliente();
             if (logicaCliente.Buscar(txtDocumentoCliente.Text) == null)
             {
-                if (ValidarNumero(txtDocumentoCliente.Text))
+                if (ValidarNumero(txtDocumentoCliente.Text) && txtDocumentoCliente.Text.Length >= 10 && txtDocumentoCliente.Text.Length <= 8)
                 {
                     cliente.Documento = txtDocumentoCliente.Text;
                 }
@@ -57,7 +58,7 @@ namespace Presentacion
                 {
                     return;
                 }
-                if (ValidarNumero(txtTelefonoCliente.Text))
+                if (ValidarNumero(txtTelefonoCliente.Text) && txtTelefonoCliente.Text.Length >=10)
                 {
                     cliente.Telefono = txtTelefonoCliente.Text;
                 }
@@ -66,7 +67,16 @@ namespace Presentacion
                     MessageBox.Show("Formato del telefono es incorrecto", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
-                cliente.Correo = txtCorreoCliente.Text;
+                if (IsValidEmail(txtCorreoCliente.Text))
+                {
+                    cliente.Correo = txtCorreoCliente.Text;
+                }
+                else
+                {
+                    MessageBox.Show("Formato del Correo es incorrecto", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+
+                }
                 logicaCliente.Add(cliente);
                 ActualizarTabla();
                 Limpiar();
@@ -78,6 +88,53 @@ namespace Presentacion
             }
 
         }
+
+        private bool IsValidEmail(string correo)
+        {
+            int tam, cont, cont2;
+            bool ban, ban1, ban2, ban3;
+            do
+            {
+                ban3 = true;
+                ban2 = true;
+                cont2 = 0;
+                ban = true;
+                cont = 0;
+                ban1 = true;
+                
+                tam = correo.Length;
+                for (int i = 0; i < tam; i++)
+                {
+                    if (!char.IsLetterOrDigit(correo[i]) && correo[i] != '@' && correo[i] != '.')
+                    {
+                        ban = false;
+                    }
+                    if (correo[i] == '@')
+                    {
+                        cont += 1;
+                    }
+                    if (correo[i] == '.')
+                    {
+                        cont2 += 1;
+                        if (i + 1 < tam && correo[i + 1] == '.')
+                        {
+                            ban2 = false;
+                        }
+                    }
+                }
+                if (correo[0] == '@' || correo[0] == '.')
+                {
+                    ban2 = false;
+                }
+                if (correo[tam - 1] == '@' || correo[tam - 1] == '.')
+                {
+                    ban3 = false;
+                }
+            } while (tam < 6 || tam > 30 || ban == false || cont != 1 || cont2 < 1 || cont2 > 2 || ban1 == false || ban2 == false || ban3 == false);
+
+            return true;
+        }
+
         bool ValidarNombre(string campo)
         {
             foreach (var item in campo)

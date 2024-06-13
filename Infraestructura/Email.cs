@@ -142,8 +142,16 @@ namespace Infraestructura
                 };
 
                 smtp.EnableSsl = true;
-                smtp.Send(mCorreo);
-                return "Enviado con Exito";
+                try
+                {
+                    smtp.Send(mCorreo);
+                    return "Enviado con Exito";
+                }
+                catch (Exception)
+                {
+                    return "Error al enviar el correo";
+                }
+                
             }
             catch (Exception e)
             {

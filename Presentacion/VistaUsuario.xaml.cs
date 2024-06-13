@@ -76,7 +76,7 @@ namespace Presentacion
                     MessageBox.Show("El nombre solo acepta letras", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
-                if (TxtUsernameUs.Text.Count()!=0)
+                if (TxtUsernameUs.Text.Count()==0)
                 {
                     MessageBox.Show("Username se ecuentra vacio", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;

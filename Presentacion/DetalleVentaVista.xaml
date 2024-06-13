@@ -8,7 +8,7 @@
         Title="DetalleVentaVista" Height="382" Width="795">
 
     <Grid Margin="0,0,81,0">
-        <DataGrid x:Name="tbVistaVenta" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,0,-82,0">
+        <DataGrid x:Name="tbVistaVenta" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,0,-82,0" FontFamily="Nasalization Rg" FontSize="20">
             <DataGrid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#396781" Offset="0"/>

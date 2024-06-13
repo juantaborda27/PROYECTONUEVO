@@ -173,7 +173,7 @@
 
         <!-- Panel de la tabla -->
         <StackPanel Margin="62,453,406,16" Background="#FF242A82">
-            <DataGrid x:Name="tblVistaCompra" Height="404" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1027" FontFamily="Century Gothic">
+            <DataGrid x:Name="tblVistaCompra" Height="404" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1027" FontFamily="Nasalization Rg" FontSize="20">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0"/>
@@ -193,7 +193,7 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="CODIGO" Width="120" Binding="{Binding idDetalleCompra}"/>
+                    <DataGridTextColumn Header="CODIGO" Width="120" Binding="{Binding producto.idProducto}"/>
                     <DataGridTextColumn Header="CATEGORIA" Width="140" Binding="{Binding producto.categoriaProducto.descripcion}"/>
                     <DataGridTextColumn Header="NOMBRE" Width="180" Binding="{Binding producto.descripcion}"/>
                     <DataGridTextColumn Header="P. VENTA" Width="150" Binding="{Binding precioVenta}"/>

@@ -94,7 +94,7 @@
         <!--Tabla-->
 
         <StackPanel Margin="150,375,118,14" Background="#FF242A82">
-            <DataGrid x:Name="tablaVenta" Height="480" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1224" FontFamily="Century Gothic">
+            <DataGrid x:Name="tablaVenta" Height="480" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1224" FontFamily="Nasalization Rg" FontSize="20">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0"/>

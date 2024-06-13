@@ -72,7 +72,7 @@
                 
                 <!--Tabla-->
         <StackPanel Margin="482,202,10,115" Background="#FF242A82">
-            <DataGrid x:Name="tblCliente" Height="558" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1005" FontFamily="Century Gothic">
+            <DataGrid x:Name="tblCliente" Height="558" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding}" Width="1005" FontFamily="Nasalization Rg" FontSize="20">
                 <DataGrid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#FF38424D" Offset="0"/>
