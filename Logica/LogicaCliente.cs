@@ -28,23 +28,13 @@ namespace Logica
             }
             else
             {
-                return "No existe el id ingresado";
+                return "No se pudo Eliminar, tiene elementos asociados";
             }
         }
         public Cliente Buscar(string documento)
         {
             return archivoCliente.Buscar(documento);
         }
-        public string Actualizar(Cliente cliente)
-        {
-            if (archivoCliente.Actualizar(cliente))
-            {
-                return "Se ha modificado correctamente";
-            }
-            else
-            {
-                return "Cliente no identificado";
-            }
-        }
+        
     }
 }

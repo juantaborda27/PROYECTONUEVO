@@ -204,7 +204,9 @@ namespace Presentacion
                 if (result == MessageBoxResult.Yes)
                 {
                     Email email = new Email();
-                    email.Enviar(venta,venta.cliente.Correo);
+                    
+                    MessageBox.Show(email.Enviar(venta, venta.cliente.Correo), "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 }
                 Limpiar();
             }

@@ -28,7 +28,7 @@ namespace Logica
             }
             else
             {
-                return "No existe el id ingresado";
+                return "No se puede eliminar al usuario, tiene elementos asociados";
             }
         }
         public Usuario Buscar(string idUsuario)

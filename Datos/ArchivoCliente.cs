@@ -110,27 +110,7 @@ namespace Datos
             }
         }
 
-        public bool Actualizar(Cliente clienteNew)
-        {
-            try
-            {
-                string query = "UPDATE FROM Clientes WHERE IdCliente = @IdCliente";
-                SqlCommand command = new SqlCommand(query, conexion);
-                command.Parameters.AddWithValue("@NombreCliente", clienteNew.NombreCliente);
-                command.Parameters.AddWithValue("@Correo", clienteNew.Correo);
-                command.Parameters.AddWithValue("@Telefono", clienteNew.Telefono);
-                command.CommandType = CommandType.StoredProcedure;
-                AbrirConexion();
-                var index = command.ExecuteNonQuery();
-                CerrarConexion();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
+        
 
         private Cliente Map(SqlDataReader reader)
         {

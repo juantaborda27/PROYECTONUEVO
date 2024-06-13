@@ -17,11 +17,18 @@ namespace Infraestructura
         private MailMessage mCorreo;
 
 
-        public void CrearCuerpoCorreo(string Emisor, Venta venta)
+        public bool CrearCuerpoCorreo(string Emisor, Venta venta)
         {
             mCorreo = new MailMessage();
             mCorreo.From = new MailAddress(myEmail, MyAlias, System.Text.Encoding.UTF8);
-            mCorreo.To.Add(Emisor);
+            try
+            {
+                mCorreo.To.Add(Emisor);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
             mCorreo.Subject = "COMPRA REALIZADA ALMACEN MOTO TALLER LA 4TA";
             mCorreo.Body = "En el adjunto encontrará el PDF con los detalles de su compra.";
             mCorreo.IsBodyHtml = true;
@@ -34,6 +41,7 @@ namespace Infraestructura
             // Crear el archivo adjunto
             Attachment attachment = new Attachment(pdfStream, "FacturaCompra.pdf", "application/pdf");
             mCorreo.Attachments.Add(attachment);
+            return true;
         }
 
         private MemoryStream GenerarPDF(Venta venta)
@@ -126,7 +134,12 @@ namespace Infraestructura
 
         public string Enviar(Venta venta, string correo)
         {
-            CrearCuerpoCorreo(correo, venta);
+            if(CrearCuerpoCorreo(correo, venta) == false)
+            {
+                return "Correo Invalido";
+            }
+            
+            
             try
             {
                 SmtpClient smtp = new SmtpClient();
