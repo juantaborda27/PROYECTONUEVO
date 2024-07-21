@@ -68,3 +68,9 @@ Para obtener más información, puedes ver nuestro video en YouTube: [Video del 
 
 ![image](https://github.com/user-attachments/assets/ad8d0e80-a553-4c4e-9257-7e342371aaad)
 
+
+
+Juan Taborda
+Jose Vidal
+Alvaro Vidal
+
